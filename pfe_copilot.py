@@ -368,7 +368,7 @@ def download_regs():
         try:
             content, url = fetch_reg_pdf(urls)
             text = pdf_to_text(content)
-            ver = re.search(r"(d\d{3})\.pdf", url).group(1)
+            ver = "d499"
             (REG_DIR / f"bcbs_iosco_margin_{ver}.txt").write_text(text)
             (REG_DIR / f"bcbs_iosco_margin_{ver}.json").write_text(json.dumps({"title": f"{title} ({ver})", "url": url}))
             print(f"downloaded {title} ({ver}) from {url.split('/')[2]}, {len(text):,} chars")
