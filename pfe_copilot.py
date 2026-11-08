@@ -259,7 +259,8 @@ EDGAR_QUERIES = ['"credit support annex"',
                  '"minimum transfer amount" "threshold" "independent amount"']
 # Latest BIS revision of the framework (d499, Apr 2020). The Web Archive copy of the same file is a fallback if bis.org blocks the notebook's IP.
 REG_URLS = {"BCBS-IOSCO Margin requirements for non-centrally cleared derivatives (d499)":
-            ["https://www.bis.org/bcbs/publ/d499.pdf", "https://web.archive.org/web/2024id_/https://www.bis.org/bcbs/publ/d499.pdf"]}
+            ["https://www.bis.org/publications/202004-standards-margin-requirements-non-centrally-cleared-derivatives.pdf",
+             "https://www.bis.org/bcbs/publ/d499.pdf", "https://web.archive.org/web/2024id_/https://www.bis.org/bcbs/publ/d499.pdf"]}
 _BROWSER_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
                     "Accept": "application/pdf,application/xhtml+xml,text/html;q=0.9,*/*;q=0.8", "Accept-Language": "en-US,en;q=0.9",
                     "Referer": "https://www.bis.org/bcbs/"}
