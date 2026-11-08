@@ -1,0 +1,12 @@
+pandas
+numpy
+rank_bm25
+sentence-transformers
+yfinance
+requests
+beautifulsoup4
+pypdf
+streamlit
+openpyxl
+python-docx
+matplotlib
