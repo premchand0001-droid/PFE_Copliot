@@ -76,7 +76,7 @@
 <rect x="60" y="630" width="180" height="66" rx="10" fill="#F8FAFC" stroke="#64748B" stroke-width="1.6" stroke-dasharray="6 4"/>
 <text x="150.0" y="652" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A">SEC EDGAR + BCBS</text>
 <text x="150.0" y="671" text-anchor="middle" font-size="11" fill="#374151">real CSA exhibits (ISDA)</text>
-<text x="150.0" y="686" text-anchor="middle" font-size="11" fill="#374151">BCBS-IOSCO d317 PDF</text>
+<text x="150.0" y="686" text-anchor="middle" font-size="11" fill="#374151">BCBS-IOSCO d499 PDF</text>
 <rect x="260" y="630" width="580" height="66" rx="10" fill="#F8FAFC" stroke="#64748B" stroke-width="1.6" stroke-dasharray="6 4"/>
 <text x="550.0" y="652" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A">YAHOO FINANCE (real) + PORTFOLIO CSV (illustrative stand-in)</text>
 <text x="550.0" y="671" text-anchor="middle" font-size="11" fill="#374151">prices, FX, vol, correlation -&gt; live MtM, PFE, collateral value</text>
