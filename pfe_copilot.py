@@ -253,7 +253,7 @@ class RateLimiter:
 
 rate_limiter = RateLimiter()
 # ===================== 2. DATA INGESTION (real SEC EDGAR CSAs + BCBS-IOSCO) & RETRIEVAL =====================
-SEC_UA = os.getenv("SEC_USER_AGENT", "PFE-Capstone-Student sivaparvati.g@gmail.com")   # SEC requires a contact UA
+SEC_UA = os.getenv("SEC_USER_AGENT", "PFE-Capstone-Student premchand0001@gmail.com")   # SEC requires a contact UA
 EDGAR_QUERIES = ['"credit support annex"',
                  '"credit support annex" "eligible collateral" "valuation percentage"',
                  '"minimum transfer amount" "threshold" "independent amount"']
