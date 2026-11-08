@@ -370,7 +370,7 @@ def download_regs():
             text = pdf_to_text(content)
             ver = "d499"
             (REG_DIR / f"bcbs_iosco_margin_{ver}.txt").write_text(text)
-            (REG_DIR / f"bcbs_iosco_margin_{ver}.json").write_text(json.dumps({"title": f"{title} ({ver})", "url": url}))
+            (REG_DIR / f"bcbs_iosco_margin_{ver}.json").write_text(json.dumps({"title": title, "url": url}))
             print(f"downloaded {title} ({ver}) from {url.split('/')[2]}, {len(text):,} chars")
         except Exception as e:
             print("Could not download the BCBS-IOSCO PDF ->", e, "\n  Last resort: save it as d499.pdf in", REG_DIR, "and re-run")
