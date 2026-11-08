@@ -29,7 +29,7 @@ Priority key: **[M]** must do (graded core) | **[S]** should do (strengthens the
    | LLM /models (auth + TLS) | key not in Secrets, wrong group/cert, or the endpoint blocks Colab -> try Kaggle or your laptop |
    | Yahoo Finance | wait a few minutes and re-run; rate limits are common |
    | SEC EDGAR | check the User-Agent line; otherwise plan manual CSA downloads (Phase 3) |
-   | BIS d317 | download `d317.pdf` from bis.org and drop it into `data/reg/` |
+   | BIS margin framework | the notebook tries d499 (2020), d475, d317 on bis.org and the Web Archive automatically; only if all fail, save `d499.pdf` into `data/reg/` |
 
 **Done when:** smoke test says "ready" and pre-flight shows OK for LLM, Yahoo and EDGAR (BIS can be manual).
 
@@ -37,8 +37,8 @@ Priority key: **[M]** must do (graded core) | **[S]** should do (strengthens the
 ## Phase 2 - Data download (30-60 min, mostly waiting)
 1. **[M]** Run **Section 3** (download EDGAR CSAs + BCBS regulation, then the EDA table). With `FINAL_RUN = False` it fetches 60 documents.
 2. **[M]** Open 3 files in `data/csa/` and confirm they really are credit support annexes / ISDA exhibits (title, "Paragraph 13", threshold/MTA wording).
-3. **[M]** Check `data/reg/` contains the BCBS-IOSCO text (d317).
-4. **[M]** Spot-check the haircut table in the code against the d317 PDF: cash 0%, government 1-5y AAA-AA 2%, corporate >5y A+-BBB- 12%, main-index equities 15%. Fix `HAIRCUTS` in the library cell if any differ.
+3. **[M]** Check `data/reg/` contains the BCBS-IOSCO text (d499 or whichever revision was downloaded).
+4. **[M]** Spot-check the haircut table in the code against the downloaded BCBS-IOSCO PDF (Appendix B): cash 0%, government 1-5y AAA-AA 2%, corporate >5y A+-BBB- 12%, main-index equities 15%. Fix `HAIRCUTS` in the library cell if any differ.
 5. **[S]** Download BCBS d279 (SA-CCR) and check the constants in `SACCR_SF` / `SACCR_RHO` (equity index 20%/ρ 0.8, FX 4%, metals 18%, IR 0.5%, alpha 1.4, floor 5%).
 
 **Done when:** the corpus table shows CSA documents (real EDGAR) and 1 regulation document, and you have verified the haircut numbers.

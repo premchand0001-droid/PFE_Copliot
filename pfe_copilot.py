@@ -257,8 +257,31 @@ SEC_UA = os.getenv("SEC_USER_AGENT", "PFE-Capstone-Student premchand0001@gmail.c
 EDGAR_QUERIES = ['"credit support annex"',
                  '"credit support annex" "eligible collateral" "valuation percentage"',
                  '"minimum transfer amount" "threshold" "independent amount"']
-REG_URLS = {"BCBS-IOSCO Margin requirements for non-centrally cleared derivatives (d317)":
-            "https://www.bis.org/bcbs/publ/d317.pdf"}
+# BIS publishes revisions of the same framework: d499 (Apr 2020, latest) > d475 (Jul 2019) > d317 (Mar 2015, superseded).
+# Newest first; each also has a Web Archive copy in case bis.org blocks the notebook's IP (it answers with an HTML page).
+_BIS_DOCS = ["d499", "d475", "d317"]
+REG_URLS = {"BCBS-IOSCO Margin requirements for non-centrally cleared derivatives":
+            [u for d in _BIS_DOCS for u in (f"https://www.bis.org/bcbs/publ/{d}.pdf",
+                                            f"https://web.archive.org/web/2024id_/https://www.bis.org/bcbs/publ/{d}.pdf")]}
+_BROWSER_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+                    "Accept": "application/pdf,application/xhtml+xml,text/html;q=0.9,*/*;q=0.8", "Accept-Language": "en-US,en;q=0.9",
+                    "Referer": "https://www.bis.org/bcbs/"}
+
+
+def fetch_reg_pdf(urls):
+    """Try each URL until one returns a real PDF (starts with %PDF-). Returns (bytes, url). Raises with every failure listed."""
+    import requests
+    errs = []
+    for u in urls:
+        try:
+            r = requests.get(u, headers=_BROWSER_HEADERS, timeout=90)
+            r.raise_for_status()
+            if not r.content.startswith(b"%PDF-"):
+                raise ValueError(f"not a PDF (starts {r.content[:12]!r})")
+            return r.content, u
+        except Exception as e:
+            errs.append(f"{u.split('//', 1)[-1][:60]}: {str(e)[:60]}")
+    raise RuntimeError("no BIS copy reachable -> " + " | ".join(errs))
 
 
 def _get(url, ua=None, **kw):
@@ -330,17 +353,19 @@ def download_edgar_csas(n_docs=40, pause=0.15, max_bytes=3_000_000):
 
 
 def download_regs():
-    for title, url in REG_URLS.items():
-        stem = re.sub(r"[^A-Za-z0-9]+", "_", url.split("/")[-1])
-        if (REG_DIR / f"{stem}.txt").exists():
+    """Download the newest reachable revision of the BCBS-IOSCO margin framework (see REG_URLS)."""
+    for title, urls in REG_URLS.items():
+        if list(REG_DIR.glob("*.txt")):                      # already have a regulation text (downloaded or dropped in by hand)
             continue
         try:
-            r = _get(url, ua="Mozilla/5.0 (research; capstone)")
-            (REG_DIR / f"{stem}.txt").write_text(pdf_to_text(r.content))
-            (REG_DIR / f"{stem}.json").write_text(json.dumps({"title": title, "url": url}))
-            print("downloaded", title)
+            content, url = fetch_reg_pdf(urls)
+            text = pdf_to_text(content)
+            ver = re.search(r"(d\d{3})\.pdf", url).group(1)
+            (REG_DIR / f"bcbs_iosco_margin_{ver}.txt").write_text(text)
+            (REG_DIR / f"bcbs_iosco_margin_{ver}.json").write_text(json.dumps({"title": f"{title} ({ver})", "url": url}))
+            print(f"downloaded {title} ({ver}) from {url.split('/')[2]}, {len(text):,} chars")
         except Exception as e:
-            print("Could not download", url, "->", e, "\n  Download manually and drop the PDF in", REG_DIR)
+            print("Could not download the BCBS-IOSCO PDF ->", e, "\n  Last resort: save it as d499.pdf in", REG_DIR, "and re-run")
 
 
 def ingest_local_files():
@@ -527,7 +552,7 @@ def get_market_data_tool(ticker):
             "ann_vol_2y_pct": round(float(r.tail(504).std() * math.sqrt(252) * 100), 2), "data_source": src}
 
 
-# ---- BCBS-IOSCO (2015) standardised haircut schedule, haircut in % (verify vs d317 Annex / App. B) ----
+# ---- BCBS-IOSCO standardised haircut schedule, haircut in % (Appendix B of d317/d475/d499 - verify vs the downloaded version) ----
 HAIRCUTS = {"cash": 0.0,
             "government": {"AAA-AA-": {"<=1y": 0.5, "1-5y": 2.0, ">5y": 4.0},
                            "A+-BBB-": {"<=1y": 1.0, "1-5y": 3.0, ">5y": 6.0}},
@@ -555,7 +580,7 @@ def regulatory_haircut_tool(asset_class, maturity_bucket="1-5y", rating_bucket="
     return {"asset_class": asset_class, "maturity_bucket": maturity_bucket, "rating_bucket": rating_bucket,
             "haircut_pct": haircut_pct(asset_class, maturity_bucket, rating_bucket),
             "fx_mismatch_addon_pct": FX_MISMATCH_ADDON,
-            "source": "BCBS-IOSCO standardised haircut schedule (d317)"}
+            "source": "BCBS-IOSCO standardised haircut schedule (Appendix B)"}
 
 
 # ---- Portfolio: counterparties + linear trades on real Yahoo tickers (internal data stand-in) ----

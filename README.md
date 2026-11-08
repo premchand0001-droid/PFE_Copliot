@@ -55,7 +55,7 @@ Stress assumptions to state in the report: instantaneous shock before any new ma
 | Data | Source | Notes |
 |---|---|---|
 | ISDA CSAs / schedules | **SEC EDGAR** full-text search, exhibit filings | `N_CSA_DOCS` configurable; manual PDFs can be dropped into `data/csa/` |
-| Margin & haircut regulation | **BCBS-IOSCO d317** | haircut table also encoded in `regulatory_haircut` (spot-check vs the PDF) |
+| Margin & haircut regulation | **BCBS-IOSCO margin framework (newest revision, d499; falls back to d475 / d317)** | haircut table also encoded in `regulatory_haircut` (spot-check vs the PDF) |
 | Prices, FX, vol, correlation | **Yahoo Finance** via `yfinance` | cached; runs are flagged `FALLBACK_SYNTHETIC` if Yahoo is unreachable |
 | Counterparties, trades, limits | **Illustrative stand-in** | real books are confidential; no employer data or code is used. Terms can be replaced by approved extractions from real CSAs (output 1) |
 
@@ -64,7 +64,7 @@ Stress assumptions to state in the report: instantaneous shock before any new ma
 | Data | Used for | Format | Terms / provenance note |
 |---|---|---|---|
 | SEC EDGAR CSA / ISDA exhibits | RAG corpus, CSA term extraction | HTML / PDF -> text | Public filings; SEC fair-access rules (declared contact User-Agent, <=10 requests/s). They are *other companies'* agreements |
-| BCBS-IOSCO d317 (margin framework); BCBS d279 (SA-CCR) | Haircut table, regulatory Q&A, SA-CCR parameters | PDF | Free to read; cite the source (check BIS reuse terms before redistributing) |
+| BCBS-IOSCO margin framework d499 (d475 / d317 as fallbacks); BCBS d279 (SA-CCR) | Haircut table, regulatory Q&A, SA-CCR parameters | PDF | Free to read; cite the source (check BIS reuse terms before redistributing) |
 | Yahoo Finance via `yfinance` | Prices, FX, vol, correlation, crisis-window returns | daily CSV cache | Unofficial API; Yahoo's terms are personal/non-commercial use - fine for coursework, not for production (use a licensed feed there). Run is flagged if synthetic fallback was used |
 | Counterparties, trades, limits | Illustrative portfolio | CSV | Synthetic stand-in; no employer data. Real books would arrive as FpML/CDM |
 | LLM endpoint (Qwen3-8B) | Planning, extraction, scenario translation, phrasing | HTTPS, course quota | Prompts contain no personal data; responses cached locally, key never stored |
@@ -180,7 +180,7 @@ pfe_copilot_submission/
 │   └── REPORT_AND_DEMO_OUTLINE.md   # 12-page report map + 10-minute demo run of show
 ├── data/
 │   ├── csa/                      # Saved SEC EDGAR ISDA/CSA documents (.txt / .json)
-│   ├── reg/                      # BCBS-IOSCO regulation (d317 .pdf / .txt)
+│   ├── reg/                      # BCBS-IOSCO regulation (d499 .pdf / .txt)
 │   ├── market/                   # Cached Yahoo Finance CSVs
 │   └── portfolio/                # counterparties.csv & trades.csv (+ .bak.csv after apply)
 └── outputs/
