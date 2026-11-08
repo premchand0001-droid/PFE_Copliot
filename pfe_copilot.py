@@ -2515,6 +2515,9 @@ def critic(answer, results):
     for word in ("BREACH", "WARNING"):
         if word in answer.upper().replace("NO BREACH", "") and f'"{word}"' not in blob and not any(r["ok"] and r["tool"] in ("generate_daily_pack", "run_stress_test", "run_custom_scenario") for r in results):
             issues.append(f"status '{word}' not supported by tool output")
+    if any(r["ok"] and r["tool"] == "check_pfe_limit" and r["output"].get("status") == "BREACH" for r in results) and \
+            re.search(r"\bwithin (its |the |their )?(pfe |credit )?limit|\bno breach\b|\bnot (in|a) breach", answer.lower()):
+        issues.append("answer says within limit but the tool status is BREACH")        # contradiction the number check cannot see
     if any(r["ok"] and r["tool"] == "csa_clause_retriever" and r["output"]["chunks"] for r in results) and "[S" not in answer:
         issues.append("missing [S#] citations")
     ans_vals, low = _numbers(answer, strict=False), answer.lower()
