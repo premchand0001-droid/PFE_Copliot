@@ -257,12 +257,9 @@ SEC_UA = os.getenv("SEC_USER_AGENT", "PFE-Capstone-Student premchand0001@gmail.c
 EDGAR_QUERIES = ['"credit support annex"',
                  '"credit support annex" "eligible collateral" "valuation percentage"',
                  '"minimum transfer amount" "threshold" "independent amount"']
-# BIS publishes revisions of the same framework: d499 (Apr 2020, latest) > d475 (Jul 2019) > d317 (Mar 2015, superseded).
-# Newest first; each also has a Web Archive copy in case bis.org blocks the notebook's IP (it answers with an HTML page).
-_BIS_DOCS = ["d499", "d475", "d317"]
-REG_URLS = {"BCBS-IOSCO Margin requirements for non-centrally cleared derivatives":
-            [u for d in _BIS_DOCS for u in (f"https://www.bis.org/bcbs/publ/{d}.pdf",
-                                            f"https://web.archive.org/web/2024id_/https://www.bis.org/bcbs/publ/{d}.pdf")]}
+# Latest BIS revision of the framework (d499, Apr 2020). The Web Archive copy of the same file is a fallback if bis.org blocks the notebook's IP.
+REG_URLS = {"BCBS-IOSCO Margin requirements for non-centrally cleared derivatives (d499)":
+            ["https://www.bis.org/bcbs/publ/d499.pdf", "https://web.archive.org/web/2024id_/https://www.bis.org/bcbs/publ/d499.pdf"]}
 _BROWSER_HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
                     "Accept": "application/pdf,application/xhtml+xml,text/html;q=0.9,*/*;q=0.8", "Accept-Language": "en-US,en;q=0.9",
                     "Referer": "https://www.bis.org/bcbs/"}
@@ -353,7 +350,7 @@ def download_edgar_csas(n_docs=40, pause=0.15, max_bytes=3_000_000):
 
 
 def download_regs():
-    """Download the newest reachable revision of the BCBS-IOSCO margin framework (see REG_URLS)."""
+    """Download the latest BCBS-IOSCO margin framework (d499) - see REG_URLS."""
     for title, urls in REG_URLS.items():
         if list(REG_DIR.glob("*.txt")):                      # already have a regulation text (downloaded or dropped in by hand)
             continue
@@ -552,7 +549,7 @@ def get_market_data_tool(ticker):
             "ann_vol_2y_pct": round(float(r.tail(504).std() * math.sqrt(252) * 100), 2), "data_source": src}
 
 
-# ---- BCBS-IOSCO standardised haircut schedule, haircut in % (Appendix B of d317/d475/d499 - verify vs the downloaded version) ----
+# ---- BCBS-IOSCO standardised haircut schedule, haircut in % (Appendix B of d499 - verify vs the PDF) ----
 HAIRCUTS = {"cash": 0.0,
             "government": {"AAA-AA-": {"<=1y": 0.5, "1-5y": 2.0, ">5y": 4.0},
                            "A+-BBB-": {"<=1y": 1.0, "1-5y": 3.0, ">5y": 6.0}},
