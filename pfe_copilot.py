@@ -297,6 +297,16 @@ def html_to_text(content):
     return re.sub(r"\n\s*\n+", "\n\n", txt).strip()
 
 
+CSA_MARKERS = ["credit support annex", "paragraph 13", "minimum transfer amount", "threshold", "eligible collateral",
+               "valuation percentage", "independent amount", "delivery amount", "return amount", "eligible credit support"]
+
+
+def csa_score(text):
+    """How many CSA-specific terms appear (0-10). >=5 means real CSA terms; 0-2 is usually a servicing/pooling agreement that only mentions a CSA."""
+    t = text.lower()
+    return sum(m in t for m in CSA_MARKERS)
+
+
 def pdf_to_text(content):
     import io
     from pypdf import PdfReader
@@ -337,7 +347,7 @@ def download_edgar_csas(n_docs=40, pause=0.15, max_bytes=3_000_000):
                     if len(r.content) > max_bytes:
                         continue
                     txt = pdf_to_text(r.content) if fname.lower().endswith(".pdf") else html_to_text(r.content)
-                    if len(txt) < 4000 or "credit support" not in txt.lower():
+                    if len(txt) < 4000 or "credit support" not in txt.lower() or csa_score(txt) < 3:
                         continue
                     (CSA_DIR / f"{stem}.txt").write_text(txt)
                     title = f"{(src.get('display_names') or ['?'])[0]} | {src.get('file_type', '')} | {src.get('file_date', '')}"
@@ -389,7 +399,7 @@ def load_corpus():
             text = p.read_text(errors="ignore")
             if len(text) > 500:
                 docs.append({"doc_id": p.stem, "category": cat, "title": meta.get("title", p.stem),
-                             "url": meta.get("url", ""), "text": text})
+                             "url": meta.get("url", ""), "text": text, "csa_score": csa_score(text) if cat == "csa" else None})
     return docs
 
 
