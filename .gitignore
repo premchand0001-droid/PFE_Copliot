@@ -1,6 +1,7 @@
-outputs/llm_cache.jsonl
-outputs/emb_*.npy
-outputs/state_*.json
 *.crt
 .env
+.venv/
 __pycache__/
+outputs/emb_*.npy
+outputs/llm_cache.jsonl
+outputs/state_*.json

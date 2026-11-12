@@ -1,47 +1,47 @@
-# PFE-Copilot capstone - step-by-step runbook
+# PFE-Copilot capstone - step-by-step runbook (Colab + GitHub edition)
 
-Total effort: about 12 hours of your time, spread over 2-3 days (most of it is waiting, labelling and writing). Tick each box as you go. **Every phase ends with a "Done when" check - do not move on until it is true.**
+Runs in Google Colab (free CPU runtime) with the project stored on GitHub; no GPU needed. Setup details: `GITHUB_COLAB_GUIDE.md`. (A local-IDE alternative exists in `LOCAL_SETUP.md`.) Total effort: about 12 hours of your time, spread over 2-3 days (most of it is waiting, labelling and writing). Tick each box as you go. **Every phase ends with a "Done when" check - do not move on until it is true.**
 
 Priority key: **[M]** must do (graded core) | **[S]** should do (strengthens the report) | **[C]** could do (skip if short of time).
 
 ---
 ## Phase 0 - Before you start (30 min)
 - [ ] **[M]** Read the rest of the upGrad email (it was cut off in your screenshot) for deadlines or rules.
-- [ ] **[M]** Because the API key appeared in a screenshot you shared, ask upGrad support (studentsupport@upgrad.com) for a replacement if you are uneasy; never paste the key into chat or notebook cells.
-- [ ] **[M]** Download your group's CA certificate (`vmNN-ca.crt`) from the coordinator's link and keep it in a safe folder.
-- [ ] **[M]** Confirm which group you are in (the certificate name `vm04/05/06/07` identifies your VM; the notebook derives your URL from it).
-- [ ] **[M]** Unzip `pfe_copilot_submission.zip` somewhere; you only need `PFE_Copilot_Capstone.ipynb` to run.
-- [ ] **[S]** Skim `README.md`, `docs/REPORT_AND_DEMO_OUTLINE.md` and `docs/COLAB_QUICKSTART.md` once.
+- [ ] **[M]** Because the API key appeared in a screenshot you shared, ask upGrad support (studentsupport@upgrad.com) for a replacement if you are uneasy; never paste the key into chat, notebook cells or the repo.
+- [ ] **[M]** Download your group's CA certificate (`vmNN-ca.crt`) and keep it on your computer (you will upload it to Colab; it is not committed to git).
+- [ ] **[M]** Create the GitHub repo and upload the project - `GITHUB_COLAB_GUIDE.md`, section A (replace `premchand0001-droid/PFE_Copliot` in the notebook and README first).
+- [ ] **[M]** Add the Colab secrets `LLM_API_KEY` (and `GITHUB_TOKEN` if the repo is private) - guide section B.
+- [ ] **[S]** Skim `README.md` and `docs/REPORT_AND_DEMO_OUTLINE.md`.
 
-**Done when:** you have the notebook, the certificate, and the key (in your email, not yet pasted anywhere).
+**Done when:** the repo shows your files (and no `.env`/`.crt`/key), and both secrets exist in Colab.
 
 ---
-## Phase 1 - Environment and connectivity (45 min)
-1. **[M]** Open https://colab.research.google.com -> File -> Upload notebook -> `PFE_Copilot_Capstone.ipynb`. Keep the default **CPU** runtime (no GPU/TPU needed).
-2. **[M]** Sidebar key icon (Secrets) -> add `LLM_API_KEY` with your key -> turn "Notebook access" on.
-3. **[M]** Files panel -> upload the `.crt` -> right-click -> *Copy path*.
-4. **[M]** Edit the **config cell** (Section 0): set `CA_CERT_PATH = "<copied path>"`, `USE_DRIVE = True` (keeps everything on Google Drive if Colab resets), leave `FINAL_RUN = False` for now. Leave the SEC contact string as is.
-5. **[M]** Run: install cell -> config cell (it should print the base-URL port, "LLM mode: LIVE endpoint", and the Drive path) -> the six `%%writefile pfe_copilot.py` cells -> the import cell. The import cell finishes with the **smoke test**; it must print `endpoint says: ready`.
-6. **[M]** Run **Section 1b pre-flight**. Fix every `FAIL` using the hint in the *detail* column:
+## Phase 1 - Open in Colab and check connectivity (45 min)
+1. **[M]** Open the notebook from GitHub in Colab (badge/URL in the guide), runtime = CPU.
+2. **[M]** Run the **bootstrap cell**: it clones the repo, switches into it and asks you to upload the `.crt` (its name identifies your VM and base URL).
+3. **[M]** Config cell: `USE_DRIVE = True`, `FINAL_RUN = False`, leave `GROUP_ID = 0` and the SEC contact string.
+4. **[M]** Run: install cell -> config -> the library `%%writefile` cells -> import cell, which ends with the **smoke test** (`endpoint says: ready`) -> **Section 1b pre-flight**. Fix every `FAIL` using the hint in the *detail* column:
    | FAIL | Fix |
    |---|---|
-   | CA certificate file | wrong `CA_CERT_PATH`; re-copy path |
-   | LLM /models (auth + TLS) | key not in Secrets, wrong group/cert, or the endpoint blocks Colab -> try Kaggle or your laptop |
+   | CA certificate file | re-run the bootstrap cell and upload the right `.crt` |
+   | LLM /models (auth + TLS) | key not in Secrets (or Notebook access off), wrong group certificate, or the endpoint refuses Colab's network -> run locally (`LOCAL_SETUP.md`) |
    | Yahoo Finance | wait a few minutes and re-run; rate limits are common |
-   | SEC EDGAR | check the User-Agent line; otherwise plan manual CSA downloads (Phase 3) |
-   | BIS margin framework | the notebook downloads d499 (latest) automatically; only if that fails, save `d499.pdf` into `data/reg/` |
+   | SEC EDGAR | check the User-Agent line; otherwise plan manual CSA downloads (Phase 2) |
+   | BIS d499 | download `d499.pdf` from bis.org and upload it to `data/reg/` |
+   | FRED | only affects the optional swap section |
+   | Hugging Face | needed once to download the embedding models |
 
-**Done when:** smoke test says "ready" and pre-flight shows OK for LLM, Yahoo and EDGAR (BIS can be manual).
+**Done when:** the smoke test says "ready" and pre-flight shows OK for LLM, Yahoo and EDGAR (BIS can be manual).
 
 ---
 ## Phase 2 - Data download (30-60 min, mostly waiting)
-1. **[M]** Run **Section 3** (download EDGAR CSAs + BCBS regulation, then the EDA table). With `FINAL_RUN = False` it fetches 60 documents.
+1. **[M]** Run **Section 3** in the notebook (or, in a separate cell, `!python cli.py download --docs 60`). With `FINAL_RUN` off it fetches 60 documents.
 2. **[M]** Open 3 files in `data/csa/` and confirm they really are credit support annexes / ISDA exhibits (title, "Paragraph 13", threshold/MTA wording).
 3. **[M]** Check `data/reg/` contains the BCBS-IOSCO text (d499).
-4. **[M]** Spot-check the haircut table in the code against the downloaded BCBS-IOSCO PDF (Appendix B): cash 0%, government 1-5y AAA-AA 2%, corporate >5y A+-BBB- 12%, main-index equities 15%. Fix `HAIRCUTS` in the library cell if any differ.
-5. **[S]** Download BCBS d279 (SA-CCR) and check the constants in `SACCR_SF` / `SACCR_RHO` (equity index 20%/ρ 0.8, FX 4%, metals 18%, IR 0.5%, alpha 1.4, floor 5%).
+4. **[M]** Spot-check the haircut table in the code against the d499 PDF: cash 0%, government 1-5y AAA-AA 2%, corporate >5y A+-BBB- 12%, main-index equities 15%. Fix `HAIRCUTS` in the library cell if any differ.
+5. **[S]** Download BCBS d279 (SA-CCR) and check the constants in `SACCR_SF` / `SACCR_RHO` (equity index 20%/rho 0.8, FX 4%, metals 18%, IR 0.5%, alpha 1.4, floor 5%).
 
-**Done when:** the corpus table shows CSA documents (real EDGAR) and 1 regulation document, and you have verified the haircut numbers.
+**Done when:** the corpus shows CSA documents (real EDGAR) and the regulation document, and you have verified the haircut numbers.
 
 ---
 ## Phase 3 - Retrieval experiments (45 min + 30 min labelling)
@@ -82,11 +82,12 @@ Priority key: **[M]** must do (graded core) | **[S]** should do (strengthens the
 
 ---
 ## Phase 7 - Evaluation (60-90 min, mostly LLM time)
-1. **[M]** Run **Section 6** (builds the 80+ query evaluation set; saved to `outputs/eval_set.json`). This is your frozen evaluation set - do not edit it after seeing results.
+1. **[M]** Run **Section 6** (builds the 100-query evaluation set; saved to `outputs/eval_set.json`). This is your frozen evaluation set - do not edit it after seeing results.
 2. **[S]** Run **Section 7** (compare few-shot / chain-of-thought / decomposition planning). Copy the table. Set `PLANNER_STRATEGY` (environment variable, or the `strategy` argument) to the best performer if it is not few-shot, then re-run Section 7's winner only.
 3. **[M]** Run **Section 8** (agent demo, multi-turn memory) and read the answers: do they look right and cite sources?
-4. **[M]** Run **Section 9** (full evaluation). Record: strict and lenient accuracy, completion rate, tool calls, latency (p95), tokens, cost per query, accuracy by category, **failure taxonomy**.
-5. **[M]** Open `outputs/eval_results.csv`; read 10 failures. Decide for each: real model failure, or the strict checker being too literal. Write 5-8 examples (query, answer, why it failed) for the "how the small model breaks" section.
+4. **[M]** Run **Section 9** (full evaluation; 100 queries, 24 of them hard paraphrased). Record: strict and lenient accuracy, completion rate, tool calls, latency (p95), tokens, cost per query, accuracy by category, **failure taxonomy**.
+5. **[M]** Run **Section 9a (ablation)**: it re-runs the whole evaluation with the LLM switched off and prints rules-only vs with-LLM accuracy per category plus the individual hard queries where the model wins. This is your evidence for *why AI is needed* and where it is not; copy the table.
+5b. **[M]** Open `outputs/eval_results.csv`; read 10 failures. Decide for each: real model failure, or the strict checker being too literal. Write 5-8 examples (query, answer, why it failed) for the "how the small model breaks" section.
 6. **[S]** Run **9b** and rate the 20 sampled answers 1-5 on correctness, usefulness, grounding, clarity; re-run to get the mean scores.
 7. **[M]** If accuracy is low in one category, fix the cause and re-run **that part only** (examples: many `retrieval_miss` -> revisit chunk size; many `tool_call_error` -> check counterparty names; many critic fallbacks -> inspect the composer outputs). Re-running is cheap: responses are cached in `outputs/llm_cache.jsonl`.
 
@@ -111,11 +112,11 @@ Priority key: **[M]** must do (graded core) | **[S]** should do (strengthens the
 
 ---
 ## Phase 10 - Dashboard, container and traces (60 min)
-1. **[M]** Run the Section 11 cells (they write `app.py`, `requirements.txt`, `Dockerfile`). Start the dashboard: locally `pip install -r requirements.txt && streamlit run app.py`, or in Colab `!streamlit run app.py &` then `!npx localtunnel --port 8501`.
+1. **[M]** Run the Section 11 cells (they write `app.py`, `requirements.txt`, `Dockerfile`, `cli.py`). Start the dashboard in Colab with a tunnel: `GITHUB_COLAB_GUIDE.md`, section E (localtunnel; the printed IP is the tunnel password). Alternative: a free Hugging Face Space.
 2. **[M]** Click through each tab: Overview (try "Run engine validation"), Future risk (change MPOR and volatility), Crisis scenarios (COVID replay; use "Describe a scenario in words"), Reverse stress, Copilot.
 3. **[M]** In the **Copilot** tab ask the demo prompts (this creates real traces): "Is Meridian within its PFE limit?", "And its margin call?", "Prepare the margin call notice for CP-002", "Meridian is calling for $X ... reconcile", "What happens in a COVID-style crash?", "Send the margin call to Meridian now" (must be refused).
 4. **[M]** Open the **Observability** tab and screenshot it (latency, tool usage, flags, one inspected trace).
-5. **[S]** Test the container if Docker is installed: `docker build -t pfe-copilot .` then `docker run -p 8501:8501 -e LLM_BASE_URL=... -e LLM_API_KEY=... -e LLM_MODEL=Qwen/Qwen3-8B pfe-copilot` (the CA certificate must also be available inside the container; otherwise state that the container was built but runs against the endpoint only on a machine with the certificate). If you do not test it, say so in the report.
+5. **[S]** Docker cannot run inside Colab: if you have Docker on any computer, build with the included `Dockerfile`; otherwise say in the report that the image definition is provided but was not executed.
 6. **[C]** Host the dashboard on a free Hugging Face Space for the demo (add the key as a Space secret).
 
 **Done when:** you have a working dashboard, real traces, and screenshots of every tab.
@@ -136,7 +137,9 @@ Use `docs/REPORT_AND_DEMO_OUTLINE.md` as the page budget. Fill each section from
 | Results | Section 9 metrics + taxonomy; extraction precision; answer review means |
 | Observability | Observability screenshot |
 | Responsible AI | Section 10 outputs |
+| **Why AI is needed (ablation)** | Section 9a table + the hard queries where rules fail |
 | **How we compensated for a small model** (graded) | Section 12 + your own failure examples |
+| Governance | `GOVERNANCE_CARD.md` (fill the bracketed evidence from your run, sign off) |
 | Limitations | README section 8 (state them plainly) |
 - [ ] Fill the **Results table in README.md** with your real numbers (replace every `_`).
 - [ ] Be explicit in the report: synthetic portfolio, why; swaps are industry test structures; `VERIFIED` is not legal correctness; Hull-White parameters are assumptions; stressed-vol settings are assumptions.
@@ -153,7 +156,7 @@ Use `docs/REPORT_AND_DEMO_OUTLINE.md` as the page budget. Fill each section from
 ## Phase 13 - Final QA and submission (30 min)
 - [ ] The zip opens and has: notebook, `pfe_copilot.py`, `app.py`, `Dockerfile`, `requirements.txt`, `README.md`, `docs/`, `data/` (filled), `outputs/` (filled: `eval_set.json`, `eval_results.csv`, `retrieval_eval_human.csv`, `extraction_review.csv`, `answer_review.csv`, `data_provenance.csv`, `artifact_manifest.csv`, `traces.jsonl`, `deliverables/`).
 - [ ] No `.crt`, no API key anywhere (Section 13 scans, but also search the notebook outputs).
-- [ ] README results table filled; report PDF and demo recording/slides ready.
+- [ ] README results table filled; `GOVERNANCE_CARD.md` bracketed fields filled and signed off; report PDF and demo recording/slides ready.
 - [ ] Clear secrets from the notebook before sharing: Edit -> Clear all outputs, then re-run only if you need outputs, and re-check nothing sensitive is printed.
 - [ ] Submit before the deadline from the email; keep a copy on Drive.
 
@@ -168,11 +171,13 @@ Use `docs/REPORT_AND_DEMO_OUTLINE.md` as the page budget. Fill each section from
 ## Common problems
 | Symptom | Likely cause | Fix |
 |---|---|---|
-| `TLS certificate error` | wrong/missing `.crt` path | set `CA_CERT_PATH`; never turn verification off |
-| `HTTP 401` | wrong key or wrong group URL | re-check secret and certificate/VM |
-| `HTTP 429` repeated | another run is using the same key | stop other runs; wait; the client retries automatically |
+| `git clone failed ... Authentication failed` | private repo without a token | add the `GITHUB_TOKEN` secret (Contents: Read) and enable Notebook access |
+| `Edit REPO_URL ...` | placeholder not replaced | replace `premchand0001-droid/PFE_Copliot` in the notebook, re-upload |
+| `TLS certificate error` | certificate not uploaded / wrong file | re-run the bootstrap cell and upload the right `.crt`; never turn verification off |
+| `HTTP 401` | wrong key or wrong group URL | re-check the secret and the certificate/VM |
+| `HTTP 429` repeated | another run is using the same key | stop other runs; the client retries automatically |
 | Yahoo returns nothing | rate limit | wait 10 minutes, re-run (data is cached after success) |
 | Section 13 raises "SYNTHETIC" | prices fell back | fix Yahoo access and re-run from Section 5 |
 | Many `critic_fallback` flags | model drafts include figures not in tool output | read the drafts; keep the fallback (it is safe) and report the rate |
-| Colab disconnects | runtime reset | `USE_DRIVE = True`, reopen, re-run the config and library cells |
+| Colab disconnects | runtime reset | reopen, re-run bootstrap + config + library cells; `USE_DRIVE = True` keeps your data |
 | Validation check fails | code regression or bad data | do not continue; inspect which check; re-run with fresh data |

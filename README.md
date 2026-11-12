@@ -26,6 +26,9 @@
 
 Stress assumptions to state in the report: instantaneous shock before any new margin call (gap exposure), stressed PFE vol multiplier 1.5 and correlation blend 0.2 (configurable via `STRESS_VOL_MULT`, `STRESS_CORR_BLEND`), a "uniform move" reverse stress, linear products only; EWMA/mean-reversion is a GARCH-style shortcut, not a fitted GARCH; AI scenarios are proposals bounded by code. If a ticker has no history for a crisis window, the shock is set to 0 and a data note is shown - do not quote such a scenario.
 
+### Why AI, where, and how it is governed
+Most of the project is deliberately **not AI**: exposure, margin, stress, SA-CCR and volatility are deterministic code that can be validated. The language model is used where text is messy: reading CSA contracts, understanding free-form requests, turning a described crisis into bounded shocks, and phrasing answers - each behind a verification gate or critic and a human approval step. **Section 9a (ablation)** runs the evaluation with the model switched off versus on, so the report can show *where it adds value* (hard paraphrased queries) and *where rules are enough* (templated ones). Governance details - AI use register, controls, review cadence, kill switch (`PFE_KILL_SWITCH=1`) and rules-only fallback (`PFE_LLM_OFF=1`) - are in `GOVERNANCE_CARD.md`.
+
 ## 1. What it produces (usable outputs)
 
 | # | Output | Format | Verification before a human sees it | Consumer |
@@ -55,7 +58,7 @@ Stress assumptions to state in the report: instantaneous shock before any new ma
 | Data | Source | Notes |
 |---|---|---|
 | ISDA CSAs / schedules | **SEC EDGAR** full-text search, exhibit filings | `N_CSA_DOCS` configurable; manual PDFs can be dropped into `data/csa/` |
-| Margin & haircut regulation | **BCBS-IOSCO margin framework d499 (Apr 2020, latest)** | haircut table also encoded in `regulatory_haircut` (spot-check vs the PDF) |
+| Margin & haircut regulation | **BCBS-IOSCO d499** | haircut table also encoded in `regulatory_haircut` (spot-check vs the PDF) |
 | Prices, FX, vol, correlation | **Yahoo Finance** via `yfinance` | cached; runs are flagged `FALLBACK_SYNTHETIC` if Yahoo is unreachable |
 | Counterparties, trades, limits | **Illustrative stand-in** | real books are confidential; no employer data or code is used. Terms can be replaced by approved extractions from real CSAs (output 1) |
 
@@ -64,7 +67,7 @@ Stress assumptions to state in the report: instantaneous shock before any new ma
 | Data | Used for | Format | Terms / provenance note |
 |---|---|---|---|
 | SEC EDGAR CSA / ISDA exhibits | RAG corpus, CSA term extraction | HTML / PDF -> text | Public filings; SEC fair-access rules (declared contact User-Agent, <=10 requests/s). They are *other companies'* agreements |
-| BCBS-IOSCO margin framework d499; BCBS d279 (SA-CCR) | Haircut table, regulatory Q&A, SA-CCR parameters | PDF | Free to read; cite the source (check BIS reuse terms before redistributing) |
+| BCBS-IOSCO d499 (margin framework); BCBS d279 (SA-CCR) | Haircut table, regulatory Q&A, SA-CCR parameters | PDF | Free to read; cite the source (check BIS reuse terms before redistributing) |
 | Yahoo Finance via `yfinance` | Prices, FX, vol, correlation, crisis-window returns | daily CSV cache | Unofficial API; Yahoo's terms are personal/non-commercial use - fine for coursework, not for production (use a licensed feed there). Run is flagged if synthetic fallback was used |
 | Counterparties, trades, limits | Illustrative portfolio | CSV | Synthetic stand-in; no employer data. Real books would arrive as FpML/CDM |
 | LLM endpoint (Qwen3-8B) | Planning, extraction, scenario translation, phrasing | HTTPS, course quota | Prompts contain no personal data; responses cached locally, key never stored |
@@ -93,7 +96,7 @@ Not included on purpose (documented as future work): cross-currency swaps and op
 
 | Requirement | Where |
 |---|---|
-| Spec + frozen eval set before agent evaluation | Sections 2 and 6 - **80+ queries** (limit, margin, haircut, clause, market data, multi-turn, refusal, **deliverables**) |
+| Spec + frozen eval set before agent evaluation | Sections 2 and 6 - **100 queries (24 hard paraphrased)** (limit, margin, haircut, clause, market data, multi-turn, refusal, **deliverables**) |
 | >=3 prompting strategies, small-model failure modes | Section 7 |
 | RAG: chunking experiments, BM25+dense, reranker, citations, recall@k separate from answer quality | Section 4 incl. **4.3 blind, human-labelled Recall@K / MRR / nDCG** |
 | Agent: >=3 tools, planner->executor->critic, memory, error handling | Library + Sections 8, 10 |
@@ -105,21 +108,20 @@ Not included on purpose (documented as future work): cross-currency swaps and op
 | Responsible AI: injection, PII, refusal, HITL | Section 10 |
 | "What did we do to compensate for a small model?" | Section 12 |
 
-## 5. Quickstart
+## 5. Quickstart (Google Colab via GitHub - no GPU needed)
 
-```bash
-# 1. Open PFE_Copilot_Capstone.ipynb (Colab/Jupyter). Config cell: GROUP_ID (selects your endpoint), CA_CERT_PATH
-#    (your group's .crt - upload it to Colab), API key via Colab secret LLM_API_KEY or the hidden prompt.
-#    Model: Qwen/Qwen3-8B. SEC_USER_AGENT is pre-set. Set FINAL_RUN = True for the graded run (live data only, 500 CSAs).
-# 2. Run top to bottom. Manual steps (about 1 hour total):
-#      4.3  label outputs/retrieval_labeling.csv (0/1/2)         -> re-run the evaluation cell
-#      5b   label outputs/extraction_review.csv (human_correct)  -> re-run eval_extraction()
-#      5b   optional: APPLY=True with approved_by to load a real CSA's terms into the engine
-# 3. Section 13 builds pfe_copilot_submission.zip.
-streamlit run app.py          # dashboard (overview, future risk, crisis scenarios, reverse stress) + copilot chat with file downloads
-docker build -t pfe-copilot . && docker run -p 8501:8501 -e LLM_BASE_URL=... -e LLM_API_KEY=... -e LLM_MODEL=... pfe-copilot
-```
-Without an LLM key the notebook runs in **dry-run mode** (rule-based planner, regex extractor, deterministic answers): every tool and file generator works, but report numbers must come from the live endpoint.
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/premchand0001-droid/PFE_Copliot/blob/main/PFE_Copilot_Capstone.ipynb)
+
+1. Push this folder to a (private) GitHub repo and replace `premchand0001-droid/PFE_Copliot` in this README and in the notebook (`GITHUB_COLAB_GUIDE.md`, section A).
+2. In Colab add the secrets `LLM_API_KEY` (and `GITHUB_TOKEN` for a private repo).
+3. Open the notebook with the badge; run the **bootstrap cell** (clones the repo, asks you to upload your group's `.crt`), then the config cell (`USE_DRIVE = True`), the library cells, the smoke test and the **pre-flight** check.
+4. Follow `docs/CAPSTONE_RUNBOOK.md` phase by phase. Manual steps (about 1 hour): label `outputs/retrieval_labeling.csv` (Section 4.3), `outputs/extraction_review.csv` (5b), `outputs/answer_review.csv` (9b). Set `FINAL_RUN = True` for the graded run; Section 13 builds and downloads `pfe_copilot_submission.zip`; Section 14 can push results back to GitHub.
+5. Long steps from a cell: `!python cli.py preflight | download --docs 500 | index | portfolio --irs | validate | pack`.
+6. Dashboard in Colab: tunnel instructions in the guide (section E), or a free Hugging Face Space.
+
+Optional redesign check: `Trigger_Intelligence_Spike.ipynb` is a one-hour feasibility spike (three pass/fail gates) for a downgrade-trigger-intelligence version of the project; it does not modify anything else.
+
+Local IDE alternative: `LOCAL_SETUP.md`. No LLM key? The notebook still runs in **dry-run mode** (rule-based planner, regex extractor, deterministic answers); report numbers must come from the live endpoint.
 
 ## 5b. Track B endpoint constraints and how the client handles them
 
@@ -141,10 +143,11 @@ Budget for the first live run: ~600 LLM calls (about 1-2 hours at endpoint laten
 
 | Metric | Value |
 |---|---|
-| End-to-end accuracy strict / lenient (80+ queries) / task completion | _ / _ / _ |
+| End-to-end accuracy strict / lenient (100 queries (24 hard paraphrased)) / task completion | _ / _ / _ |
 | Avg tool calls, latency p50/p95, tokens, cost per query | _ |
 | Retrieval: regex recall@5 vs **human** strict recall@1/3/5, MRR, nDCG@5 per mode | _ |
 | Best prompting strategy (route accuracy, JSON first-try rate) | _ |
+| **Ablation:** rules-only vs with-LLM accuracy per category, especially hard_paraphrase (Section 9a) | _ |
 | **CSA extraction:** coverage; VERIFIED share; **VERIFIED precision**; REVIEW precision; LLM vs regex agreement | _ |
 | Failure taxonomy counts | _ |
 | Deliverable + stress queries passing (file created + figures correct) | _ |
@@ -164,16 +167,33 @@ Budget for the first live run: ~600 LLM calls (about 1-2 hours at endpoint laten
 
 `VERIFIED` means *literally supported by the quote*, not *legally correct* - party mapping (Party A vs B) and elections still need a human. JSON output is CDM-**inspired**, not validated against the FINOS CDM schema. Linear forwards only; GBM with historical vol; VM-only CSA with cash VM and uniform MPOR; illustrative portfolio and limits; EDGAR CSAs are other companies' agreements; dispute tolerance (`max(rounding, 1% of call)`) is an assumption; haircut table to be spot-checked; recall labels pooled from the same four systems.
 
+## 8b. Future work
+
+1. **User-selectable risk models in the copilot (priority).** Today the dashboard lets you switch the volatility model (EWMA or flat) and shows a simplified SA-CCR cross-check, but the copilot always calculates PFE with one fixed Monte-Carlo method. Planned: a model registry behind a single tool such as `calculate_pfe(counterparty, model=...)`, so a user can say which method to use, for example:
+   - Monte-Carlo with flat historical volatility;
+   - Monte-Carlo with EWMA volatility;
+   - stressed volatility and correlation;
+   - Hull-White for swaps;
+   - regulatory SA-CCR.
+2. **Multi-model comparison and summary.** The copilot should run several of these calculations for the same counterparty on request ("compare all PFE models for Meridian") and summarise them side by side: the figures, which model is highest, the main assumptions that explain the differences, and any limit status that changes depending on the model. Numbers would still come from the deterministic tools, with the model-written summary checked against them by the existing critic and verification gates. The result would be an Excel/Word comparison file marked as a draft pending approval.
+3. **Downgrade-trigger intelligence:** extend contract and filing extraction to rating-dependent thresholds and disclosed collateral calls (see `Trigger_Intelligence_Spike.ipynb`).
+4. **Richer products and calibration:** swaptions-calibrated Hull-White, multi-curve (SOFR/OIS) discounting, cross-currency swaps and options.
+5. **Standard formats and benchmarks:** FpML / ISDA-CDM trade and CSA ingestion, and a comparison of exposure profiles with ORE's published example results.
+6. **Wrong-way risk, rating-trigger thresholds and non-cash collateral** in the CSA model.
+
 ## 9. Repository layout
 
 ```
 pfe_copilot_submission/
 ├── PFE_Copilot_Capstone.ipynb    # Main executable notebook
 ├── pfe_copilot.py                # Core library (generated by the notebook)
-├── app.py                        # Streamlit web application
+├── app.py                        # Streamlit dashboard + copilot chat
+├── cli.py                        # terminal commands: preflight, download, index, portfolio, validate, pack, dashboard
+├── .env.example                  # copy to .env for your key and certificate path
 ├── Dockerfile                    # Container configuration
 ├── requirements.txt              # Project dependencies
 ├── README.md                     # Overview and setup
+├── GOVERNANCE_CARD.md            # AI use register, controls, review cadence, kill switch
 ├── docs/
 │   ├── architecture.png
 │   ├── architecture.svg
@@ -184,7 +204,7 @@ pfe_copilot_submission/
 │   ├── market/                   # Cached Yahoo Finance CSVs
 │   └── portfolio/                # counterparties.csv & trades.csv (+ .bak.csv after apply)
 └── outputs/
-    ├── eval_set.json             # 80+ query evaluation set
+    ├── eval_set.json             # 100-query evaluation set
     ├── eval_results.csv          # Benchmark outputs
     ├── retrieval_labeling.csv    # Blind labelling sheet (human 0/1/2)
     ├── retrieval_eval_human.csv  # Strict Recall@K / MRR / nDCG

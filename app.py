@@ -9,7 +9,7 @@ st.set_page_config(page_title="PFE-Copilot Risk Dashboard", page_icon="📊", la
 @st.cache_resource(show_spinner="Indexing corpus and building portfolio...")
 def init():
     pfe.make_portfolio()
-    pfe.set_retriever(pfe.HybridRetriever(pfe.build_chunks(pfe.load_corpus(), 900, 150), embed=True, rerank=True))
+    pfe.set_retriever(pfe.HybridRetriever(pfe.build_chunks(pfe.index_docs(), 900, 150), embed=True, rerank=True))
     return True
 
 
