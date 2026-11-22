@@ -1,0 +1,8 @@
+counterparty_id,counterparty_name,threshold_usd,mta_usd,rounding_usd,independent_amount_usd,mpor_days,own_threshold_usd,collateral_ticker,collateral_units,collateral_class,rating_bucket,maturity_bucket,credit_limit_usd
+CP-001,Apex Capital Derivatives,0,250000,10000,0,10,0,,4865006.0,cash,AAA-AA-,1-5y,3400000
+CP-002,Meridian Global Trading,1000000,500000,50000,0,10,0,LQD,17872.0,corporate,A+-BBB-,>5y,3600000
+CP-003,Vanguard Risk Arbitrage,0,100000,10000,0,10,0,SHY,0.0,government,AAA-AA-,1-5y,700000
+CP-004,Zenith Hedge Fund LLC,500000,250000,25000,1000000,15,0,SPY,0.0,equity_main_index,AAA-AA-,1-5y,1700000
+CP-005,Kaveri Commodities Pte,2000000,500000,100000,0,10,0,,0.0,cash,AAA-AA-,1-5y,2800000
+CP-006,Marina Sovereign Fund,0,100000,10000,0,10,0,SHV,1974.0,government,AAA-AA-,<=1y,1800000
+CP-007,ORE-Style Benchmark Netting Set,0,250000,10000,0,10,0,,0.0,cash,AAA-AA-,1-5y,700000

@@ -1,0 +1,1962 @@
+Basel Committee 
+on Banking Supervision 
+The standardised 
+approach for measuring 
+counterparty credit risk 
+exposures 
+March 2014 (rev. April 2014) 
+This standard has been integrated into the consolidated Basel Framework: https://www.bis.org/basel_framework/
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+This publication is available on the BIS website (www.bis.org). 
+ 
+ 
+© Bank for International Settlements 2014. All rights reserved. Brief excerpts may be reproduced or 
+translated provided the source is stated. 
+ 
+ 
+ISBN 978-92-9131-222-1 (print) 
+ISBN 978-92-9131-223-8 (online) 
+ 
+
+ 
+The standardised approach for measuring counterparty credit risk exposures iii 
+ 
+ 
+Contents 
+I. Introduction ................................................................................................................................................................................ 1 
+A. Background ....................................................................................................................................................................... 1 
+B. Introducing the SA-CCR ............................................................................................................................................... 1 
+C. Scope of application ...................................................................................................................................................... 2 
+D. Transitional arrangements ........................................................................................................................................... 3 
+E. Examples ............................................................................................................................................................................. 3 
+II. Revisions to Part 2: The First Pillar; Section II: Credit risk – the standardised approach ............................. 3 
+III. Revisions to Part 2: The First Pillar; Annex 4 Treatment of Counterparty Credit Risk and Cross-
+Product Netting ........................................................................................................................................................................ 4 
+IV. Other revisions to Basel III: A global regulatory framework ................................................................................. 21 
+A. Abbreviations.................................................................................................................................................................. 21 
+B. Part 4: Third Pillar; Section II Disclosure requirements .................................................................................. 21 
+Annex 4a Application of the SA-CCR to sample portfolios ............................................................................................ 22 
+Annex 4b Effect of standard margin agreements on the SA-CCR formulation ...................................................... 31 
+Annex 4c Flow chart of steps to calculate [interest rate] add-on ................................................................................ 33 
+  
+
+
+
+ 
+The standardised approach for measuring counterparty credit risk exposures 1 
+ 
+I. Introduction 
+A. Background 
+This document presents the Basel Committee’s formulation for its Standardised Approach (SA-CCR) for 
+measuring exposure at default (EAD) for counterparty credit risk (CCR). The SA-CCR will replace both 
+current non-internal models approaches, the Current Exposure Method (CEM) and the Standardised 
+Method (SM). 
+In formulating the SA-CCR, the Basel Committee’s main objectives were to devise an approach 
+that is suitable to be applied to a wide variety of derivatives transactions (margined and unmargined, as 
+well as bilateral and cleared); is capable of being implemented simply and easily; addresses known 
+deficiencies of the CEM and the SM; draws on prudential approaches already available in the Basel 
+framework; minimises discretion used by national authorities and banks; and improves the risk sensitivity 
+of the capital framework without creating undue complexity. 
+The CEM had been criticised for several limitations, in particular that it did not differentiate 
+between margined and unmargined transactions, that the supervisory add-on factor did not sufficiently 
+capture the level of volatilities as observed over recent stress periods, and the recognition of netting 
+benefits was too simplistic and not reflective of economically meaningful relationships between 
+derivatives positions.  
+Although being more risk-sensitive than the CEM, the SM was also criticised for several 
+weaknesses. Like the CEM, it did not differentiate between margined and unmargined transactions or 
+sufficiently capture the level of volatilities observed over stress periods in the last five years. In addition, 
+the definition of “hedging set” led to operational complexity resulting in an inability to implement the 
+SM, or implementing it in inconsistent ways. Further, the relationship between current exposure and 
+potential future exposure (PFE) was misrepresented in the SM because only current exposure or PFE was 
+capitalised. Finally, the SM did not provide banks with a true non-internal model alternative for 
+calculating EAD because the SM used internal methods for computing delta-equivalents for non-linear 
+transactions.  
+B. Introducing the SA-CCR 
+The exposures under the SA-CCR consist of two components: replacement cost (RC) and potential future 
+exposure (PFE). Mathematically: 
+)(*  SAunder  default at Exposure PFERCalphaEAD 
+ 
+where alpha equals 1.4, which is carried over from the alpha value set by the Basel Committee 
+for the Internal Model Method (IMM). The PFE portion consists of a multiplier that allows for the partial 
+recognition of excess collateral and an aggregate add-on, which is derived from add-ons developed for 
+each asset class (similar to the five asset classes used for the CEM, ie interest rate, foreign exchange, 
+credit, equity and commodity).1  
+The methodology for calculating the add-ons for each asset class hinges on the key concept of 
+a ”hedging set”. A ”hedging set” under the SA-CCR is a set of transactions within a single netting set 
+within which partial or full offsetting is recognised for the purpose of calculating the PFE add-on. The 
+ 
+1  The “multiplier” has the effect of scaling down the aggregate add-on in the presence of excess collateral.  
+
+ 
+2 The standardised approach for measuring counterparty credit risk exposures 
+ 
+ 
+add-on will vary based on the number of hedging sets that are available within an asset class. These 
+variations are necessary to account for basis risk and differences in correlations within asset classes. The 
+methodologies for calculating the add-ons are summarised below. 
+ Interest rate derivatives: A hedging set consists of all derivatives that reference interest rates 
+of the same currency such as USD, EUR, JPY, etc. Hedging sets are further divided into maturity 
+categories. Long and short positions in the same hedging set are permitted to fully offset each 
+other within maturity categories; across maturity categories, partial offset is recognised.  
+ Foreign exchange derivatives: A hedging set consists of derivatives that reference the same 
+foreign exchange currency pair such as USD/Yen, Euro/Yen, or USD/Euro. Long and short 
+positions in the same currency pair are permitted to perfectly offset, but no offset may be 
+recognised across currency pairs. 
+ Credit derivatives and equity derivatives: A single hedging set is employed for each asset 
+class. Full offset is recognised for derivatives referencing the same entity (name or index), while 
+partial offset is recognised between derivatives referencing different entities.  
+ Commodity derivatives: Four hedging sets are employed for different classes of commodities 
+(one for each of energy, metals, agricultural, and other commodities). Within the same hedging 
+set, full offset is recognised between derivatives referencing the same commodity and partial 
+offset is recognised between derivatives referencing different commodities. No offset is 
+recognised between different hedging sets.  
+With respect to each asset class, basis transactions and volatility transactions form separate 
+hedging sets in their respective asset classes as described in paragraphs 162 and 163 of the 
+accompanying standards text. These separate hedging sets will be assigned specific supervisory factors 
+as described in those paragraphs and will follow the main hedging set aggregation rules for its relevant 
+asset class. 
+A basis transaction is a non-foreign-exchange transaction (ie both legs are denominated in the 
+same currency) in which the cash flows of both legs depend on different risk factors from the same asset 
+class. Common examples of basis transactions include interest rate basis swaps (where payments based 
+on two distinct floating interest rates are exchanged) and commodity spread trades (where payments 
+based on prices of two related commodities are exchanged). All basis transactions of a netting set that 
+belong to the same asset class and reference the same pair of risk factors form a single hedging set. For 
+example, all three-month Libor versus six-month Libor swaps in a netting set form a single basis hedging 
+set.  
+A volatility transaction is one in which the reference asset depends on the volatility (historical or 
+implied) of a risk factor. Common examples of volatility transactions include variance and volatility swaps 
+and options on volatility indices. Volatility transactions form hedging sets according to the rules of their 
+respective asset classes. For example, all equity volatility transactions form a single volatility hedging set.  
+C. Scope of application 
+The SA-CCR will apply to OTC derivatives, exchange-traded derivatives and long settlement 
+transactions.2 
+ 
+2  The substitution approach exclusions described in Annex 4, paragraphs 7 and 8, remain valid in the SA-CCR context. 
+
+ 
+The standardised approach for measuring counterparty credit risk exposures 3 
+ 
+D. Transitional arrangements 
+The Basel Committee recognises that the SA-CCR introduces a significant change in methodology from 
+the current non-internal model method approaches. Jurisdictions may need time to implement these 
+changes in their respective capital frameworks. In addition, smaller banks may need time to develop 
+operational capabilities in order to employ the SA-CCR. As a result, the SA-CCR will become effective on 
+1 January 2017. 
+E. Examples 
+Annex 4a sets forth examples of application of the SA-CCR to sample portfolios. Annex 4b sets forth 
+examples of the operation of the SA-CCR in the context of standard margin agreements. Annex 4c sets 
+forth a flow chart of steps for calculating interest-rate add-ons. 
+II. Revisions to Part 2: The First Pillar; Section II: Credit risk – the 
+standardised approach 
+Section D. The standardised approach - credit risk mitigation 
+Paragraph 84 will be amended by adding the following sentence at the end of the paragraph: 
+“This paragraph does not apply to posted collateral that is treated under either the SA-CCR 
+(Annex 4, section X) or IMM (Annex 4, section V) calculation methods in the counterparty 
+credit risk framework.” 
+Paragraphs 186, 187 and 187(i) will be deleted in their entirety and replaced with the following: 
+186.  Under the SA-CCR, the calculation of exposure amount will be as follows: 
+)(* PFERCalpha amount Exposure 
+ 
+where: 
+alpha  = 1.4, 
+RC = the replacement cost calculated according to paragraphs 130-145 of Annex 4, and 
+PFE = the amount for potential future exposure calculated according to paragraphs 146-
+187 of Annex 4. 
+187.  (deleted) 
+187(i).  (deleted) 
+
+ 
+4 The standardised approach for measuring counterparty credit risk exposures 
+ 
+ 
+III. Revisions to Part 2: The First Pillar; Annex 4 Treatment of 
+Counterparty Credit Risk and Cross-Product Netting 
+A. Section V – Internal Model Method, Section VI – Standardised Method, and 
+Section VII – Current Exposure Method 
+To implement the changes to the counterparty credit risk framework accompanying the introduction of 
+the SA-CCR (including the removal of the IMM shortcut method), paragraph 413 of section V will be 
+deleted4 as well as sections VI and VII. Sections VI and VII will be replaced in their entirety as follows: 
+Section X. Standardised Approach for counterparty credit risk 
+128. Banks that do not have approval to apply the Internal Model Method (IMM) for the relevant 
+OTC transactions must use the Standardised Approach for counterparty credit risk (SA-CCR). The SA-CCR 
+can be used only for OTC derivatives, exchange-traded derivatives and long settlement transactions; 
+SFTs are subject to the treatments set out under the IMM of this Annex or under Part 2, Section II.D, of 
+this Framework. EAD is to be calculated separately for each netting set. It is determined as follows: 
+)(* EAD PFERCalpha 
+ 
+where: 
+alpha  = 1.4, 
+RC = the replacement cost calculated according to paragraphs 130-145 of this Annex, and 
+PFE = the amount for potential future exposure calculated according to paragraphs 146-
+187 of this Annex. 
+129. The replacement cost (RC) and the potential future exposure (PFE) components are calculated 
+differently for margined and unmargined netting sets. The EAD for a margined netting set is capped at 
+the EAD of the same netting set calculated on an unmargined basis.  
+RC and NICA 
+130. For unmargined transactions, the RC intends to capture the loss that would occur if a 
+counterparty were to default and were closed out of its transactions immediately. The PFE add-on 
+represents a potential conservative increase in exposure over a one-year time horizon from the present 
+date (ie the calculation date). 
+131. For margined trades, the RC intends to capture the loss that would occur if a counterparty were 
+to default at the present or at a future time, assuming that the closeout and replacement of transactions 
+occur instantaneously. However, there may be a period (the margin period of risk) between the last 
+exchange of collateral before default and replacement of the trades in the market. The PFE add-on 
+represents the potential change in value of the trades during this time period.  
+ 
+3  Paragraphs 41(i) through 41(iv) of Annex 4, which were introduced as part of Basel III, would remain in effect. 
+4  Corresponding references to the IMM shortcut method in paragraphs 98 and 99 of this Annex, relating to the calculation of 
+the CVA risk capital charge, will also be deleted.  
+
+ 
+The standardised approach for measuring counterparty credit risk exposures 5 
+ 
+132. In both cases, the haircut applicable to noncash collateral in the replacement cost formulation 
+represents the potential change in value of the collateral during the appropriate time period (one year 
+for unmargined trades and the margin period of risk for margined trades). 
+133. Replacement cost is calculated at the netting set level, whereas PFE add-ons are calculated for 
+each asset class within a given netting set and then aggregated (see paragraphs 150-187 below). 
+134. For capital adequacy purposes, banks may net transactions (eg when determining the RC 
+component of a netting set) subject to novation under which any obligation between a bank and its 
+counterparty to deliver a given currency on a given value date is automatically amalgamated with all 
+other obligations for the same currency and value date, legally substituting one single amount for the 
+previous gross obligations. Banks may also net transactions subject to any legally valid form of bilateral 
+netting not covered in the preceding sentence, including other forms of novation. In every such case 
+where netting is applied, a bank must satisfy its national supervisor that it has: 
+(i) A netting contract with the counterparty or other agreement which creates a single legal 
+obligation, covering all included transactions, such that the bank would have either a claim to 
+receive or obligation to pay only the net sum of the positive and negative mark-to-market 
+values of included individual transactions in the event a counterparty fails to perform due to 
+any of the following: default, bankruptcy, liquidation or similar circumstances;5 
+(ii) Written and reasoned legal reviews that, in the event of a legal challenge, the relevant courts 
+and administrative authorities would find the bank’s exposure to be such a net amount under: 
+ The law of the jurisdiction in which the counterparty is chartered and, if the foreign branch of a 
+counterparty is involved, then also under the law of the jurisdiction in which the branch is 
+located; 
+ The law that governs the individual transactions; and 
+ The law that governs any contract or agreement necessary to effect the netting. 
+The national supervisor, after consultation when necessary with other relevant supervisors, must 
+be satisfied that the netting is enforceable under the laws of each of the relevant jurisdictions.6 
+(iii) Procedures in place to ensure that the legal characteristics of netting arrangements are kept 
+under review in light of the possible changes in relevant law. 
+135.  There are two formulations of replacement cost depending on whether the trades with a 
+counterparty are subject to a margin agreement. Where a margin agreement exists, the formulation 
+could apply both to bilateral transactions and central clearing relationships. The formulation also 
+addresses the various arrangements that a bank may have to post and/or receive collateral that may be 
+referred to as initial margin.  
+Formulation for unmargined transactions  
+136. For unmargined transactions (that is, where variation margin (VM) is not exchanged, but 
+collateral other than VM may be present), RC is defined as the greater of: (i) the current market value of 
+the derivative contracts less net haircut collateral held by the bank (if any), and (ii) zero. This is consistent 
+ 
+5  The netting contract must not contain any clause which, in the event of default of a counterparty, permits a non-defaulting 
+counterparty to make limited payments only, or no payments at all, to the estate of the defaulting party, even if the 
+defaulting party is a net creditor. 
+6  Thus, if any of these supervisors is dissatisfied about enforceability under its laws, the netting contract or agreement will not 
+meet this condition and neither counterparty could obtain supervisory benefit. 
+
+ 
+6 The standardised approach for measuring counterparty credit risk exposures 
+ 
+ 
+with the use of replacement cost as the measure of current exposure, meaning that when the bank owes 
+the counterparty money it has no exposure to the counterparty if it can instantly replace its trades and 
+sell collateral at current market prices. Mathematically: 
+}0 ;max{ RC CV 
+ 
+where V is the value of the derivative transactions in the netting set and C is the haircut value of 
+net collateral held, which is calculated in accordance with the NICA methodology defined in paragraph 
+143 below. For this purpose, the value of non-cash collateral posted by the bank to its counterparty is 
+increased and the value of the non-cash collateral received by the bank from its counterparty is 
+decreased using haircuts (which are the same as those that apply to repo-style transactions) for the time 
+periods described in paragraph 132 above. 
+137. In the above formulation, it is assumed that the replacement cost representing today’s 
+exposure to the counterparty cannot go less than zero. However, banks sometimes hold excess collateral 
+(even in the absence of a margin agreement) or have out-of-the-money trades which can further protect 
+the bank from the increase of the exposure. As discussed in paragraphs 147-149 below, the SA-CCR 
+would allow such over-collateralisation and negative mark-to market value to reduce PFE, but would not 
+affect replacement cost. 
+138. Bilateral transactions with a one-way margining agreement in favour of the bank’s counterparty 
+(that is, where a bank posts, but does not collect, collateral) must be treated as unmargined transactions. 
+Formulation for margined transactions  
+139. The RC formula for margined transactions builds on the RC formula for unmargined 
+transactions. It also employs concepts used in standard margining agreements, as discussed more fully 
+below. 
+140. The RC for margined transactions in the SA-CCR is defined as the greatest exposure that would 
+not trigger a call for VM, taking into account the mechanics of collateral exchanges in margining 
+agreements. 7 Such mechanics include, for example, “Threshold”, “Minimum Transfer Amount” and 
+“Independent Amount” in the standard industry documentation,8 which are factored into a call for VM.9 
+A defined, generic formulation has been created to reflect the variety of margining approaches used and 
+those being considered by supervisors internationally.  
+Incorporating NICA into replacement cost  
+141. One objective of the SA-CCR is to more fully reflect the effect of margining agreements and the 
+associated exchange of collateral in the calculation of CCR exposures. The following paragraphs address 
+how the exchange of collateral is incorporated into the SA-CCR. 
+ 
+7  See Annex 4b for illustrative examples of the effect of standard margin agreements on the SA-CCR formulation. 
+8  For example, the 1992 (Multicurrency-Cross Border) Master Agreement and the 2002 Master Agreement published by the 
+International Swaps & Derivatives Association, Inc. (ISDA Master Agreement). The ISDA Master Agreement includes the ISDA 
+CSA: the 1994 Credit Support Annex (Security Interest – New York Law), or, as applicable, the 1995 Credit Support Annex 
+(Transfer – English Law) and the 1995 Credit Support Deed (Security Interest – English Law). 
+9  For example, in the ISDA Master Agreement, the term “Credit Support Amount”, or the overall amount of collateral that must 
+be delivered between the parties, is defined as the greater of the Secured Party’s Exposure plus the aggregate of all 
+Independent Amounts applicable to the Pledgor minus all Independent Amounts applicable to the Secured Party, minus the 
+Pledgor’s Threshold and zero.  
+
+ 
+The standardised approach for measuring counterparty credit risk exposures 7 
+ 
+142. To avoid confusion surrounding the use of terms initial margin and independent amount which 
+are used in various contexts and sometimes interchangeably, the term independent collateral amount 
+(ICA) is introduced. ICA represents (i) collateral (other than VM) posted by the counterparty that the bank 
+may seize upon default of the counterparty, the amount of which does not change in response to the 
+value of the transactions it secures and/or (ii) the Independent Amount (IA) parameter as defined in 
+standard industry documentation. ICA can change in response to factors such as the value of the 
+collateral or a change in the number of transactions in the netting set. 
+143. Because both a bank and its counterparty may be required to post ICA, it is necessary to 
+introduce a companion term, net independent collateral amount (NICA), to describe the amount of 
+collateral that a bank may use to offset its exposure on the default of the counterparty. NICA does not 
+include collateral that a bank has posted to a segregated, bankruptcy remote account, which presumably 
+would be returned upon the bankruptcy of the counterparty. That is, NICA represents any collateral 
+(segregated or unsegregated) posted by the counterparty less the unsegregated collateral posted by the 
+bank. With respect to IA, NICA takes into account the differential of IA required for the bank minus IA 
+required for the counterparty. 
+144. For margined trades, the replacement cost is:  
+}0 ;;max{ RC NICAMTATHCV 
+ 
+where V and C are defined as in the unmargined formulation, TH is the positive threshold 
+before the counterparty must send the bank collateral, and MTA is the minimum transfer amount 
+applicable to the counterparty.  
+145. TH + MTA – NICA represents the largest exposure that would not trigger a VM call and it 
+contains levels of collateral that need always to be maintained. For example, without initial margin or IA, 
+the greatest exposure that would not trigger a variation margin call is the threshold plus any minimum 
+transfer amount. In the adapted formulation, NICA is subtracted from TH + MTA. This makes the 
+calculation more accurate by fully reflecting both the actual level of exposure that would not trigger a 
+margin call and the effect of collateral held and/or posted by a bank. The calculation is floored at zero, 
+recognising that the bank may hold NICA in excess of TH + MTA, which could otherwise result in a 
+negative replacement cost.  
+PFE add-ons  
+146. The PFE add-on consists of (i) an aggregate add-on component, which consists of add-ons 
+calculated for each asset class and (ii) a multiplier that allows for the recognition of excess collateral or 
+negative mark-to-market value for the transactions. Mathematically:  
+ O* aggregatenAddmultiplierPFE 
+ 
+where 
+aggregatenAddO is the aggregate add-on component and multiplier is defined as a 
+function of three inputs: V, C and
+aggregatenOAdd .  
+The paragraphs below describe the inputs that enter into the calculation of the add-on 
+formulas in more detail, and set out the formula for each asset class.  
+Recognition of excess collateral and negative mark-to-market  
+147. As a general principle, over-collateralisation should reduce capital requirements for 
+counterparty credit risk. In fact, many banks hold excess collateral (ie collateral greater than the net 
+market value of the derivatives contracts) precisely to offset potential increases in exposure represented 
+by the add-on. As discussed in paragraphs 136 and 144, collateral may reduce the replacement cost 
+component of the exposure under the SA-CCR. The PFE component also reflects the risk-reducing 
+property of excess collateral.  
+
+ 
+8 The standardised approach for measuring counterparty credit risk exposures 
+ 
+ 
+148. For prudential reasons, the Basel Committee decided to apply a multiplier to the PFE 
+component that decreases as excess collateral increases, without reaching zero (the multiplier is floored 
+at 5% of the PFE add-on). When the collateral held is less than the net market value of the derivative 
+contracts (“under-collateralisation”), the current replacement cost is positive and the multiplier is equal 
+to one (ie the PFE component is equal to the full value of the aggregate add-on). Where the collateral 
+held is greater than the net market value of the derivative contracts (“over-collateralisation”), the current 
+replacement cost is zero and the multiplier is less than one (ie the PFE component is less than the full 
+value of the aggregate add-on). 
+149. This multiplier will also be activated when the current value of the derivative transactions is 
+negative. This is because out-of-the-money transactions do not currently represent an exposure and 
+have less chance to go in-the-money. Mathematically: 
+  
+O*Floor)-(1*2
+exp*Floor)-(1  ;1 min
+
+            aggregatenAdd CVFloormultiplier
+ 
+where exp(…) equals to the exponential function, Floor is 5%, V is the value of the derivative 
+transactions in the netting set, and C is the haircut value of net collateral held. 
+Aggregation across asset classes 
+150. Diversification benefits across asset classes are not recognised. Instead, the respective add-ons 
+for each asset class are simply aggregated. Mathematically: 
+
+a
+aAddOnaggregateAddOn )(
+ 
+where the sum of each asset class add-on is taken. 
+Allocation of derivative transactions to one or more asset classes 
+151. The designation of a derivative transaction to an asset class is be made on the basis of its 
+primary risk driver. Most derivative transactions have one primary risk driver, defined by its reference 
+underlying instrument (eg an interest rate curve for an interest rate swap, a reference entity for a credit 
+default swap, a foreign exchange rate for a FX call option, etc). When this primary risk driver is clearly 
+identifiable, the transaction will fall into one of the asset classes described above.  
+152. For more complex trades that may have more than one risk driver (eg multi-asset or hybrid 
+derivatives), banks must take sensitivities and volatility of the underlying into account for determining 
+the primary risk driver. 
+Bank supervisors may also require more complex trades to be allocated to more than one asset 
+class, resulting in the same position being included in multiple classes. In this case, for each asset class to 
+which the position is allocated, banks must determine appropriately the sign and delta adjustment of the 
+relevant risk driver.  
+General steps for calculating the add-on 
+153. For each transaction, the primary risk factor or factors need to be determined and attributed to 
+one or more of the five asset classes: interest rate, foreign exchange, credit, equity or commodity. The 
+add-on for each asset class is calculated using asset-class-specific formulas that represent a stylised 
+Effective EPE calculation under the assumption that all trades in the asset class have zero current mark-
+to-market value (ie they are at-the-money).  
+154. Although the add-on formulas are asset class-specific, they have a number of features in 
+common. To determine the add-on, transactions in each asset class are subject to adjustment in the 
+following general steps: 
+
+ 
+The standardised approach for measuring counterparty credit risk exposures 9 
+ 
+ An adjusted notional amount based on actual notional or price is calculated at the trade level. 
+For interest rate and credit derivatives, this adjusted notional amount also incorporates a 
+supervisory measure of duration; 
+ A maturity factor 
+)(type
+i
+MF  reflecting the time horizon appropriate for the type of transaction is 
+calculated at the trade level (see paragraph 164 below for details) and is applied to the adjusted 
+notional. Two types of maturity factor are defined, one for margined transactions (
+)arg( inedm
+i
+MF ) 
+and one for unmargined transactions (
+)arg( inedunm
+i
+MF );  
+ A supervisory delta adjustment is made to this trade-level adjusted notional amount based on 
+the position (long or short) and whether the trade is an option, CDO tranche or neither, 
+resulting in an effective notional amount; 
+ A supervisory factor is applied to each effective notional amount to reflect volatility; and 
+ The trades within each asset class are separated into hedging sets and an aggregation method 
+is applied to aggregate all the trade-level inputs at the hedging set level and finally at the 
+asset-class level. For credit, equity and commodity derivatives, this involves the application of a 
+supervisory correlation parameter to capture important basis risks and diversification.  
+Each input is described, generally and by asset class, in more detail below.  
+Period or date parameters:
+iM ,
+iE ,
+iS and
+iT   
+155. There are four dates that appear in the SA-CCR:  
+ For all asset classes, the maturity 
+iM of a contract is the latest date when the contract may still 
+be active. This date appears in the maturity factor defined in paragraph 164 that scales down 
+adjusted notional for unmargined trades for all asset classes. If a derivative contract has another 
+derivative contract as its underlying (for example, a swaption) and may be physically exercised 
+into the underlying contract (ie a bank would assume a position in the underlying contract in 
+the event of exercise), then maturity of the contract is the final settlement date of the 
+underlying derivative contract. 
+ For interest rate and credit derivatives, the start date 
+iS  of the time period referenced by an 
+interest rate or credit contract. If the derivative references the value of another interest rate or 
+credit instrument (eg swaption or bond option), the time period must be determined on the 
+basis of the underlying instrument. This date appears in the definition of supervisory duration 
+defined in paragraph 157.  
+ For interest rate and credit derivatives, the end date 
+iE  of the time period referenced by an 
+interest rate or credit contract. If the derivative references the value of another interest rate or 
+credit instrument (eg swaption or bond option), the time period must be determined on the 
+basis of the underlying instrument. This date appears in the definition of supervisory duration 
+defined in paragraph 157. In addition, this date specifies the maturity category for an interest 
+rate contract in paragraph 166.  
+ For options in all asset classes, the latest contractual exercise date 
+iT  as referenced by the 
+contract. This period shall be used for the determination of the option delta in paragraph 159. 
+156.  Table 1 includes example transactions and provides each transaction’s related maturity 
+iM , 
+start date 
+iS  and end date 
+iE . In addition, the option delta in paragraph 159 depends on the latest 
+contractual exercise date 
+iT  (not separately shown in the table). 
+
+ 
+10 The standardised approach for measuring counterparty credit risk exposures 
+ 
+ 
+ 
+ Table 1 
+Instrument 
+iM  
+iS  
+iE  
+Interest rate or credit default swap maturing in 10 years 10 years 0 10 years 
+10-year interest rate swap, forward starting in 5 years 15 years 5 years 15 years 
+Forward rate agreement for time period starting in 6 months and 
+ending in 12 months 
+1 year 0.5 year 1 year 
+Cash-settled European swaption referencing 5-year interest rate 
+swap with exercise date in 6 months  
+0.5 year 0.5 year 5.5 years 
+Physically-settled European swaption referencing 5-year interest 
+rate swap with exercise date in 6 months 
+5.5 years 0.5 year 5.5 years 
+10-year Bermudan swaption with annual exercise dates 10 years 1 year 10 years 
+Interest rate cap or floor specified for semi-annual interest rate 
+with maturity 5 years 
+5 years 0 5 years 
+Option on a bond maturing in 5 years with the latest exercise date 
+in 1 year 
+1 year 1 year 5 years 
+3-month Eurodollar futures that matures in 1 year 1 year 1 year 1.25 years 
+Futures on 20-year treasury bond that matures in 2 years 2 years 2 years 22 years 
+6-month option on 2-year futures on 20-year treasury bond  2 years 2 years 22 years 
+ 
+Trade-level adjusted notional (for trade i of asset class a): 
+)(a
+id  
+157. These parameters are defined at the trade level and take into account both the size of a 
+position and its maturity dependency, if any. Specifically, the adjusted notional amounts are calculated 
+as follows: 
+ For interest rate and credit derivatives, the trade-level adjusted notional is the product of the 
+trade notional amount, converted to the domestic currency, and the supervisory duration 
+i
+SD  
+which is given by the following formula:  
+   
+05.0
+*05.0exp*05.0exp ii
+i
+ESSD 
+ 
+where 
+iS and 
+iE  are the start and end dates, respectively, of the time period referenced by the 
+interest rate or credit derivative (or, where such a derivative references the value of another interest rate 
+or credit instrument, the time period determined on the basis of the underlying instrument), floored by 
+ten business days.10 If the start date has occurred (eg an ongoing interest rate swap), 
+iS must be set to 
+zero.  
+ For foreign exchange derivatives, the adjusted notional is defined as the notional of the foreign 
+currency leg of the contract, converted to the domestic currency. If both legs of a foreign 
+ 
+10  Note there is a distinction between the time period of the underlying transaction and the remaining maturity of the derivative 
+contract. For example, a European interest rate swaption with expiry of 1 year and the term of the underlying swap of 5 years 
+has 
+iS = 1 year and 
+iE = 6 years. 
+
+ 
+The standardised approach for measuring counterparty credit risk exposures 11 
+ 
+exchange derivative are denominated in currencies other than the domestic currency, the 
+notional amount of each leg is converted to the domestic currency and the leg with the larger 
+domestic currency value is the adjusted notional amount.  
+ For equity and commodity derivatives, the adjusted notional is defined as the product of the 
+current price of one unit of the stock or commodity (eg a share of equity or barrel of oil) and 
+the number of units referenced by the trade. 
+158. In many cases the trade notional amount is stated clearly and fixed until maturity. When this is 
+not the case, banks must use the following rules to determine the trade notional amount.  
+ For transactions with multiple payoffs that are state contingent such as digital options or target 
+redemption forwards, a bank must calculate the trade notional amount for each state and use 
+the largest resulting calculation.  
+ Where the notional is a formula of market values, the bank must enter the current market 
+values to determine the trade notional amount. 
+ For variable notional swaps such as amortising and accreting swaps, banks must use the 
+average notional over the remaining life of the swap as the trade notional amount. 
+ Leveraged swaps must be converted to the notional of the equivalent unleveraged swap, that is, 
+where all rates in a swap are multiplied by a factor, the stated notional must be multiplied by 
+the factor on the interest rates to determine the trade notional amount. 
+ For a derivative contract with multiple exchanges of principal, the notional is multiplied by the 
+number of exchanges of principal in the derivative contract to determine the trade notional 
+amount.  
+ For a derivative contract that is structured such that on specified dates any outstanding 
+exposure is settled and the terms are reset so that the fair value of the contract is zero, the 
+remaining maturity equals the time until the next reset date. 
+Supervisory delta adjustments: 
+iδ  
+159. These parameters are also defined at the trade level and are applied to the adjusted notional 
+amounts to reflect the direction of the transaction and its non-linearity. More specifically, the delta 
+adjustments for all derivatives are defined as follows: 
+ 
+iδ
+ 
+Long11 in the primary risk factor Short12 in the primary risk factor 
+Instruments that are not 
+options or CDO tranches +1 -1 
+ 
+ 
+11  “Long in the primary risk factor” means that the market value of the instrument increases when the value of the primary risk 
+factor increases. 
+12  “Short in the primary risk factor” means that the market value of the instrument decreases when the value of the primary risk 
+factor increases. 
+
+ 
+12 The standardised approach for measuring counterparty credit risk exposures 
+ 
+ 
+iδ
+ 
+Bought Sold 
+ 
+Call Options13 
+2ln( / ) 0.5* *
+*
+i i i
+ii
+iP K T
+T
+
+
+  
+2ln( / ) 0.5* *
+*
+i i i i
+ii
+P K T
+T
+
+
+  
+ 
+2ln( / ) 0.5* *
+*
+i i i i
+ii
+P K T
+T
+
+
+ 
+ 
+2ln( / ) 0.5* *
+*
+i i i i
+ii
+P K T
+T
+
+
+   
+Put Options7 
+With the following parameters that banks must determine appropriately:  
+iP
+: Underlying price (spot, forward, average, etc)  
+iK
+: Strike price  
+iT
+: Latest contractual exercise date of the option  
+The supervisory volatility 
+iσ of an option is specified on the basis of supervisory factor applicable to the trade (see 
+Table 2 in paragraph 183).  
+ 
+iδ
+ Purchased (long protection) Sold (short protection) 
+CDO tranches 
+   ii DA *141**141
+15
+  
+   ii DA *141**141
+15
+  
+With the following parameters that banks must determine appropriately:  
+iA
+: Attachment point of the CDO tranche  
+iD
+: Detachment point of the CDO tranche  
+ 
+Supervisory factors: 
+)(a
+iSF  
+160. A factor or factors specific to each asset class is used to convert the effective notional amount 
+into Effective EPE based on the measured volatility of the asset class. Each factor has been calibrated to 
+reflect the Effective EPE of a single at-the-money linear trade of unit notional and one-year maturity. This 
+includes the estimate of realised volatilities assumed by supervisors for each underlying asset class.  
+Hedging sets 
+161.  The hedging sets in the different asset classes are defined as follows, except for those described 
+in paragraphs 162 and 163. 
+ Interest rate derivatives consist of a separate hedging set for each currency; 
+ FX derivatives consist of a separate hedging set for each currency pair; 
+ Credit derivatives consist of a single hedging set;  
+ Equity derivatives consist of a single hedging set; 
+ Commodity derivatives consist of four hedging sets defined for broad categories of commodity 
+derivatives: energy, metals, agricultural and other commodities. 
+ 
+13  The symbol in these equations represents the standard normal cumulative distribution function. 
+
+ 
+The standardised approach for measuring counterparty credit risk exposures 13 
+ 
+162.  Derivatives that reference the basis between two risk factors and are denominated in a single 
+currency14 (basis transactions) must be treated within separate hedging sets within the corresponding 
+asset class. There is a separate hedging set15 for each pair of risk factors (ie for each specific basis). 
+Examples of specific bases include three-month Libor versus six-month Libor, three-month Libor versus 
+three-month T-Bill, one-month Libor versus OIS rate, Brent Crude oil versus Henry Hub gas. For hedging 
+sets consisting of basis transactions, the supervisory factor applicable to a given asset class must be 
+multiplied by one-half. 
+163.  Derivatives that reference the volatility of a risk factor (volatility transactions) must be treated 
+within separate hedging sets within the corresponding asset class. Volatility hedging sets must follow the 
+same hedging set construction outlined in paragraph 161 (for example, all equity volatility transactions 
+form a single hedging set). Examples of volatility transactions include variance and volatility swaps, 
+options on realised or implied volatility. For hedging sets consisting of volatility transactions, the 
+supervisory factor applicable to a given asset class must be multiplied by a factor of five. 
+Time Risk Horizons 
+164. The minimum time risk horizons for the SA-CCR include: 
+ The lesser of one year and remaining maturity of the derivative contract for unmargined 
+transactions, floored at ten business days.16 Therefore, the adjusted notional at the trade level 
+of an unmargined transaction must be mutliplied by: 
+year
+yearM
+MF i
+i 1
+}1 ;min{)unmargined( 
+ 
+ where 
+iM is the transaction i remaining maturity floored by 10 business days.  
+ For margined transactions, the minimum margin period of risk is determined as follows: 
+ At least ten business days for non-centrally-cleared derivative transactions subject to daily 
+margin agreements. 
+ Five business days for centrally cleared derivative transactions subject to daily margin 
+agreements that clearing members have with their clients.  
+ 20 business days for netting sets consisting of 5,000 transactions that are not with a central 
+counterparty. 
+ Doubling the margin period of risk for netting sets with outstanding disputes consistent with 
+paragraph 41(ii) of this Annex.17 
+Therefore, the adjusted notional at the trade level of a margined transaction should be multiplied by: 
+ 
+14  Derivatives with two floating legs that are denominated in different currencies (such as cross-currency swaps) are not subject 
+to this treatment; rather, they should be treated as non-basis foreign exchange contracts. 
+15  Within this hedging set, long and short positions are determined with respect to the basis. 
+16  For example, remaining maturity for a one-month option on a 10-year Treasury bond is the one-month to expiration date of 
+the derivative contract. However, the end date of the transaction is the 10-year remaining maturity on the Treasury bond.  
+17  See paragraphs 41(i), 41(ii) and 111, which were introduced via Basel III and the capital requirements for bank exposures to 
+central counterparties, for circumstances requiring an extended margin period of risk. 
+
+ 
+14 The standardised approach for measuring counterparty credit risk exposures 
+ 
+ 
+ 
+year
+MPORMF imargined i 12 3)(    
+where 
+iMPOR  is the margin period of risk appropriate for the margin agreement containing the 
+transaction i. 
+Supervisory correlation parameters: 
+)(a
+iρ  
+165. These parameters only apply to the PFE add-on calculation for equity, credit and commodity 
+derivatives. For these asset classes, the supervisory correlation parameters are derived from a single-
+factor model and specify the weight between systematic and idiosyncratic components. This weight 
+determines the degree of offset between individual trades, recognising that imperfect hedges provide 
+some, but not perfect, offset. Supervisory correlation parameters do not apply to interest rate and 
+foreign exchange derivatives.  
+Add-on for interest rate derivatives  
+166. The add-on for interest rate derivatives captures the risk of interest rate derivatives of different 
+maturities being imperfectly correlated. To address this risk, the SA-CCR divides interest rate derivatives 
+into maturity categories (also referred to as “buckets”) based on the end date (as described in 
+paragraphs 155 and 157) of the transactions. The three relevant maturity categories are: less than one 
+year, between one and five years and more than five years. The SA-CCR allows full recognition of 
+offsetting positions within a maturity category. Across maturity categories, the SA-CCR recognises partial 
+offset.  
+167. The add-on for interest rate derivatives is the sum of the add-ons for each hedging set of 
+interest rates derivatives transacted with a counterparty in a netting set. The add-on for a hedging set of 
+interest rate derivatives is calculated in two steps.  
+168. In the first step, the effective notional 
+)(IR
+jkD  is calculated for time bucket k of hedging set (ie 
+currency) j according to: 
+
+
+
+} ,{
+)()()( **
+kj MBCcyi
+type
+i
+IR
+ii
+IR
+jk MFdδD
+ 
+where notation 
+},{ kj MB Ccyi refers to trades of currency j that belong to maturity bucket k. 
+That is, the effective notional for each time bucket and currency is the sum of the trade-level adjusted 
+notional amounts (cf. paragraphs 157-158) multiplied by the supervisory delta adjustments (cf. 
+paragraph 159) and the maturity factor (cf. paragraph 164). 
+169. In the second step, aggregation across maturity buckets for each hedging set is calculated 
+according to the following formula:18 
+      2
+1
+)(
+3
+)(
+1
+)(
+3
+)(
+2
+)(
+2
+)(
+1
+2)(
+3
+2)(
+2
+2)(
+1
+)( **6.0**4.1**4.1      IR j IR j IR j IR j IR j IR j IR j IR j IR j IR j DDDDDDDDDotionalEffectiveN
+ 
+ 
+18  Banks may choose not to recognise offset across maturity buckets. In this case, the relevant formula is: 
+ DDDotionalEffectiveN IR j IR j IR j IR j )( 3 )( 2 )( 1 )( 
+ 
+
+ 
+The standardised approach for measuring counterparty credit risk exposures 15 
+ 
+The hedging set level add-on is calculated as the product of the effective notional and the 
+interest rate supervisory factor: 
+)()()( * IR j IR j IR j otionalEffectiveNSFAddOn 
+ 
+ 
+Aggregation across hedging sets is performed via simple summation: 
+ 
+
+j
+IR
+j
+IR AddOnAddOn )()(  
+Add-on for foreign exchange derivatives 
+170. The add-on formula for foreign exchange derivatives shares many similarities with the add-on 
+formula for interest rates. Similar to interest rate derivatives, the effective notional of a hedging set is 
+defined as the sum of all the trade-level adjusted notional amounts multiplied by their supervisory delta. 
+The add-on for a hedging set is the product of: 
+ The absolute value of its effective notional amount; and 
+ The supervisory factor (same for all FX hedging sets).  
+171. In the case of foreign exchange derivatives, the adjusted notional amount is maturity-
+independent and given by the notional of the foreign currency leg of the contract, converted to the 
+domestic currency. Mathematically: 
+
+j
+FX
+HS
+FX
+j
+AddOnAddOn )()(
+ 
+where the sum is taken over all the hedging sets HSj included in the netting set. The add-on 
+and the effective notional of the hedging set HSj are respectively given by: 
+)()()( * FX j FX j FX HS otionalEffectiveNSFAddOn j 
+ 
+
+
+
+jHSi
+type
+i
+FX
+ii
+FX
+j MFdδotionalEffectiveN
+)()()( **
+ 
+where 
+jHSi refers to trades of hedging set HSj. That is, the effective notional for each 
+currency pair is the sum of the trade-level adjusted notional amounts (cf. paragraphs 157-158) multiplied 
+by the supervisory delta adjustments (cf. paragraph 159) and the maturity factor (cf. paragraph 164). 
+Add-on for credit derivatives  
+172. There are two levels of offsetting benefits for credit derivatives. First, all credit derivatives 
+referencing the same entity (either a single entity or an index) are allowed to offset each other fully to 
+form an entity-level effective notional amount:  
+
+
+
+kEntityi
+type
+i
+Credit
+ii
+Credit
+k MFdδotionalEffectiveN )()()( **
+ 
+where 
+kEntityi refers to trades of entity k. That is, the effective notional for each entity is the 
+sum of the trade-level adjusted notional amounts (cf. paragraphs 157-158) multiplied by the supervisory 
+delta adjustments (cf. paragraph 159) and the maturity factor (cf. paragraph 164). 
+The add-on for all the positions referencing this entity is defined as the product of its effective 
+notional amount and the supervisory factor
+)(Credit
+kSF , ie: 
+  )()( * Credit k Credit kk otionalEffectiveNSFEntityAddOn 
+ 
+
+ 
+16 The standardised approach for measuring counterparty credit risk exposures 
+ 
+ 
+For single name entities, 
+)(Credit
+kSF is determined by the reference name’s credit rating. For index 
+entities, 
+)(Credit
+kSF is determined by whether the index is investment grade or speculative grade.  
+Second, all the entity-level add-ons are grouped within a single hedging set (except for basis 
+and volatility transactions) in which full offsetting between two different entity-level add-ons is not 
+permitted. Instead, a single-factor model has been used to allow partial offsetting between the entity-
+level add-ons by dividing the risk of the credit derivatives asset class into a systematic component and 
+an idiosyncratic component.  
+173. The entity-level add-ons are allowed to offset each other fully in the systematic component; 
+whereas, there is no offsetting benefit in the idiosyncratic component. These two components are 
+weighted by a correlation factor which determines the degree of offsetting/hedging benefit within the 
+credit derivatives asset class. The higher the correlation factor, the higher the importance of the systemic 
+component, hence the higher the degree of offsetting benefits. Derivatives referencing credit indices are 
+treated as though they were referencing single names, but with a higher correlation factor applied. 
+Mathematically: 
+       
+2
+1
+22)(
+2
+)()( *1*
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+k
+k
+Credit
+kk
+k
+Credit
+k
+Credit EntityAddOnρEntityAddOnρAddOn
+ 
+ where 
+)(Credit
+kρ is the appropriate correlation factor corresponding to the Entity k. 
+174. It should be noted that a higher or lower correlation does not necessarily mean a higher or 
+lower capital charge. For portfolios consisting of long and short credit positions, a high correlation factor 
+would reduce the charge. For portfolios consisting exclusively of long positions (or short positions), a 
+higher correlation factor would increase the charge. If most of the risk consists of systematic risk, then 
+individual reference entities would be highly correlated and long and short positions should offset each 
+other. If, however, most of the risk is idiosyncratic to a reference entity, then individual long and short 
+positions would not be effective hedges for each other.  
+175. The use of a single hedging set for credit derivatives implies that credit derivatives from 
+different industries and regions are equally able to offset the systematic component of an exposure, 
+although they would not be able to offset the idiosyncratic portion. This approach recognises that 
+meaningful distinctions between industries and/or regions are complex and difficult to analyse for global 
+conglomerates.  
+Add-on for equity derivatives 
+176. The add-on formula for equity derivatives shares many similarities with the add-on formula for 
+credit derivatives. The approach also uses a single factor model to divide the risk into a systematic 
+component and an idiosyncratic component for each reference entity (a single entity or an index). 
+Derivatives referencing equity indices are treated as though they were referencing single entities, but 
+with a higher correlation factor used for the systematic component. Offsetting is allowed only for the 
+systematic components of the entity-level add-ons, while full offsetting of transactions within the same 
+reference entity is permitted. The entity-level add-ons are proportional to the product of two items: the 
+effective notional amount of the entity (similar to credit derivatives) and the supervisory factor 
+appropriate to the entity.  
+
+ 
+The standardised approach for measuring counterparty credit risk exposures 17 
+ 
+177. The calibration of the supervisory factors for equity derivatives rely on estimates of the market 
+volatility of equity indices, with the application of a conservative beta factor19 to translate this estimate 
+into an estimate of individual volatilities. Banks are not permitted to make any modelling assumptions in 
+the calculation of the PFE add-ons, including estimating individual volatilities or taking publicly available 
+estimates of beta. This is a pragmatic approach to ensure a consistent implementation across 
+jurisdictions but also to keep the add-on calculation relatively simple and prudent. Therefore, only two 
+values of supervisory factors have been defined for equity derivatives, one for single entities and one for 
+indices. 
+In summary, the formula is as follows: 
+       
+2
+1
+22)(
+2
+)()( *1*
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+k
+k
+Equity
+kk
+k
+Equity
+k
+Equity EntityAddOnρEntityAddOnρAddOn
+ 
+ where 
+)(Equity
+kρ is the appropriate correlation factor corresponding to the entity k. The add-on 
+for all the positions referencing entity k and its effective notional are given by: 
+  )()( * Equity k Equity kk otionalEffectiveNSFEntityAddOn 
+ 
+and  
+
+
+
+kEntityi
+type
+i
+Equity
+ii
+Equity
+k MFdδotionalEffectiveN
+)()()(
+**
+ 
+where 
+kEntityi  refers to trades of entity k. That is, the effective notional for each entity is 
+the sum of the trade-level adjusted notional amounts (cf. paragraphs 157-158) multiplied by the 
+supervisory delta adjustments (cf. paragraph 159) and the maturity factor (cf. paragraph 164). 
+Add-on for commodity derivatives  
+178. The add-on for the asset class is given by: 
+
+j
+HS j AddOnAddOn )Com()Com(
+ 
+where the sum is taken over all hedging sets. 
+179. Within each hedging set, a single factor model is used to divide the risk of the same type of 
+commodities into a systematic component and an idiosyncratic component, consistent with the 
+approach taken for credit and equity derivatives. Full offsetting/hedging benefits is allowed between all 
+derivative transactions referencing the same type of commodity, forming a commodity type-level 
+effective notional. Partial offsetting/hedging benefits is allowed within each hedging set between the 
+same type of commodities (supervisory correlation factors are defined for each) while no 
+offsetting/hedging benefits is permitted between hedging sets. In summary, we have: 
+       
+2
+1
+22)(
+2
+)()( *1*
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+k
+j
+k
+Com
+j
+k
+j
+k
+Com
+j
+Com
+HS TypeAddOnρTypeAddOnρAddOn j
+ 
+ 
+19  The beta of an individual equity measures the volatility of the stock relative to a broad market index. A value of beta greater 
+than one means the individual equity is more volatile than the index. The greater the beta is, the more volatile the stock. The 
+beta is calculated by running a linear regression of the stock on the broad index.  
+
+ 
+18 The standardised approach for measuring counterparty credit risk exposures 
+ 
+ 
+where 
+)(Com
+jρ is the appropriate correlation factor corresponding to the hedging set j. The add-
+on and the effective notional of the commodity type k are respectively given by: 
+  )()( * Com k Com Type j k otionalEffectiveNSFTypeAddOn j k 
+ 
+and 
+
+
+
+j
+kTypei
+type
+i
+Com
+ii
+Com
+k MFdδotionalEffectiveN
+ 
+)()()( **
+ 
+where 
+j
+kTypei  refers to trades of commodity type k in hedging set j. That is, the effective 
+notional for each commodity type is the sum of the trade-level adjusted notional amounts (cf. paragraph 
+157-158) multiplied by the supervisory delta adjustments (cf. paragraph 159) and the maturity factor (cf. 
+paragraph 164). 
+180. This approach assumes that the four broad categories of commodity derivatives cannot be used 
+to hedge one another (eg a forward contract on crude oil cannot hedge a forward contract on corn). 
+However, within each category, the different commodity types are more likely to demonstrate some 
+stable, meaningful joint dynamics. 
+181. Defining individual commodity types is operationally difficult. In fact, it is impossible to fully 
+specify all relevant distinctions between commodity types so that all basis risk is captured. For example 
+crude oil could be a commodity type within the energy hedging set, but in certain cases this definition 
+could omit a substantial basis risk between different types of crude oil (West Texas Intermediate, Brent, 
+Saudi Light, etc). 
+182. Commodity type hedging sets have been defined without regard to characteristics such as 
+location and quality. For example, the energy hedging set contains commodity types such as crude oil, 
+electricity, natural gas and coal. However, national supervisors may require banks to use more refined 
+definitions of commodities when they are significantly exposed to the basis risk of different products 
+within those commodity types. 
+183.  Table 2 includes the supervisory factors, correlations and supervisory option volatility add-ons 
+for each asset class and subclass.  
+
+ 
+The standardised approach for measuring counterparty credit risk exposures 19 
+ 
+ 
+Summary table of supervisory parameters Table 2 
+Asset 
+Class Subclass  Supervisory factor Correlation  Supervisory option volatility 
+Interest rate    0.50% N/A 50% 
+Foreign exchange    4.0% N/A 15% 
+Credit, Single Name AAA  0.38% 50% 100% 
+  AA  0.38% 50% 100% 
+  A  0.42% 50% 100% 
+  BBB  0.54% 50% 100% 
+  BB  1.06% 50% 100% 
+  B  1.6% 50% 100% 
+  CCC  6.0% 50% 100% 
+Credit, Index IG  0.38% 80% 80% 
+ SG  1.06% 80% 80% 
+Equity, Single Name   32% 50% 120% 
+Equity, Index   20% 80% 75% 
+Commodity Electricity  40% 40% 150% 
+  Oil/Gas  18% 40% 70% 
+  Metals  18% 40% 70% 
+  Agricultural  18% 40% 70% 
+  Other  18% 40% 70% 
+ 
+184.  For a basis transaction hedging set, the supervisory factor applicable to its relevant asset class 
+must be multiplied by one-half. For a volatility transaction hedging set, the supervisory factor applicable 
+to its relevant asset class must be multiplied by a factor of five. 
+Treatment of multiple margin agreements and multiple netting sets 
+185. If multiple margin agreements apply to a single netting set, the netting set must be divided into 
+sub-netting sets that align with their respective margin agreement. This treatment applies to both RC 
+and PFE components. 
+186. If a single margin agreement applies to several netting sets, replacement cost at any time is 
+determined by the sum of netting set unmargined exposures minus the collateral available at that time 
+(including both VM and NICA). Since it is problematic to allocate the common collateral to individual 
+netting sets, RC for the entire margin agreement is:  
+ 
+    MANS MANS CV 0 ;0 ;maxmax MA RC
+ 
+where the summation 
+MANS  is across the netting sets covered by the margin agreement 
+(hence the notation), VNS is the current mark-to-market value of the netting set NS and CMA is the cash 
+equivalent value of all currently available collateral under the margin agreement. 
+187. Where a single margin agreement applies to several netting sets as described in paragraph 186, 
+collateral will be exchanged based on mark-to-market values that are netted across all transactions 
+covered under the margin agreement, irrespective of netting sets. That is, collateral exchanged on a net 
+basis may not be sufficient to cover PFE. 
+
+ 
+20 The standardised approach for measuring counterparty credit risk exposures 
+ 
+ 
+In this situation, therefore, the PFE add-on must be calculated according to the unmargined 
+methodology. Netting set-level PFEs are then aggregated. Mathematically: 
+
+
+
+MANS
+PFE d)(unmargine NSMA PFE
+ 
+where 
+d)(unmargine
+NSPFE is the PFE add-on for the netting set NS calculated according to the 
+unmargined requirements. 
+Section VII (deleted) 
+Paragraphs 91-96(vi) (deleted) 
+A. References to the SM,CEM, and IMM shortcut method 
+(a) Introduction 
+The last sentence of paragraph 1 will be amended by replacing the words “the standardised method or 
+the current exposure method” with the words “the Standardised Approach for counterparty credit risk” 
+and retaining the language in the remainder of the paragraph. 
+(b) Section I – Definitions 
+Paragraph 2.C. (definitions of Netting sets, hedging sets, and related terms) will be amended as follows: 
+“Hedging Set is a set of transactions within a single netting set within which full or partial offsetting is 
+recognised for the purpose of calculating the PFE add-on of the Standardised Approach for counterparty 
+credit risk.” 
+(c) Section IV – Approval to adopt an internal modelling method to estimate EAD 
+Paragraph 21 will be amended by replacing the words “the standardised method or the current exposure 
+method” with the words “the Standardised Approach for counterparty credit risk” and retaining the 
+language in the remainder of the paragraph. 
+Paragraph 22 will be amended by replacing the words “either the standardised method or the 
+current exposure method” with the words “the Standardised Approach for counterparty credit risk”. The 
+rest of the paragraph will be deleted. 
+Paragraph 23 will be amended by replacing the words “any of the three” with the words “either 
+of the” and retaining the language in the remainder of the paragraph.  
+Paragraph 24 will be amended by replacing the words “either the current exposure or 
+standardised methods” with the words “the Standardised Approach for counterparty credit risk” and 
+retaining the language in the remainder of the paragraph.  
+(d) Section VIII – Treatment of mark-to market counterparty risk losses (CVA capital charge) 
+Paragraph 98 will be amended by removing the words “For banks using the short cut method 
+(paragraph 41 of Annex 4) for margined trades, the paragraph 99 should be applied.” 
+Paragraph 99 will be amended by removing the subparagraph that begins with the words 
+“Banks using the short cut method for collateralised OTC derivatives…” and by replacing the words “CEM 
+(Current Exposure Method) or SM (Standardised Method)” in the first and second lines of the following 
+subparagraph with the words “the Standardised Approach for counterparty credit risk (SA-CCR))”, and by 
+replacing the words “CEM or SM” with the words “the SA-CCR” in the eighth line of the same paragraph. 
+The language in the remainder of the subparagraph will be retained.  
+Paragraph 104 will be amended by replacing the words “IMM, SM or CEM” with the words 
+“IMM or SA-CCR” in the third bullet following the formula, and retaining the language in the remainder 
+of the paragraph.  
+
+ 
+The standardised approach for measuring counterparty credit risk exposures 21 
+ 
+Paragraph 105 will be amended by replacing the words “CEM or SM, respectively” with the 
+words “the SA-CCR” in the first paragraph, and by replacing the words “CEM or SM” in subparagraph C.i. 
+with the word “SA-CCR”. The language in the remainder of the paragraph will be retained.  
+(e) Section IX – Central counterparties  
+Paragraph 113 will be amended by replacing the words “either the CEM or the Standardised Method” 
+with “the SA-CCR” and retaining the language in the remainder of the paragraph.  
+Paragraph 123 will be amended by replacing the word “CEM” in the first bullet following the 
+formula with the words “the SA-CCR”, and retaining the language in the remainder of the paragraph.  
+IV. Other revisions to Basel III: A global regulatory framework 
+A. Abbreviations 
+The “CEM” and “SM” entries will be deleted and a new entry, “SA-CCR – Standardised Approach for 
+counterparty credit risk”, will be added in its correct alphabetical position. 
+B. Part 4: Third Pillar; Section II Disclosure requirements 
+Table 8 (General disclosure for exposures related to counterparty credit risk) will be amended by 
+replacing the words “IMM, SM or CEM” with “IMM or SA-CCR”, and retaining the language in the 
+remainder of the table.  
+  
+
+ 
+22 The standardised approach for measuring counterparty credit risk exposures 
+ 
+ 
+Annex 4a 
+Application of the SA-CCR to sample portfolios20 
+Example 1 
+Netting set 1 consists of three interest rates derivatives: two fixed versus floating interest rate swaps and 
+one purchased physically-settled European swaption. The table below summarises the relevant 
+contractual terms of the three derivatives. 
+Trade 
+# 
+Nature Residual  
+maturity 
+Base  
+currency 
+Notional  
+(thousands) 
+Pay Leg 
+(*) 
+Receive 
+Leg  
+(*) 
+Market  
+value 
+(thousands) 
+1 Interest rate swap 10 years USD 10,000 Fixed Floating 30 
+2 Interest rate swap 4 years USD 10,000 Floating Fixed -20 
+3 European swaption  1 into 10 years EUR 5,000 Floating Fixed 50 
+ 
+ (*) For the swaption, the legs are those of the underlying swap. 
+All notional amounts and market values in the table are given in USD. 
+The netting set is not subject to a margin agreement and there is no exchange of collateral 
+(independent amount/initial margin) at inception. According to the SA-CCR formula, the EAD for 
+unmargined netting sets is given by: 
+)*(*  nOAddmultiplierRCalpha EAD aggregate
+ 
+The replacement cost is calculated at the netting set level as a simple algebraic sum (floored at 
+zero) of the derivatives’ market values at the reference date. Thus, using the market values indicated in 
+the table (expressed in thousands): 
+60}0;502030max{}0;max{    CV RC
+ 
+Since V-C is positive (equal to V, ie 60,000), the value of the multiplier is 1, as explained in the 
+paragraphs 148-149 of Annex 4.  
+All the transactions in the netting set belong to the interest rate asset class. For the calculation 
+of the interest rate add-on, the three trades must be assigned to a hedging set (based on the currency) 
+and to a maturity bucket (based on the end date of the transaction). In this example, the netting set is 
+comprised of two hedging sets, since the trades refer to interest rates denominated in two different 
+currencies (USD and EUR). Within hedging set “USD”, trade 1 falls into the third maturity bucket (>5 
+years) and trade 2 falls into the second maturity bucket (1-5 years). Trade 3 falls into the third maturity 
+bucket (>5 years) of hedging set “EUR”. 
+ 
+20  The calculations for the sample portfolios assume that intermediate values are not rounded (ie the actual results are carried 
+through in sequential order). However, for ease of presentation, these intermediate values as well as the final EAD are 
+rounded. 
+
+ 
+The standardised approach for measuring counterparty credit risk exposures 23 
+ 
+For each IR trade i, the adjusted notional is calculated according to: 
+05.0
+)E*05.0exp()S*05.0exp(* d ii(IR) i  NotionalTrade
+ 
+where the second factor in the product is the supervisory duration (SD). 
+iS and 
+iE represent the 
+start date and end date, respectively, of the time period referenced by the interest rate transactions, as 
+defined in accordance with paragraphs 155 and 157 of Annex 4. 
+ 
+Trade  
+# 
+Hedging 
+set 
+Time 
+bucket 
+Notional 
+(thousands)  
+Si Ei SDi Adjusted  
+notional 
+(thousands) 
+Supervisory  
+delta 
+1 USD 3 10,000 0 10 7.87 78,694 1 
+2 USD 2 10,000 0 4 3.63 36,254 -1 
+3 EUR 3 5,000 1 11 7.49 37,428 -0.27 
+ 
+A supervisory delta is assigned to each trade in accordance with paragraph 159 of Annex 4. In 
+particular, trade 1 is long in the primary risk factor (the reference floating rate) and is not an option so 
+the supervisory delta is equal to 1. Trade 2 is short in the primary risk factor and is not an option; thus, 
+the supervisory delta is equal to -1. Trade 3 is an option to enter into an interest rate swap that is short 
+in the primary risk factor and therefore is treated as a bought put option. As such, the supervisory delta 
+is determined by applying the relevant formula in paragraph 159, using 50% as the supervisory option 
+volatility and 1 (year) as the option exercise date. In particular, assuming that the underlying price (the 
+appropriate forward swap rate) is 6% and the strike price (the swaption’s fixed rate) is 5%, the 
+supervisory delta is: 
+    27.0
+1*5.0
+1*5.0*5.005.006.0ln
+2
+      i
+ 
+The effective notional of each maturity bucket of each hedging set is calculated according to:  
+
+
+
+} ,{
+)()()( **
+kj MBCcyi
+type
+i
+IR
+ii
+IR
+jk MFdδD
+ 
+MFi is 1 for all the trades (since they are unmargined and have remaining maturities in excess of 
+one year) in the example and 
+i is the supervisory delta. In particular: 
+Hedging set USD, time bucket 2:    
+254,36254,36*1)( 2, IR USDD    
+Hedging set USD, time bucket 3:    
+694,78694,78*1)( 2, IR USDD  
+Hedging set EUR, time bucket 3:    
+083,10428,37*27.0)( 3, IR EURD  
+Then, aggregation of effective notionals across time buckets inside the same hedging set is performed 
+on the basis of the following formula: 
+      2
+1
+)(
+3
+)(
+1
+)(
+3
+)(
+2
+)(
+2
+)(
+1
+2)(
+3
+2)(
+2
+2)(
+1
+)( **6.0**4.1**4.1      IR j IR j IR j IR j IR j IR j IR j IR j IR j IR j DDDDDDDDDotionalEffectiveN
+ 
+Thus, the effective notional amount for hedging set “USD” is given by: 
+  270,59 694,78*)254,36(*4.1694,78)254,36(otionalEffectiveN 2
+1
+22(IR)
+USD 
+ 
+
+ 
+24 The standardised approach for measuring counterparty credit risk exposures 
+ 
+ 
+Since hedging set “EUR” is made of only one maturity bucket, its effective notional is: 
+  083,10 )083,10(otionalEffectiveN 2
+1
+2(IR)
+EUR 
+  
+ 
+The effective notional amounts should be multiplied by the SF (that for interest rates is equal to 
+0.5%) and summed up across hedging sets: 
+347083,10*%5.0270,59*%5.0 IRAddOn
+ 
+For this netting set the interest rate add-on is also the aggregate add-on because there are no 
+derivatives belonging to other asset classes. Finally, the SA-CCR exposure is calculated by adding up the 
+RC component and PFE component and multiplying the result by 1.4: 
+569)347*160(*4.1 EAD
+ 
+where a value of 1 is used for the multiplier. 
+Example 2 
+Netting set 2 consists of three credit derivatives: one long single-name CDS written on Firm A (rated AA), 
+one short single-name CDS written on Firm B (rated BBB), and one long CDS index (investment grade). 
+The table below summarises the relevant contractual terms of the three derivatives. 
+Trade  
+# Nature Reference entity / index name Rating reference entity Residual maturity Base  currency Notional  (thousands) Position Market  value  (thousands) 
+1 Single-name CDS Firm A AA 3 years USD 10,000 Protectio n  buyer 20 
+2 Single-name CDS Firm B BBB 6 years EUR 10,000 Protectio n  seller -40 
+3 CDS index CDX.IG 5y Investment  grade 5 years USD 10,000 Protectio n  buyer 0 
+ 
+All notional amounts and market values in the table are in USD. As in the previous example, the 
+netting set is not subject to a margin agreement and there is no exchange of collateral (independent 
+amount/initial margin) at inception. The EAD formulation for unmargined netting sets is: 
+ 
+)*(* aggregateAddOnmultiplierRCalphaEAD    
+The replacement cost is: 
+0}0 ;04020max{}0 ;max{ RC  CV
+ 
+Since in this example V-C is negative (equal to V, ie -20), the multiplier will be activated (ie it will 
+be less than 1). Before calculating its value, the aggregate add-on needs to be determined.  
+In order to calculate the aggregate add-on, first, the adjusted notional of each trade must be 
+calculated by multiplying the notional amount with the supervisory duration, where the latter is 
+determined based on the start date 
+iS  and the end date 
+iE  in accordance with the formula in 
+paragraph 157 of Annex 4. The results are shown in the table below.  
+
+ 
+The standardised approach for measuring counterparty credit risk exposures 25 
+ 
+Trade  
+# 
+Notional 
+(thousands)  
+Si  Ei SDi Adjusted  
+notional (thousands) 
+Supervisory  
+delta 
+1 10,000 0 3 2.79 27,858 1 
+2 10,000 0 6 5.18 51,836 -1 
+3 10,000 0 5 4.42 44,240 1 
+ 
+The appropriate supervisory delta must be assigned to each trade: in particular, since trade 1 
+and trade 3 are long in the primary risk factor (CDS spread), their delta is 1; on the contrary, the 
+supervisory delta for trade 2 is -1.  
+Since all derivatives refer to different entities (single names/indices), it is not necessary to 
+aggregate the trades at the entity level. Thus, the entity-level effective notional is equal to the adjusted 
+notional times the supervisory delta (the maturity factor is 1 for all three derivatives). A supervisory factor 
+is assigned to each single-name entity based on the rating of the reference entity (0.38% for AA-rated 
+firms and 0.54% for BBB-rated firms). For CDS indices, the SF is assigned according to whether the index 
+is investment or speculative grade; in this example, its value is 0.38% since the index is investment grade. 
+Thus, the entity level add-ons are the following: 
+106858,27*%38.0)( FirmAAddon
+ 
+280)836,51(*%54.0)( FirmBAddon
+ 
+168240,44*%38.0).( IGCDXAddon
+ 
+Once the entity-level add-ons are calculated, the following formula can be applied: 
+    
+2
+1
+ 
+22)(
+ 
+2
+)()( )(O*1)(O*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+    
+componentticidiosyncra
+k
+k
+Credit
+k
+componentsystematic
+k
+k
+Credit
+k
+Credit EntitynAddρEntitynAddρAddOn
+ 
+Where the correlation parameter 
+)(Credit
+kρ  is equal to 0.5 for the single-name entities (Firm A 
+and Firm B) and 0.8 for the index (CDX.IG). 
+The following table shows a simple way to calculate of the systematic and idiosyncratic 
+components in the formula.  
+ 
+Reference 
+Entity  
+ 
+Entity-level 
+add-on 
+Correlation  
+parameter 
+(r) 
+Entity-level 
+add-on 
+times r 
+(Entity-level 
+add-on)2 1-r2 
+(Entity-level add-
+on)2 
+times (1-r2) 
+Firm A 106 0.5 52.9 11,207 0.75 8,405 
+Firm B -280 0.5 -140 78,353 0.75 58,765 
+CDX.IG 168 0.8 134.5 28,261 0.36 10,174 
+sum =    47.5   77,344 
+(sum)2 =    2,253    
+ 
+According to the calculations in the table, the systematic component is 2,253, while the 
+idiosyncratic component is 77,344.  
+
+ 
+26 The standardised approach for measuring counterparty credit risk exposures 
+ 
+ 
+Thus, 
+  282344,77253,2 2
+1)( CreditAddOn
+ 
+The value of the multiplier can now be calculated as: 
+965.0282*95.0*2 20exp*95.005.0 ;1min             multiplier
+ 
+Finally, aggregating the replacement cost and the PFE component and multiplying the result by 
+the alpha factor of 1.4, the exposure is: 
+.381)282*965.00(*4.1 EAD
+ 
+  
+
+ 
+The standardised approach for measuring counterparty credit risk exposures 27 
+ 
+Example 3 
+Netting set 3 consists of three commodity forward contracts: 
+Trade  
+# Nature Underlying Direction Residual  maturity Notional Market value 
+1 Forward (WTI) Crude Oil Long 9 months 10,000 -50 
+2 Forward (Brent) Crude Oil Short 2 years 20,000 -30 
+3 Forward Silver Long 5 years 10,000 100 
+ 
+There is no margin agreement and no collateral. The replacement cost is given by: 
+20}0;5030100max{}0;max{    CV RC
+ 
+Because the replacement cost is positive and there is no exchange of collateral (so the bank has 
+not received excess collateral), the multiplier is equal to 1.  
+To calculate the add-on, the trades need to be classified into hedging sets (energy, metals, 
+agricultural and other) and, within each hedging set, into commodity types. In this case: 
+Hedging Set Commodity Type Trades  
+Energy 
+Crude Oil 1 and 2 
+Natural Gas  None 
+Coal  None 
+Electricity  None 
+Metals 
+Silver 3 
+Gold  None 
+…  … 
+Agricultural 
+…  … 
+…  … 
+Other …  … 
+ 
+For purposes of this calculation, the bank can ignore the basis difference between the WTI and 
+Brent forward contracts since they belong to the same commodity type, “Crude Oil” (unless the national 
+supervisor requires the bank to use a more refined definition of commodity types). Therefore, these 
+contracts can be aggregated into a single effective notional, taking into account each trade’s supervisory 
+delta and maturity factor. In particular, the supervisory delta is 1 for trade 1 (long position) and -1 for 
+trade 2 (short position). Since the remaining maturity of trade 1 is nine months (thus, shorter than 1 year) 
+and the trade is unmargined, its maturity factor is  
+1291 tradeMF
+ 
+The maturity factor is 1 for trade 2 (remaining maturity greater than 1 year and unmargined trade). Thus, 
+the effective notional for commodity type “Crude Oil” is 
+340,111*000,20*)1(129*000,10*1CrudeOil otionalEffectiveN
+. 
+
+ 
+28 The standardised approach for measuring counterparty credit risk exposures 
+ 
+ 
+where the supervisory delta has been assigned to each trade (+1 for long and -1 for short). The 
+effective notional amount must be multiplied by the supervisory factor for Oil/Gas (18%) to obtain the 
+add-on for the Crude Oil commodity type: 
+    041,2340,11*%18TypeAddOn Energy CrudeOil 
+. 
+The next step, in theory, is to calculate the add-on for the hedging set “Energy” according to 
+the formula: 
+    
+2
+1
+ 
+22)(
+ 
+2
+)()( )(O*1)(O*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+    
+componentticidiosyncra
+k
+Energy
+k
+Com
+Energy
+componentsystematic
+k
+Energy
+k
+Com
+Energy
+Com
+Energy TypenAddρTypenAddρAddOn
+ 
+ 
+However, in our example, only one commodity type within the “Energy” hedging set is 
+populated (ie all other commodity types have a zero add-on). Therefore, 
+   041,2)041,2(*))4.0(1()041,2(*4.0 2
+1
+222)( Com EnergyAddOn
+. 
+This calculation shows that, when there is only one commodity type within a hedging set, the 
+hedging-set add-on is equal (in absolute value) to the commodity-type add-on.  
+Similarly, for commodity type “Silver” in the “Metals” hedging set, we have 
+000,101*000,10*1otionalEffectiveN Silver
+ 
+since the supervisory delta and maturity factor for trade 3 are both equal to 1.  Furthermore, since the 
+“Metals” hedging set includes only the “Silver” commodity type in this example:  
+  .800,1000,10*%18TypeAddOnAddOn Metals Silver )Com( Metals 
+ 
+The aggregate add-on for the commodity derivative asset class is: 
+.841,3800,1041,2AddOnAddOnAddOn )Com( Metals )Com( Energy )Com( 
+ 
+Finally, the exposure is: 
+.406,5)841,3*120(*4.1EAD 
+ 
+Example 4 
+Netting set 4 consists of the combined trades of Examples 1 and 2.  There is no margin agreement and 
+no collateral. 
+The replacement cost of the combined netting set is: 
+40}0;04020502030max{}0;max{    CV RC
+ 
+The add-on for the combined netting set is the sum of add-ons for each asset class. In this case, there 
+are two asset classes, interest rates and credit:  
+629282347)()(  CreditIRaggregate AddOnAddOnAddOn
+ 
+where the add-ons for interest rate and credit derivatives have been copied from Examples 1 
+and 2. Because the netting set has a positive replacement cost and there is no exchange of collateral (so 
+the bank has not received excess collateral), the multiplier is equal to 1. Finally, the exposure is:  
+
+ 
+The standardised approach for measuring counterparty credit risk exposures 29 
+ 
+.936)629*140(*4.1EAD 
+ 
+Example 5 
+Netting set 5 consists of the combined trades of Examples 1 and 3. However, instead of being 
+unmargined (as assumed in those examples), the trades are subject to a margin agreement with the 
+following specifications: 
+Margin frequency Threshold 
+Minimum Transfer 
+Amount 
+(thousands) 
+Independent 
+Amount 
+(thousands) 
+Net collateral 
+currently held by 
+the bank 
+(thousands) 
+Weekly 0 5 150 200 
+ 
+The above table depicts a situation in which the bank received from the counterparty a net 
+independent amount of 150 (taking into account the net amount of initial margin posted by the 
+counterparty and any unsegregated initial margin posted by the bank). The total net collateral currently 
+held by the bank is 200, which includes 50 for variation margin received and 150 for the net independent 
+amount. 
+First, we determine the replacement cost. The net collateral currently held is 200 and the NICA 
+is equal to the independent amount (that is, 150). The current market value of the netting set is: 
+801003050502030V 
+ 
+Therefore: 
+    00 ; 15050 ;20080max0 ;  ;max  NICAMTATHCVRC
+ 
+Second, it is necessary to recalculate the interest rate and commodity add-ons, based on the 
+value of the maturity factor for margined transactions, which depends on the margin period of risk. For 
+daily re-margining, the margin period of risk (MPOR) would be 10 days. In accordance with paragraph 
+41(iii) of Annex 4, for re-margining with a periodicity of N days, the MPOR is equal to ten days plus N 
+days minus one day. Thus, for weekly re-margining (every five business days), MPOR = 10 + 5 – 1 = 14. 
+Hence, the re-scaled maturity factor for the trades in the netting set is:21  
+250/14*5.1year1 MPOR 2 3MF )inedargM( i 
+. 
+Repeating the calculation of Example 1 with the new value of the maturity factor, we get: 
+Hedging set USD, time bucket 2:    
+  869,1225014*5.1*254,36*)1(DUSD,2     
+Hedging set USD, time bucket 3:    
+  934,2725014*5.1*694,78*1DUSD,3   
+Hedging set EUR, time bucket 3:    
+  579,325014*5.1*428,37*)27.0(DEUR,3   
+The effective notional amount for hedging sets “USD” and “EUR” are given by: 
+ 
+21  This example assumes that there are 250 business days in the financial year. In practice, the number of business days used for 
+the purpose of determining the maturity factor must be calculated appropriately for each transaction, taking into account the 
+market conventions of the relevant jurisdiction. 
+
+ 
+30 The standardised approach for measuring counterparty credit risk exposures 
+ 
+ 
+   039,21 934,27*)869,12(*4.1934,27)869,12(otionalEffectiveN 2
+1
+22(IR)
+USD 
+ 
+  579,3 )579,3(otionalEffectiveN 2
+1
+2(IR)
+EUR 
+ 
+The effective notional amounts can be multiplied by the SF (that for interest rates is equal to 
+0.5%) and summed up across hedging sets: 
+123579,3*%5.0039,21*%5.0)( IRAddOn
+ 
+Repeating the calculation of Example 3 with the new value of the maturity factor, we get for 
+hedging set “Energy”: 
+    550,325014*5.1*000,20*)1(25014*5.1*000,10*1otionalEffectiveN Energy CrudeOil 
+ 
+    639550,3*%18TypeAddOn Energy CrudeOil 
+ 
+   639)639(*))4.0(1()639(*4.0AddOn 2
+1
+222)Com(
+Energy 
+ 
+Similarly, for hedging set “Metals”, we have 
+  550,325014*5.1*000,10*1Silver otionalEffectiveN
+ 
+  .639550,3*%18TypeAddOnAddOn Metals Silver )Com( Metals 
+ 
+The overall add-on for the commodity derivative asset class is:  
+.278,1639639AddOnAddOnAddOn )Com( Metals )Com( Energy )Com( 
+ 
+Since there are two asset classes (interest rate and commodity), the aggregate add-in is given 
+by: 
+401,1278,1123)()(  ComIRaggregate AddOnAddOnAddOn
+ 
+Third, we calculate the multiplier as a function of over-collateralisation and the new add-on: 
+9580401,19502 20080exp950050 1min .*.**..;multiplier            
+ 
+ 
+Finally, the exposure is: 
+879,1401,19580041  )*.*(.EAD
+ 
+
+ 
+The standardised approach for measuring counterparty credit risk exposures 31 
+ 
+Annex 4b 
+Effect of standard margin agreements on the SA-CCR formulation 
+The following examples illustrate the operation of the SA-CCR in the context of standard margin 
+agreements. In particular, they relate to the formulation of replacement cost for margined trades, as 
+depicted in paragraph 144 of Annex 4. 
+}0 ;;max{ RC NICAMTATHCV 
+ 
+Example 1 
+1. The bank currently has met all past variation margin (VM) calls so that the value of trades with 
+its counterparty (€80 million) is offset by cumulative VM in the form of cash collateral received. There is a 
+small “Minimum Transfer Amount” (MTA) of €1 million and a €0 ”Threshold” (TH). Furthermore, an 
+“Independent Amount” (IA) of €10 million is agreed in favour of the bank and none in favour of its 
+counterparty. This leads to a credit support amount of €90 million, which is assumed to have been fully 
+received as of the reporting date. 
+2. In this example, the first term in the replacement cost (RC) formula (V-C) is zero, since the value 
+of the trades is offset by collateral received; €80 million – €90 million = negative €10. The second term 
+(TH + MTA - NICA) of the replacement cost formula is negative €9 million (€0 TH + €1 million MTA - €10 
+million of net independent collateral amount held). The last term in the RC formula is always zero, which 
+ensures that replacement cost is not negative. The greatest of the three terms (-€10 million, -€9 million, 
+0) is zero, so the replacement cost is zero. This is due to the large amount of collateral posted by the 
+bank’s counterparty. 
+Example 222 
+3. The counterparty has met all VM calls but the bank has some residual exposure due to the MTA 
+of €1 million in its master agreement, and has a €0 TH. The value of the bank’s trades with the 
+counterparty is €80 million and the bank holds €79.5 million in VM in the form of cash collateral. The 
+bank holds in addition €10 million in independent collateral (here being an initial margin independent of 
+VM, the latter of which is driven by mark-to-market (MtM) changes) from the counterparty and the 
+counterparty holds €10 million in independent collateral from the bank (which is held by the 
+counterparty in a non-segregated manner). 
+4. In this case, the first term of the replacement cost (V-C) is €0.5 million (€80 million - €79.5 
+million - €10 million + €10 million), the second term (TH+MTA-NICA) is €1 million (€0 TH + €1 million 
+MTA - €10 million ICA held + €10 million ICA posted). The third term is zero. The greatest of these three 
+terms (€0.5 million, €1 million, 0) is €1 million, which represents the largest exposure before collateral 
+must be exchanged.  
+ 
+22  While the facts in this example may not be common in current market practice, it is a scenario that is contemplated in the 
+future regulation of margin requirements for non-cleared OTC derivatives. See the second consultative document, “Margin 
+requirements for non-centrally cleared derivatives” (February 2013), available at www.bis.org/publ/bcbs242.pdf. 
+
+ 
+32 The standardised approach for measuring counterparty credit risk exposures 
+ 
+ 
+Bank as a clearing member 
+5. The case of central clearing can be viewed from a number of perspectives. One example in 
+which the replacement cost formula for margined trades can be applied is when the bank is a clearing 
+member and is calculating replacement cost for its own trades with a central counterparty (CCP). In this 
+case, the MTA and TH are generally zero. VM is usually exchanged at least daily and ICA in the form of a 
+performance bond or initial margin is held by the CCP. 
+Example 3 
+6. The bank, in its capacity as clearing member of a CCP, has posted VM to the CCP in an amount 
+equal to the value of the trades it has with the CCP. The bank has posted cash as initial margin and the 
+CCP holds the initial margin in a bankruptcy remote fashion. Assume that the value of trades with the 
+CCP are negative €50 million, the bank has posted €50 million in VM and €10 million in IM to the CCP.  
+7. In this case, the first term (V-C) is €0 ([-€50 million – (-€50 million)] – €0), ie the already posted 
+VM reduces the V to zero. The second term (TH+MTA-NICA) is €0 (€0+€0-€0) since MTA and TH equal 
+€0, and the IM held by the CCP is bankruptcy remote and does not affect NICA. Therefore, the 
+replacement cost is €0.  
+Example 4 
+8. Example 4 is the same as the Example 3, except that the IM posted to the CCP is not bankruptcy 
+remote. In this case, the first term (V-C) of the replacement cost is €10 million ([-€50 million – (-€50 
+million)] – [-€10 million]), the value of the second term (TH+MTA-NICA) is €10 million (€0+€0 – [-€10 
+million]), and the third term is zero. The greatest of these three terms (€10 million, €10 million, €0) is €10 
+million, representing the IM posted to the CCP which would be lost upon default of the CCP, including 
+bankruptcy.  
+Example 5 
+Maintenance Margin Agreement 
+9. Some margin agreements specify that a counterparty (in this case, a bank) must maintain a level 
+of collateral that is a fixed percentage of the MtM of the transactions in a netting set. For this type of 
+margining agreement, ICA is the percentage of MtM that the counterparty must maintain above the net 
+MtM of the transactions. For example, suppose the agreement states that a counterparty must maintain 
+a collateral balance of at least 140% of the MtM of its transactions. Furthermore, suppose there is no TH 
+and no MTA. ICA is the amount of collateral that is required to be posted to the bank by the 
+counterparty. The MTM of the derivative transactions is €50. The counterparty posts €80 in cash 
+collateral. ICA in this case is the amount that the counterparty is required to post above the MTM (140% 
+* €50 – €50 = €20). Replacement cost is determined by the greater of the MtM minus the collateral (€50 
+- €80 = -€30), MTA+TH-NICA (€0+€0-€20 = -€20), and zero, thus the replacement cost is zero.  
+  
+
+ 
+The standardised approach for measuring counterparty credit risk exposures 33 
+ 
+Annex 4c 
+Flow chart of steps to calculate [interest rate] add-on 
+ 
+ 
+Y 
+Y 
+N 
+Y 
+Identification of the trades in the netting set 
+belonging to the interest rate class  
+Calculation of the trade-level  
+adjusted notional amount 
+Assignment of a supervisory delta  
+to each trade  
+ 
+Calculation of the effective notional at maturity 
+bucket level inside each hedging set 
+Application of the formula to aggregate  
+across maturity buckets  
+Does the hedging set include trades belonging to 
+different maturity buckets? 
+Does the netting set include interest rate trades 
+belonging to different hedging sets? 
+Aggregation across hedging sets via simple 
+summation 
+Application of the supervisory factor to the  
+effective notional of the hedging set 
+Assignment of each trade to a hedging set (based 
+on currency) and to a maturity bucket  
+N 
+Interest rate Add-on 
+Does the netting set include trades belonging to 
+other asset classes?  
+Aggregation across asset classes via simple 
+summation  
+Aggregate Add-on 
+N 

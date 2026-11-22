@@ -1,0 +1,1 @@
+{"last_counterparty": "CP-007", "history": [{"q": "Is ORE-Style Benchmark Netting Set within its PFE limit?", "a": "**PFE limit check - ORE-Style Benchmark Netting Set (CP-007)**: peak 95% PFE (collateralised) $587,518.21 vs limit $700,000.00 -> utilisation 83.9% -> **OK**. Uncollateralised peak PFE $8,133,005.68; current MtM $-14,776,020.54."}]}

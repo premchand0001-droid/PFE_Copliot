@@ -1,0 +1,263 @@
+doc_id,field,status,reason,value,amount,currency,party,quote,source_url,human_correct
+0000950124_08_002031_v40177exv99w2_htm,threshold,VERIFIED,,0,0.0,,,"Threshold shall be zero; or (b) so long as (i) an S&P Approved
+Ratings Downgrade has occurred and has been continuing for at least 10 Local
+Business Days or since this Credit Support Annex was executed or (ii) an S&P
+Required Ratings Downgrade has occurred and",https://www.sec.gov/Archives/edgar/data/1244832/000095012408002031/v40177exv99w2.htm,
+0000950124_08_002031_v40177exv99w2_htm,minimum_transfer_amount,VERIFIED,,"USD 50,000",50000.0,USD,,"Minimum Transfer Amount
+” means with respect to Party A,
+$50,000.",https://www.sec.gov/Archives/edgar/data/1244832/000095012408002031/v40177exv99w2.htm,
+0000950124_08_002031_v40177exv99w2_htm,rounding,VERIFIED,,"USD 10,000",10000.0,USD,,"Rounding. 
+The Delivery Amount will be rounded up and the
+Return Amount will be rounded down to the nearest integral multiple of
+$10,000.00, respectively.",https://www.sec.gov/Archives/edgar/data/1244832/000095012408002031/v40177exv99w2.htm,
+0000950124_08_002031_v40177exv99w2_htm,independent_amount,VERIFIED,,0,0.0,,,"Independent Amount
+” means with respect to Party B: Not Applicable.",https://www.sec.gov/Archives/edgar/data/1244832/000095012408002031/v40177exv99w2.htm,
+0000950124_08_002031_v40177exv99w2_htm,base_currency,NOT_FOUND,term not stated in retrieved passages,,,,,,https://www.sec.gov/Archives/edgar/data/1244832/000095012408002031/v40177exv99w2.htm,
+0000950124_08_002031_v40177exv99w2_htm,valuation_agent,VERIFIED,,"Valuation Agent
+” means Party A; 
+provided, however
+, that if an Event of Default
+shall have occurred with respect to wh",,,,"Valuation Agent
+” means Party A; 
+provided, however
+, that if an Event of Default
+shall have occurred with respect to which Party A is the Defaulting Party, Party B
+shall have the right to designate as Valuation Agent an independent party, reasonably
+acceptabl",https://www.sec.gov/Archives/edgar/data/1244832/000095012408002031/v40177exv99w2.htm,
+0000950124_08_002031_v40177exv99w2_htm,notification_time,VERIFIED,,"1:00 p.m., New York time, on a Local Business Day",,,,"Notification Time
+” means 1:00 p.m., New York time, on a Local Business Day.",https://www.sec.gov/Archives/edgar/data/1244832/000095012408002031/v40177exv99w2.htm,
+0000950124_08_002031_v40177exv99w2_htm,eligible_collateral,VERIFIED,,"Eligible Collateral, the product of",,,,"Eligible Collateral, the product of",https://www.sec.gov/Archives/edgar/data/1244832/000095012408002031/v40177exv99w2.htm,
+0000950134_07_008883_a26056a1exv4w8_htm,threshold,VERIFIED,,0,0.0,,,"Threshold with
+respect to Party A shall be zero; further, provided, if a Moody’s Second Rating
+Trigger Requirement has occurred and is continuing pursuant to the Agreement,
+the Threshold shall be zero in the event Party A fails to assign all of its
+rights and",https://www.sec.gov/Archives/edgar/data/1236416/000095013407008883/a26056a1exv4w8.htm,
+0000950134_07_008883_a26056a1exv4w8_htm,minimum_transfer_amount,NOT_FOUND,term not stated in retrieved passages,,,,,,https://www.sec.gov/Archives/edgar/data/1236416/000095013407008883/a26056a1exv4w8.htm,
+0000950134_07_008883_a26056a1exv4w8_htm,rounding,VERIFIED,,"USD 10,000",10000.0,USD,,"Rounding. The Delivery Amount will be rounded up and the
+Return Amount will be rounded down to the nearest integral multiple of
+$10,000.00, respectively.",https://www.sec.gov/Archives/edgar/data/1236416/000095013407008883/a26056a1exv4w8.htm,
+0000950134_07_008883_a26056a1exv4w8_htm,independent_amount,VERIFIED,,0,0.0,,,Independent Amount” means with respect to Party B: Not Applicable.,https://www.sec.gov/Archives/edgar/data/1236416/000095013407008883/a26056a1exv4w8.htm,
+0000950134_07_008883_a26056a1exv4w8_htm,base_currency,NOT_FOUND,term not stated in retrieved passages,,,,,,https://www.sec.gov/Archives/edgar/data/1236416/000095013407008883/a26056a1exv4w8.htm,
+0000950134_07_008883_a26056a1exv4w8_htm,valuation_agent,VERIFIED,,"Valuation Agent” means Party A; provided, however, that if an Event of Default
+shall have occurred with respect to which",,,,"Valuation Agent” means Party A; provided, however, that if an Event of Default
+shall have occurred with respect to which Party A is the Defaulting Party, Party B
+shall have the right to designate as Valuation Agent an independent party,",https://www.sec.gov/Archives/edgar/data/1236416/000095013407008883/a26056a1exv4w8.htm,
+0000950134_07_008883_a26056a1exv4w8_htm,notification_time,VERIFIED,,"1:00 p.m., New York time, on a Local Business Day",,,,"Notification Time” means 1:00 p.m., New York time, on a Local Business Day.",https://www.sec.gov/Archives/edgar/data/1236416/000095013407008883/a26056a1exv4w8.htm,
+0000950134_07_008883_a26056a1exv4w8_htm,eligible_collateral,VERIFIED,,"Eligible Collateral to Party A pursuant to the terms of the Credit
+Support Annex and to the extent such Eligible Collate",,,,"Eligible Collateral to Party A pursuant to the terms of the Credit
+Support Annex and to the extent such Eligible Collateral has not already been applied in
+accordance with this Agreement or the Credit Support Annex. Party B shall have the right to
+terminate th",https://www.sec.gov/Archives/edgar/data/1236416/000095013407008883/a26056a1exv4w8.htm,
+0000950134_08_001278_a37441exv99w2_htm,threshold,VERIFIED,,0,0.0,,,"Threshold shall be zero; or (b) so long as (i) an S&P Approved
+Ratings Downgrade has occurred and has been continuing for at least 10 Local
+Business Days or since this Credit Support Annex was executed or (ii) an S&P
+Required Ratings Downgrade has occurred and",https://www.sec.gov/Archives/edgar/data/1423381/000095013408001278/a37441exv99w2.htm,
+0000950134_08_001278_a37441exv99w2_htm,minimum_transfer_amount,VERIFIED,,"USD 50,000",50000.0,USD,,"Minimum Transfer Amount
+” means with respect to Party A,
+$50,000.",https://www.sec.gov/Archives/edgar/data/1423381/000095013408001278/a37441exv99w2.htm,
+0000950134_08_001278_a37441exv99w2_htm,rounding,VERIFIED,,"USD 10,000",10000.0,USD,,"Rounding. 
+The Delivery Amount will be rounded up and the
+Return Amount will be rounded down to the nearest integral multiple of
+$10,000.00, respectively.",https://www.sec.gov/Archives/edgar/data/1423381/000095013408001278/a37441exv99w2.htm,
+0000950134_08_001278_a37441exv99w2_htm,independent_amount,VERIFIED,,0,0.0,,,"Independent Amount
+” means with respect to Party B: Not Applicable.",https://www.sec.gov/Archives/edgar/data/1423381/000095013408001278/a37441exv99w2.htm,
+0000950134_08_001278_a37441exv99w2_htm,base_currency,NOT_FOUND,term not stated in retrieved passages,,,,,,https://www.sec.gov/Archives/edgar/data/1423381/000095013408001278/a37441exv99w2.htm,
+0000950134_08_001278_a37441exv99w2_htm,valuation_agent,VERIFIED,,"Valuation Agent
+” means Party A; 
+provided, however
+, that if an Event of Default
+shall have occurred with respect to wh",,,,"Valuation Agent
+” means Party A; 
+provided, however
+, that if an Event of Default
+shall have occurred with respect to which Party A is the Defaulting Party, Party B
+shall have the right to designate as Valuation Agent an independent party, reasonably
+acceptabl",https://www.sec.gov/Archives/edgar/data/1423381/000095013408001278/a37441exv99w2.htm,
+0000950134_08_001278_a37441exv99w2_htm,notification_time,VERIFIED,,"1:00 p.m., New York time, on a Local Business Day",,,,"Notification Time
+” means 1:00 p.m., New York time, on a Local Business Day.",https://www.sec.gov/Archives/edgar/data/1423381/000095013408001278/a37441exv99w2.htm,
+0000950134_08_001278_a37441exv99w2_htm,eligible_collateral,VERIFIED,,"Eligible Collateral, the product of",,,,"Eligible Collateral, the product of",https://www.sec.gov/Archives/edgar/data/1423381/000095013408001278/a37441exv99w2.htm,
+0000950137_08_014381_c48210exv99w2_htm,threshold,VERIFIED,,0,0.0,,,"Threshold
+shall be zero; (b) so long as (i) a S&P Ratings Downgrade has occurred and
+has been continuing for at least 10 Local Business Days or since this Credit
+Support Annex was executed the Threshold shall be zero; or (c) so long as",https://www.sec.gov/Archives/edgar/data/1129068/000095013708014381/c48210exv99w2.htm,
+0000950137_08_014381_c48210exv99w2_htm,minimum_transfer_amount,VERIFIED,,"USD 50,000",50000.0,USD,,"Minimum Transfer Amount
+” means with respect to Party A,
+$50,000.",https://www.sec.gov/Archives/edgar/data/1129068/000095013708014381/c48210exv99w2.htm,
+0000950137_08_014381_c48210exv99w2_htm,rounding,VERIFIED,,"USD 10,000",10000.0,USD,,"Rounding. 
+The Delivery Amount will be rounded up and the
+Return Amount will be rounded down to the nearest integral multiple of
+$10,000.00, respectively.",https://www.sec.gov/Archives/edgar/data/1129068/000095013708014381/c48210exv99w2.htm,
+0000950137_08_014381_c48210exv99w2_htm,independent_amount,VERIFIED,,0,0.0,,,"Independent Amount
+” means with respect to Party B: Not Applicable.",https://www.sec.gov/Archives/edgar/data/1129068/000095013708014381/c48210exv99w2.htm,
+0000950137_08_014381_c48210exv99w2_htm,base_currency,NOT_FOUND,term not stated in retrieved passages,,,,,,https://www.sec.gov/Archives/edgar/data/1129068/000095013708014381/c48210exv99w2.htm,
+0000950137_08_014381_c48210exv99w2_htm,valuation_agent,VERIFIED,,"Valuation Agent
+” means Party A; 
+provided, however
+, that if an Event of Default
+shall have occurred with respect to wh",,,,"Valuation Agent
+” means Party A; 
+provided, however
+, that if an Event of Default
+shall have occurred with respect to which Party A is the Defaulting Party, Party B
+shall have the right to designate as Valuation Agent an independent party, reasonably
+acceptabl",https://www.sec.gov/Archives/edgar/data/1129068/000095013708014381/c48210exv99w2.htm,
+0000950137_08_014381_c48210exv99w2_htm,notification_time,VERIFIED,,"1:00 p.m., New York time, on a Local Business Day",,,,"Notification Time
+” means 1:00 p.m., New York time, on a Local Business Day.",https://www.sec.gov/Archives/edgar/data/1129068/000095013708014381/c48210exv99w2.htm,
+0000950137_08_014381_c48210exv99w2_htm,eligible_collateral,VERIFIED,,"Eligible Collateral, the product of",,,,"Eligible Collateral, the product of",https://www.sec.gov/Archives/edgar/data/1129068/000095013708014381/c48210exv99w2.htm,
+0001193125_06_056169_dex417_htm,threshold,VERIFIED,,"USD 50,000",50000.0,USD,,"Threshold” 
+means, with respect to Party A, infinite; with respect to Party B shall be USD 50,000; 
+provided
+ that, if an Event of Default or Additional
+Termination Event has occurred and is continuing with respect to Party B, then the Threshold with respect t",https://www.sec.gov/Archives/edgar/data/1174735/000119312506056169/dex417.htm,
+0001193125_06_056169_dex417_htm,minimum_transfer_amount,VERIFIED,,"USD 250,000",250000.0,USD,,"Minimum Transfer Amount”
+ means, with respect to a party, USD 250,000; 
+provided
+ that, notwithstanding anything to the contrary contained herein, the Minimum
+Transfer Amount shall not apply to the Independent Amount, and 
+provided further
+ that, if an Event o",https://www.sec.gov/Archives/edgar/data/1174735/000119312506056169/dex417.htm,
+0001193125_06_056169_dex417_htm,rounding,VERIFIED,,"USD 1,000",1000.0,USD,,"Rounding. 
+The Delivery Amount and the Return Amount shall be rounded up and down respectively to the nearest integral multiple of USD 1,000.",https://www.sec.gov/Archives/edgar/data/1174735/000119312506056169/dex417.htm,
+0001193125_06_056169_dex417_htm,independent_amount,VERIFIED,,0,0.0,,,"Independent Amounts applicable to Pledgor
+exceed zero, the Credit Support Amount will not be less than the sum of all Independent Amounts applicable to the Pledgor.",https://www.sec.gov/Archives/edgar/data/1174735/000119312506056169/dex417.htm,
+0001193125_06_056169_dex417_htm,base_currency,NOT_FOUND,term not stated in retrieved passages,,,,,,https://www.sec.gov/Archives/edgar/data/1174735/000119312506056169/dex417.htm,
+0001193125_06_056169_dex417_htm,valuation_agent,VERIFIED,,Valuation Agent in its sole discretion.,,,,Valuation Agent in its sole discretion.,https://www.sec.gov/Archives/edgar/data/1174735/000119312506056169/dex417.htm,
+0001193125_06_056169_dex417_htm,notification_time,VERIFIED,,"1:00 p.m., New York time, on a Local Business Day",,,,"Notification Time” 
+means by 1:00 p.m., New York time, on a Local Business Day.",https://www.sec.gov/Archives/edgar/data/1174735/000119312506056169/dex417.htm,
+0001193125_06_056169_dex417_htm,eligible_collateral,VERIFIED,,"Eligible Collateral.
+ The following items will qualify as
+ “Eligible Collateral” 
+for the party specified:",,,,"Eligible Collateral.
+ The following items will qualify as
+ “Eligible Collateral” 
+for the party specified:",https://www.sec.gov/Archives/edgar/data/1174735/000119312506056169/dex417.htm,
+0001193125_06_056169_dex419_htm,threshold,VERIFIED,,"USD 50,000",50000.0,USD,,"Threshold” 
+means, with respect to Party A, infinite; with respect to Party B shall be USD 50,000; 
+provided
+ that, if an Event of Default or Additional
+Termination Event has occurred and is continuing with respect to Party B, then the Threshold with respect t",https://www.sec.gov/Archives/edgar/data/1174735/000119312506056169/dex419.htm,
+0001193125_06_056169_dex419_htm,minimum_transfer_amount,VERIFIED,,"USD 250,000",250000.0,USD,,"Minimum Transfer Amount”
+ means, with respect to a party, USD 250,000; provided that, notwithstanding anything to the contrary contained herein, the Minimum
+Transfer Amount shall not apply to the Independent Amount, and 
+provided further
+ that, if an Event of",https://www.sec.gov/Archives/edgar/data/1174735/000119312506056169/dex419.htm,
+0001193125_06_056169_dex419_htm,rounding,VERIFIED,,"USD 1,000",1000.0,USD,,"Rounding. 
+The Delivery Amount and the Return Amount shall be rounded up and down respectively to the nearest integral multiple of USD 1,000.",https://www.sec.gov/Archives/edgar/data/1174735/000119312506056169/dex419.htm,
+0001193125_06_056169_dex419_htm,independent_amount,VERIFIED,,0,0.0,,,"Independent Amounts applicable to
+Pledgor exceed zero, the Credit Support Amount will not be less than the sum of all Independent Amounts applicable to the Pledgor.",https://www.sec.gov/Archives/edgar/data/1174735/000119312506056169/dex419.htm,
+0001193125_06_056169_dex419_htm,base_currency,NOT_FOUND,term not stated in retrieved passages,,,,,,https://www.sec.gov/Archives/edgar/data/1174735/000119312506056169/dex419.htm,
+0001193125_06_056169_dex419_htm,valuation_agent,VERIFIED,,Valuation Agent in its sole discretion.,,,,Valuation Agent in its sole discretion.,https://www.sec.gov/Archives/edgar/data/1174735/000119312506056169/dex419.htm,
+0001193125_06_056169_dex419_htm,notification_time,VERIFIED,,"1:00 p.m., New York time, on a Local Business Day",,,,"Notification Time” 
+means by 1:00 p.m., New York time, on a Local Business Day.",https://www.sec.gov/Archives/edgar/data/1174735/000119312506056169/dex419.htm,
+0001193125_06_056169_dex419_htm,eligible_collateral,VERIFIED,,"Eligible Collateral.
+ The following items will qualify as
+ “Eligible Collateral” 
+for the party specified:",,,,"Eligible Collateral.
+ The following items will qualify as
+ “Eligible Collateral” 
+for the party specified:",https://www.sec.gov/Archives/edgar/data/1174735/000119312506056169/dex419.htm,
+0001193125_06_230351_dex411_htm,threshold,VERIFIED,,"USD 50,000",50000.0,USD,,"Threshold” 
+means, with respect to Party A, infinite; with respect to Party B shall be USD 50,000; 
+provided
+ that, if an Event of Default or Additional
+Termination Event has occurred and is continuing with respect to Party B, then the Threshold with respect t",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex411.htm,
+0001193125_06_230351_dex411_htm,minimum_transfer_amount,VERIFIED,,"USD 250,000",250000.0,USD,,"Minimum Transfer Amount”
+ means, with respect to a party, USD 250,000; 
+provided
+ that, notwithstanding anything to the contrary contained herein, the Minimum
+Transfer Amount shall not apply to the Independent Amount, and 
+provided further
+ that, if an Event o",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex411.htm,
+0001193125_06_230351_dex411_htm,rounding,VERIFIED,,"USD 1,000",1000.0,USD,,"Rounding. 
+The Delivery Amount and the Return Amount shall be rounded up and down respectively to the nearest integral multiple of USD 1,000.",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex411.htm,
+0001193125_06_230351_dex411_htm,independent_amount,VERIFIED,,0,0.0,,,"Independent Amounts applicable to
+Pledgor exceed zero, the Credit Support Amount will not be less than the sum of all Independent Amounts applicable to the Pledgor.",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex411.htm,
+0001193125_06_230351_dex411_htm,base_currency,NOT_FOUND,term not stated in retrieved passages,,,,,,https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex411.htm,
+0001193125_06_230351_dex411_htm,valuation_agent,VERIFIED,,Valuation Agent in its sole discretion.,,,,Valuation Agent in its sole discretion.,https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex411.htm,
+0001193125_06_230351_dex411_htm,notification_time,VERIFIED,,"1:00 p.m., New York time, on a Local Business Day",,,,"Notification Time” 
+means by 1:00 p.m., New York time, on a Local Business Day.",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex411.htm,
+0001193125_06_230351_dex411_htm,eligible_collateral,VERIFIED,,"Eligible Collateral.
+ The following items will qualify as 
+“Eligible Collateral” 
+for the party specified:",,,,"Eligible Collateral.
+ The following items will qualify as 
+“Eligible Collateral” 
+for the party specified:",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex411.htm,
+0001193125_06_230351_dex420_htm,threshold,VERIFIED,,"USD 50,000",50000.0,USD,,"Threshold”
+ means, with respect to Party A, infinite; with respect to Party B shall be USD 50,000; 
+provided
+ that, if an Event of Default or Additional
+Termination Event has occurred and is continuing with respect to Party B, then the Threshold with respect t",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex420.htm,
+0001193125_06_230351_dex420_htm,minimum_transfer_amount,VERIFIED,,"USD 250,000",250000.0,USD,,"Minimum Transfer Amount”
+ means, with respect to a party, USD 250,000; 
+provided
+ that, notwithstanding anything to the contrary contained herein, the Minimum
+Transfer Amount shall not apply to the Independent Amount, and 
+provided",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex420.htm,
+0001193125_06_230351_dex420_htm,rounding,VERIFIED,,"USD 10,000",10000.0,USD,,"Rounding.
+ The Delivery Amount and the Return Amount shall be rounded up and down respectively to the nearest integral multiple of USD 10,000.",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex420.htm,
+0001193125_06_230351_dex420_htm,independent_amount,VERIFIED,,0,0.0,,,"Independent Amounts applicable to
+Pledgor exceed zero, the Credit Support Amount will not be less than the sum of all Independent Amounts applicable to the Pledgor.",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex420.htm,
+0001193125_06_230351_dex420_htm,base_currency,NOT_FOUND,term not stated in retrieved passages,,,,,,https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex420.htm,
+0001193125_06_230351_dex420_htm,valuation_agent,VERIFIED,,"Valuation Agent”
+ means Party A; provided, however, notwithstanding anything to the contrary set forth in this Annex, th",,,,"Valuation Agent”
+ means Party A; provided, however, notwithstanding anything to the contrary set forth in this Annex, the Valuation Agent shall not be required to
+notify Party B of any of Valuation Agent’s calculation of Value, Exposure, Delivery Amount or Ret",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex420.htm,
+0001193125_06_230351_dex420_htm,notification_time,VERIFIED,,"1:00 p.m., New York time, on a Local Business Day",,,,"Notification Time”
+ means by 1:00 p.m., New York time, on a Local Business Day.",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex420.htm,
+0001193125_06_230351_dex420_htm,eligible_collateral,VERIFIED,,"Eligible Collateral
+. Shall consist of those assets identified by the ICAD codes listed below, as they are defined in th",,,,"Eligible Collateral
+. Shall consist of those assets identified by the ICAD codes listed below, as they are defined in the Collateral Asset Definitions. Percentage shown is the
+Valuation Percentage applicable to the indicated combination of ICAD and Remaining M",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex420.htm,
+0001193125_06_230351_dex423_htm,threshold,VERIFIED,,"USD 50,000",50000.0,USD,,"Threshold”
+ means, with respect to Party A, infinite; with respect to Party B shall be USD 50,000; 
+provided
+ that, if an Event of Default or Additional
+Termination Event has occurred and is continuing with respect to Party B, then the Threshold with respect t",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex423.htm,
+0001193125_06_230351_dex423_htm,minimum_transfer_amount,VERIFIED,,"USD 250,000",250000.0,USD,,"Minimum Transfer Amount”
+ means, with respect to a party, USD 250,000; 
+provided
+ that, notwithstanding anything to the contrary contained herein, the Minimum
+Transfer Amount shall not apply to the Independent Amount, and 
+provided",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex423.htm,
+0001193125_06_230351_dex423_htm,rounding,VERIFIED,,"USD 10,000",10000.0,USD,,"Rounding.
+ The Delivery Amount and the Return Amount shall be rounded up and down respectively to the nearest integral multiple of USD 10,000.",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex423.htm,
+0001193125_06_230351_dex423_htm,independent_amount,VERIFIED,,0,0.0,,,"Independent Amounts applicable to
+Pledgor exceed zero, the Credit Support Amount will not be less than the sum of all Independent Amounts applicable to the Pledgor.",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex423.htm,
+0001193125_06_230351_dex423_htm,base_currency,NOT_FOUND,term not stated in retrieved passages,,,,,,https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex423.htm,
+0001193125_06_230351_dex423_htm,valuation_agent,VERIFIED,,"Valuation Agent”
+ means Party A; provided, however, notwithstanding anything to the contrary set forth in this Annex, th",,,,"Valuation Agent”
+ means Party A; provided, however, notwithstanding anything to the contrary set forth in this Annex, the Valuation Agent shall not be required to
+notify Party B of any of Valuation Agent’s calculation of Value, Exposure, Delivery Amount or Ret",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex423.htm,
+0001193125_06_230351_dex423_htm,notification_time,VERIFIED,,"1:00 p.m., New York time, on a Local Business Day",,,,"Notification Time”
+ means by 1:00 p.m., New York time, on a Local Business Day.",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex423.htm,
+0001193125_06_230351_dex423_htm,eligible_collateral,VERIFIED,,"Eligible Collateral
+. Shall consist of those assets identified by the ICAD codes listed below, as they are defined in th",,,,"Eligible Collateral
+. Shall consist of those assets identified by the ICAD codes listed below, as they are defined in the Collateral Asset Definitions. Percentage shown is the
+Valuation Percentage applicable to the indicated combination of ICAD and Remaining M",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex423.htm,
+0001193125_06_230351_dex426_htm,threshold,VERIFIED,,"USD 50,000",50000.0,USD,,"Threshold”
+ means, with respect to Party A, infinite; with respect to Party B shall be USD 50,000; 
+provided
+ that, if an Event of Default or Additional
+Termination Event has occurred and is continuing with respect to Party B, then the Threshold with respect t",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex426.htm,
+0001193125_06_230351_dex426_htm,minimum_transfer_amount,VERIFIED,,"USD 250,000",250000.0,USD,,"Minimum Transfer Amount”
+ means, with respect to a party, USD 250,000; 
+provided
+ that, notwithstanding anything to the contrary contained herein, the Minimum
+Transfer Amount shall not apply to the Independent Amount, and 
+provided",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex426.htm,
+0001193125_06_230351_dex426_htm,rounding,VERIFIED,,"USD 10,000",10000.0,USD,,"Rounding.
+ The Delivery Amount and the Return Amount shall be rounded up and down respectively to the nearest integral multiple of USD 10,000.",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex426.htm,
+0001193125_06_230351_dex426_htm,independent_amount,VERIFIED,,0,0.0,,,"Independent Amounts applicable to
+Pledgor exceed zero, the Credit Support Amount will not be less than the sum of all Independent Amounts applicable to the Pledgor.",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex426.htm,
+0001193125_06_230351_dex426_htm,base_currency,NOT_FOUND,term not stated in retrieved passages,,,,,,https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex426.htm,
+0001193125_06_230351_dex426_htm,valuation_agent,VERIFIED,,"Valuation Agent”
+ means Party A; provided, however, notwithstanding anything to the contrary set forth in this Annex, th",,,,"Valuation Agent”
+ means Party A; provided, however, notwithstanding anything to the contrary set forth in this Annex, the Valuation Agent shall not be required to
+notify Party B of any of Valuation Agent’s calculation of Value, Exposure, Delivery Amount or Ret",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex426.htm,
+0001193125_06_230351_dex426_htm,notification_time,VERIFIED,,"1:00 p.m., New York time, on a Local Business Day",,,,"Notification Time”
+ means by 1:00 p.m., New York time, on a Local Business Day.",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex426.htm,
+0001193125_06_230351_dex426_htm,eligible_collateral,VERIFIED,,"Eligible Collateral
+. Shall consist of those assets identified by the ICAD codes listed below, as they are defined in th",,,,"Eligible Collateral
+. Shall consist of those assets identified by the ICAD codes listed below, as they are defined in the Collateral Asset Definitions. Percentage shown is the
+Valuation Percentage applicable to the indicated combination of ICAD and Remaining M",https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex426.htm,

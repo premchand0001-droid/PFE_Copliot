@@ -1,0 +1,1 @@
+{"last_counterparty": "CP-007", "history": [{"q": "Calculate the margin call for CP-007.", "a": "**Margin - ORE-Style Benchmark Netting Set (CP-007)**: net MtM $-14,776,020.54; threshold $0.00; MTA $250,000.00; collateral held after 0.0% haircut $0.00; credit support amount $0.00 -> no margin call is required (no action; below MTA or fully collateralised)."}]}

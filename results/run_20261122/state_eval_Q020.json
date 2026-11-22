@@ -1,0 +1,1 @@
+{"last_counterparty": "CP-004", "history": [{"q": "Calculate the margin call for CP-004.", "a": "**Margin - Zenith Hedge Fund LLC (CP-004)**: net MtM $-4,694,003.00; threshold $500,000.00; MTA $250,000.00; collateral held after 15.0% haircut $0.00; credit support amount $0.00 -> no margin call is required (no action; below MTA or fully collateralised)."}]}

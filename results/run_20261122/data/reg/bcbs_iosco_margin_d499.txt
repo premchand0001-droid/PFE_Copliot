@@ -1,0 +1,1259 @@
+ 
+ 
+ 
+ Basel Committee 
+on Banking Supervision 
+ 
+Board of the 
+International 
+Organization of 
+Securities Commissions 
+  
+ 
+ 
+ 
+Margin requirements for 
+non-centrally cleared 
+derivatives 
+ 
+ 
+ 
+April 2020 
+   
+ 
+ 
+ 
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+This publication is available on the BIS website (www.bis.org) and IOSCO website (www.iosco.org). 
+ 
+Certain authorities may consider rule proposals or standards that relate to the substance of this report. These 
+authorities provided information or otherwise participated in the preparation of this report, but their 
+participation should not be viewed as an expression of a judgment by these authorities regarding their current 
+or future regulatory proposals or of their rulemaking or standards implementation work. This report thus 
+does not reflect a judgment by, or limit the choices of, these authorities with regard to their proposed or final 
+versions of their rules or standards. 
+ 
+ 
+© Bank for International Settlements 2020. All rights reserved. Brief excerpts may be reproduced or 
+translated provided the source is stated. 
+ 
+ 
+ISBN 978-92-9259-361-2 (online) 
+
+ 
+Margin requirements for non-centrally cleared derivatives  
+ 
+ 
+Contents 
+Part A: Executive summary ............................................................................................................................................................ 1 
+Part B: Key principles and requirements .................................................................................................................................. 7 
+Element 1: Scope of coverage – instruments subject to the requirements ............................................. 7 
+Element 2: Scope of coverage – scope of applicability ................................................................................... 8 
+Element 3: Baseline minimum amounts and methodologies for initial and variation margin ....... 11 
+Element 4: Eligible collateral for margin .............................................................................................................. 16 
+Element 5: Treatment of provided initial margin ............................................................................................. 19 
+Element 6: Treatment of transactions with affiliates ....................................................................................... 21 
+Element 7: Interaction of national regimes in cross-border transactions .............................................. 22 
+Element 8: Phase-in of requirements .................................................................................................................... 23 
+Appendix A: Standardised initial margin schedule ............................................................................................................ 25 
+Appendix B: Standardised haircut schedule ......................................................................................................................... 26 
+ 
+ 
+  
+
+ 
+ 
+Abbreviations 
+ 
+BCBS Basel Committee on Banking Supervision 
+BIS Bank for International Settlements 
+CCP Central counterparty 
+CGFS Committee on the Global Financial System 
+CPSS Committee on Payment and Settlement Systems 
+FSB Financial Stability Board 
+FX Foreign exchange 
+G20 The Group of Twenty 
+G-SIFI Global systemically important financial institution 
+IOSCO International Organization of Securities Commissions 
+LCR Liquidity coverage ratio 
+MTA Minimum transfer amount 
+NSFR Net stable funding ratio 
+OTC Over-the-counter 
+PSE Public Sector Entity 
+QIS Quantitative impact study 
+WGMR Working Group on Margining Requirements 
+ 
+ 
+ 
+
+ 
+Margin requirements for non-centrally cleared derivatives 1 
+ 
+ 
+Part A: Executive summary 
+This document presents the final policy framework that establishes minimum standards for margin 
+requirements for non- centrally cleared derivatives as agreed by the Basel Committee on Banking 
+Supervision (BCBS) and the International Organization of Securities Commissions (IOSCO). 1 This final 
+framework was developed in consultation with the Committee on Payment and Settlement Systems (CPSS) 
+and the Committee on the Global Financial System (CGFS). [NB: The CPSS was renamed as the Committee 
+on Payments and Market Infrastructures (CPMI) in June 2014.] 
+Background 
+The economic and financial crisis that began in 2007 exposed significant weaknesses in the resiliency of 
+banks and other market participants to financial and economic shocks. In the context of over-the-counter 
+(OTC) derivatives in particular, the recent financial crisis demonstrated that improved transparency in the 
+OTC derivatives markets and further regulation of OTC derivatives and market participants w ould be  
+necessary to limit excessive and opaque risk-taking through OTC derivatives and to mitigate the systemic 
+risk posed by OTC derivatives transactions, markets, and practices. 
+In response, the Group of Twenty (G20) initiated a reform programme in 2009 to reduce the 
+systemic risk from OTC derivatives. As initially agreed in 2009, the G20’s r eform programme comprised 
+four elements: 
+• All standardised OTC derivatives should be traded on exchanges or electronic platforms, where 
+appropriate. 
+• All standardised OTC derivatives should be cleared through central counterparties (CCPs). 
+• OTC derivatives contracts should be reported to trade repositories. 
+• Non-centrally cleared derivatives contracts should be subject to higher capital requirements.2 
+In 2011, the G20 agreed to add margin requirements on non-centrally cleared derivatives to the 
+reform programme and called upon the BCBS and IOSCO to develop, for consultation, consistent global 
+standards for these margin requirements.3 To this end, the BCBS and IOSCO, in consultation with the CPSS 
+and CGFS, formed the Working Group on Margining Requirements (WGMR)  in October 2011 to develop 
+a proposal on margin requirements for non-centrally cleared derivatives for consultation by mid-2012. 
+In July 2012, an initial proposal was released for consultation. The initial proposal was followed 
+by an invitation to comment  on the proposal by 28 September 2012. Additionally, a quantitative impact 
+study (QIS) was conducted to assess the potential liquidity and other quantitative impacts associated with 
+mandatory margining requirements. 
+In February 2013, the BCBS and IOSCO rel eased a second consultative document that reflected 
+the near -final policy framework after careful consideration of the responses to the first consultative 
+ 
+1 Throughout this paper, the term “non- centrally cleared derivatives” is used as shorthand to refer to derivatives that are not 
+cleared through a central counterparty. 
+2 G20, Pittsburgh summit declaration, www.g20.utoronto.ca/2009/2009communique0925.html. 
+3 G20, Cannes summit final declaration, www.g20civil.com/documents/Cannes_Declaration_4_November_2011.pdf. 
+
+ 
+2 Margin requirements for non-centrally cleared derivatives 
+ 
+document as well as the QIS results. The consultative document sought comment on four questions 
+relating to certain specific aspects of the near-final margin framework. 
+A large number of comments were received on the near -final margin framework. These 
+comments have been considered in updating the proposal and specifying a final global framework for 
+margining requirements on non-centrally cleared derivatives. 
+In March 2015, taking into account the operational and legal complexities of implementing the 
+final framework, the BCBS and IOSCO agreed to delay the implementation of the margin requirements. 
+The requ irement to collect and post initial margin was  delayed by nine months. The requirement to 
+exchange variation margin was also delayed by nine months, and was subject to a six month phase -in 
+period.  
+In order to ensure smooth and consistent implementation of the requirements for the large 
+number of covered entities that will be subject to the final implementation phases, in July 2019, the BCBS 
+and IOSCO extended the final implementation of the framework by one year  to 1 September 2021. 
+Accordingly, the BCBS and IOSCO added one new additional implementation phase  to precede the final 
+implementation of the margin requirements. Element 8 has been updated to reflect this change. 
+In April 2020, the BCBS and IOSCO extended by one year the final two implementation phases in 
+order to provide additional operational capacity for firms to respond to the immediate impact of Covid-
+19 and at the same time, facilitate covered entities to act diligently to comply with the requirements by 
+the revised deadline.  
+The following document lays out the key objectives, elements and principles of the final 
+margining framework for non-centrally cleared derivatives. 
+Objectives of margin requirements for non-centrally cleared derivatives 
+Margin requirements for non-centrally cleared derivatives have two main benefits: 
+Reduction of systemic risk . Only standardised derivatives are suitable for central clearing. A 
+substantial fraction of derivatives are not standardised and cannot  be centrally cleared.4 These non-
+centrally cleared derivatives, totalling hundreds of trillions of dollars in notional amounts,5 pose the same 
+type of systemic contagion and spillover risks that materialised in the recent financial crisis. Margin 
+requirements for non-centrally cleared derivatives would be expected to reduce contagion and spillover 
+effects by ensuring that collateral is  available to offset losses caused by the default of a derivatives 
+counterparty. Margin requirements can also have broader macroprudential benefits, by reduci ng the 
+financial system’s vulnerability to potentially destabilising procyclicality and limiting the build -up of 
+uncollateralised exposures within the financial system. 
+Promotion of central clearing. In many jurisdictions, central clearing will be mandatory for most 
+standardised derivatives. But clearing imposes costs, in part because CCPs require margin to be posted. 
+Margin requirements on non-centrally cleared derivatives, by reflecting the generally higher risk associated 
+with these derivatives, will promote central clearing, making the G20’s original 2009 reform programme 
+more effective. This could, in turn, contribute to the reduction of systemic risk. 
+ 
+4 IMF (Global Financial Stability Report, April 2010, Chapter 3) assumes that one quarter of interest rate swaps, one third of credit 
+default swaps, and two thirds of other OTC derivatives will not be sufficiently standardised and liquid to be centrally cleared. 
+5 A BIS survey ( Semiannual OTC derivatives statistics at end- June 2012) shows that not ional amount outstanding for OTC 
+derivatives totalled USD 639 trillion in June 2012. 
+
+ 
+Margin requirements for non-centrally cleared derivatives 3 
+ 
+ 
+The effectiveness of margin requirements could be undermined if the requirements were not 
+consistent internationally. Activity could move to locations with lower margin requirements, raising two 
+concerns: 
+• The effectiveness of the margin requirements could be undermined (ie regulatory arbitrage). 
+• Financial institutions that  operate in the low -margin locations could gain a competitive 
+advantage (ie unlevel playing field). 
+Margin and capital 
+Both capital and margin perform important and complementary risk mitigation functions but are distinct 
+in a number of ways. First, margin is “defaulter-pay”. In the event of a counterparty default, margin protects 
+the surviving party by absorbing losses using the collateral provided by the defaulting entity. In contrast, 
+while capital adds loss absorbency to the system, because it is “survi vor-pay”, using capital to meet such 
+losses consumes the surviving entity’s own financial resources.  The shift towards greater reliance on 
+margin will have a useful influence on incentives. Greater reliance on margin will help market participants 
+to better internalise the cost of their risk-taking, because they will have to post collateral when they enter 
+into a derivative s contract. It will also promote resilient markets in times of stress, when a market 
+participant who has not received margin could be under pressure to withdraw from trading to preserve its 
+capital. 
+Second, margin is more “targeted” and dynamic, with each portfolio having its own designated 
+margin for absorbing the potential losses in relation to that particular portfolio, and with such mar gin 
+being adjusted over time to reflect changes in that portfolio’s risk. In contrast, capital is shared collectively 
+by all the entity’s activities and may thus be more easily depleted at a time of stress . It is also difficult to 
+rapidly adjust capital in response to changing risk exposures. Capital requirements against each exposure 
+are not designed to cover the loss on the default of the counterparty but rather the probability-weighted 
+loss given such default. For these reasons, margin can be seen as off ering enhanced protection against 
+counterparty credit risk provided that it is effectively implemented. In order for margin to act as an effective 
+risk mitigant, it must be (i) accessible when needed and (ii) provided in a form that can be liquidated 
+rapidly and at a predictable price even in a time of financial stress. 
+Impact of margin requirements on liquidity 
+The potential benefits of margin requirements must be weighed against the liquidity impact that would 
+result from derivative s counterparties’ need to provide liquid high -quality collateral to meet those 
+requirements, including potential changes to market functioning as a result of an increas ed aggregate 
+demand for such collateral. Financial institutions may need to obtain and deploy additional liquid ity 
+resources to meet margin requirements that exceed current practice. Moreover, the liquidity impact of 
+margin requirements cannot be considered in isolation. Rather, it is important to recognise ongoing and 
+parallel regulatory initiatives that will also  have significant liquidity impacts; examples of such initiatives 
+include the BCBS’s Liquidity Coverage Ratio (LCR), Net Stable Funding Ratio (NSFR) and global mandates 
+for central clearing of standardised derivatives. 
+The BCBS and IOSCO conducted a QIS in order to gauge the impact of the margin proposals. In 
+particular, the QIS assessed the amount of margin required on non-centrally cleared derivatives as well as 
+the amount of available collateral that could be used to satisfy these requirements. 
+The results of the QIS, as well as comments that were received on the initial proposal and near -
+final framework were carefully considered in arriving at the margin framework that is described in this 
+
+ 
+4 Margin requirements for non-centrally cleared derivatives 
+ 
+document. The overall liquidity burden resulting from initial margin requirements, as well as the availability 
+of eligible collateral to satisfy such requirements, ha s been carefully assessed in designing the margin 
+framework. The use of permitted initial margin thresholds, which are discussed in detail in Element 2, th e 
+eligibility of a broad range of eligible collateral, which is discussed in detail in Element 4, the ability to re-
+hypothecate some initial margin collateral under strict conditions, which is discussed in Element 5, as well 
+as the triggers that provide fo r a gradual phase -in of the requirements, which are discussed in detail in 
+Element 8, have been included as key elements of the margin framework to directly address the liquidity 
+demands associated with the requirements. 
+Key principles and requirements 
+As described in more detail in Part B, this paper presents the BCBS’s and IOSCO’s final policy for margin 
+requirements for non-centrally cleared derivatives, as articulated through key principles addressing eight 
+main elements: 
+1. Appropriate margining practices should be in place with respect to all derivative s transactions that are not 
+cleared by CCPs. 
+2. All financial firms and systemically  important non-financial entities (“covered entities”) that engage in non -
+centrally cleared derivatives must exchange initial and variation margin as appropriate to the counterparty 
+risks posed by such transactions. 
+3. The methodologies for calculating initial and variation margin that serve as the baseline for margin collected 
+from a counterparty should (i) be consistent across entities covered by the requirements and reflect the 
+potential future exposure (initial margin) and current exposure (variation margin) associated with the 
+portfolio of non-centrally cleared derivatives in question and (ii) ensure that all counterp arty risk exposures 
+are fully covered with a high degree of confidence. 
+4. To ensure that assets collected as collateral for initial and variation margin purposes can be liquidated in a 
+reasonable amount of time to generate proceeds that could sufficiently  protect collecting entities covered 
+by the requirements from losses on non-centrally cleared derivatives in the event of a counterparty default, 
+these assets should be highly liquid and should, after accounting for an appropriate haircut, be able to hold 
+their value in a time of financial stress. 
+5. Initial margin should be exchanged by both parties, without netting of amounts collected by each party (ie 
+on a gross basis), and held in such a way as to ensure that (i) the margin collected is immediately available 
+to the collecting party in the event of the counterparty’s default; and (ii) the collected margin must be subject 
+to arrangements that fully protect the posting party to the extent possible under applicable law in the event 
+that the collecting party enters bankruptcy. 
+6. Transactions between a firm and its affiliates should be subject to appropriate regulation in a manner 
+consistent with each jurisdiction’s legal and regulatory framework. 
+7. Regulatory regimes should interact so as to result in sufficiently consistent and non -duplicative regulatory 
+margin requirements for non-centrally cleared derivatives across jurisdictions. 
+8. Margin requirements should be phased in over an appropriate period of time to ensure that the transition 
+costs associated with the new framework can be appropriately man aged. Regulators should undertake a 
+coordinated review of the margin standards once the requirements are in place and functioning to assess 
+the overall efficacy of the standards and to ensure harmonisation across national jurisdictions as well as 
+across related regulatory initiatives. 
+ 
+
+ 
+Margin requirements for non-centrally cleared derivatives 5 
+ 
+ 
+Monitoring and evaluation 
+The actual impact of margin requirements is subject to various factors and uncertainties, including, among 
+others, the ratio of cleared to non-centrally cleared derivatives and changes in market volatility over time. 
+Moreover, a number of the framework’s design elements could have impacts that may change over time 
+depending on changes in market structure and market conditions. 
+The BCBS and IOSCO will set up a monitoring group to evaluate these margin standards in 2014. 
+The evaluation will focus on the relation and consistency of the margin standards with related regulatory 
+initiatives such as changes to standardised approaches for trading book and counterparty credit risk 
+capital, potential minimum h aircuts on repurchase and reverse repurchase transactions, implementation 
+of the LCR, and capital requirements on centrally  cleared derivatives that may develop alongside these 
+requirements between now and 2014. 
+The monitoring group will consider any initiatives to conduct further analysis of the costs and 
+benefits, and of the impact on competition of rules setting margin requirements for non-centrally cleared 
+derivatives. It will consider the overall efficacy and  appropriateness of the margin methodologies and 
+standards. It will explore the possible alignment of the model and standardised schedule approaches for 
+calculating initial margin, and assess the potential procyclicality of the margin requirements. 
+The monitoring group will consider the results of various studies that are being conducted, such 
+as the study being conducted by the Bank for International Settlements Macroeconomic Assessment 
+Group on Derivatives on the macroeconomic impact of OTC derivati ves market reforms  and the OTC 
+Derivatives Assessment Team’s assessment of incentives for central clearing, and will further monitor and 
+evaluate the liquidity impact of these margin requirements on different types of covered entities.  Where 
+appropriate, the monitoring group will conduct a quantitative study to assess the impact of the margin 
+framework or certain specific aspects of the margin framework. 
+The monitoring group will consider providing more guidance on the validation and backtesting 
+of models for margining. It will also evaluate the risks of not subjecting the fixed physically settled foreign 
+exchange (FX) transactions associated with the exchange of principal of cross-currency swaps to the initial 
+margin requirements, and consider whether any modifications to such arrangement are appropriate. 
+The monitoring group will consider developments in the effort to establish a global framework 
+for cross -border interactions across an array of regulatory initiatives including margin.  These 
+developments will be reviewed to ensure that the interactions between differing jurisdictions in the context 
+of margin requirements are compatible with the goals of this framework. 
+Finally, the monitoring group will gather data relevant to the extent to which collateral is re -
+hypothecated under the limited re-hypothecation conditions identified in Element 5, where and how such 
+collateral is held, any implementation issues and the benefits and risks of such re-hypothecation, in order 
+to formulate recommendations to BCBS an d IOSCO on whether to continue to permit  re-hypothecation 
+of collateral under these conditions, permit re-hypothecation for only a subset of non-centrally cleared 
+derivatives products, prohibit re-hypothecation altogether, or whether to otherwise modify the conditions. 
+Certain elements of the margin standards may need to be re -evaluated or modified i f 
+forthcoming additional data and further analyses reveal that the incentives and impacts of them 
+substantially deviate from the results reflected in the QIS, or are inconsistent with the goals expressed in 
+this framework, or do not effectively balance the costs and benefits of the requirements. Based on the 
+findings of the monitoring group, the BCBS and IOSCO will jointly determine whether any additional work 
+needs to be undertaken or whether any modifications to the margin requirements are necessary or 
+appropriate. This monitoring and evaluation process is not intended to deter individual regulatory 
+authorities from proceeding with rules pertaining to margin re quirements for non- centrally cleared 
+derivatives consistent with this paper while the monitoring group is conducting its work. 
+
+ 
+6 Margin requirements for non-centrally cleared derivatives 
+ 
+The BCBS and IOSCO will also continue working to monitor and assess how consistently  the 
+requirements are implemented across products, jurisdictions and market participants. 
+  
+
+ 
+Margin requirements for non-centrally cleared derivatives 7 
+ 
+ 
+Part B: Key principles and requirements 
+Element 1: Scope of coverage – instruments subject to the requirements 
+Background discussion 
+1(a) A primary threshold question that must be addressed in the design of marg in requirements for 
+non-centrally cleared derivatives is the scope of derivative s instruments to which the requirements will 
+apply. Consistent with the G20 mandate, the BCBS and IOSCO have focused their attention on all 
+derivatives that are not cleared by a CCP, regardless of type. At the same time, some consideration has 
+been given to whether certain types of transactions (eg FX forwards and swaps) may merit exclusion from 
+the scope of the margin requirements because of their unique characteristics or part icular market 
+practices. 
+Key principle 1 
+Appropriate margining practices should be in place with respect to all derivatives transactions that are not 
+cleared by CCPs.6 
+Requirement 1 
+1.1 Except for physically settled FX forwards and swaps , the margin requirements apply to all non -
+centrally cleared derivatives. The margin requirements described in this paper do not apply to physically  
+settled FX forwards and swaps. However, the BCBS and IOSCO recognise that variation margining of such 
+derivatives is a common and established practice among significant market participants. The BCBS and 
+IOSCO recognise that the exchange of variation margin is a prudent risk management tool that limits the 
+build-up of systemic risk. Accordingly, the BCBS and IOSCO agree that standards apply for variation margin 
+to be exchanged on physically settled FX forwards and swaps in a manner consistent with the final policy 
+framework set out in this document and that those variation margin standards are implemented either by 
+way of supervisory guidance or national regulation. The BCBS and IOSCO note that the BCBS has updated 
+the supervisory guidance for managing settlement risk in FX transactions. 7 The update to the supervisory 
+guidance covers margin requirements for physically settled FX forwards and swaps. In developing variation 
+margin standards for physically  settled FX forwards and swaps, national supervisors should consider the 
+recommendations in the BCBS supervisory guidance.  
+1.2 Initial margin requirements for cross-currency swaps do not apply to the fixed physically settled 
+FX transactions associated with the exchange of principal of cross-currency swaps. In practice, the margin 
+ 
+6 These margining practices only apply to derivatives transactions that are not cleared by CCPs and do not apply to other 
+transactions, such as repurchase agreements and s ecurity lending transactions that are not themselves derivatives but share 
+some attributes with derivatives. In addition, indirectly cleared derivatives transactions that are intermediated through a 
+clearing member on behalf of a non-member customer are not subject to these requirements as long as (a) the non -member 
+customer is subject to the margin requirements of the clearing house or (b) the non- member customer provides margin 
+consistent with the relevant corresponding clearing house’s margin requirements. 
+7 The BCBS has issued supervisory guidance for managing risks associated with the settlement of FX transactions: 
+www.bis.org/publ/bcbs241.htm. 
+
+ 
+8 Margin requirements for non-centrally cleared derivatives 
+ 
+requirements for cross -currency swaps may be computed in one of two ways.  Initial margin may be 
+computed by referen ce to the “interest rate” portion  of the standardised initial margin schedule that is 
+discussed below and presented in the appendix. Alternatively, if initial margin is being calculated pursuant 
+to an approved initial margin model, th e initial margin model need not incorporate the risk associated 
+with the fixed physically settled FX transactions associated with the exchange of principal. All other risks 
+that affect cross -currency swaps, however, must be considered in the calculation of the initial margin 
+amount.8 Finally, the variation margin requirements that are described below apply to all components of 
+cross-currency swaps. 
+Element 2: Scope of coverage – scope of applicability 
+Background discussion 
+2(a) Another important element of the margin requirements is their general scope of applicability –  
+that is, to which firms do the requirements apply, and what do the requirements oblige those firms to do. 
+In particular, the scope of the margin requirements’ ap plicability has an important effect on each of the 
+following: 
+• The extent to which the requirements reduce systemic risk –  here the BCBS and IOSCO have 
+considered the extent to which potential approaches would capture all or substantially all 
+systemic risk arising from non-centrally cleared derivatives, the risk of which is generally 
+concentrated among the activities of the largest key market participants transacting in a 
+significant amount of non- centrally cleared derivatives (eg through dealing or other ac tivities), 
+subject to certain exceptions in specific asset classes, such as commodities; 
+• The extent to which the requirements promote central clearing – here the BCBS and IOSCO have 
+considered the extent to which potential approaches would parallel the central clearing mandate, 
+which generally applies to all financial institutions and those non -financial institutions that pose 
+significant systemic risk; and 
+• The liquidity impact of the requirements – here the BCBS and IOSCO have considered the fact 
+that increased scope of applicability would entail a correspondingly greater liquidity impact. 
+2(b) In evaluating this fundamental element of the margin requirements and its implications with 
+respect to systemic risk reduction, incentives relative to central clearing and impact on liquidity, the BCBS 
+and IOSCO have focused on two principal questions: 
+• Whether the margin requirements should apply to all parties to non-centrally cleared derivatives, 
+only to financial firms, or only to key market participants; and 
+• Whether the margin requirements should require a bilateral exchange of margin between all 
+entities covered by the requirements, or only the unilateral collection of margin by certain types 
+of firms (eg key market participants). 
+2(c) The BCBS and IOSCO believe that the margin requirements need not apply to non -centrally 
+cleared derivatives to which non -financial entities that are not systemically  important are a party, given 
+that (i) such transactions are viewed as posing little or no systemic risk and (ii) s uch transactions are 
+exempted from central clearing mandates under most national regimes. Similarly, the BCBS and IOSCO 
+advocate that margin requirements are not applied in such a way that would require sovereigns, central 
+ 
+8 In the interest of clarity, the only payments to be excluded from initial margin requirements for a cross -currency swap are the 
+fixed physically settled FX transactions associated with the exchange of principal (which have the same characteristics as FX  
+forward contracts). All other payments or cash flows t hat occur during the life of the swap must be subject to initial margin 
+requirements. 
+
+ 
+Margin requirements for non-centrally cleared derivatives 9 
+ 
+ 
+banks, multilateral development banks (MDBs) or the Bank for International Settlements to either collect 
+or post margin. Both of these views are reflected in the exclusion of such transactions from the scope of 
+margin requirements. As a result, a transaction between a covered entity and o ne of the aforementioned 
+entities is not covered by the requirements set out in this document. 
+2(d) With respect to other non -centrally cleared derivatives;  the BCBS and IOSCO support margin 
+requirements that, in principle, would involve the mandatory exchange of both initial and variation margin 
+among parties to non-centrally cleared derivatives (“universal two-way margin”). 
+2(e) In the case of variation margin, the BCBS and IOSCO recognise that the regular and timely 
+exchange of variation margin represents the settlement of the running profit/loss of a derivative and has 
+no net liquidity costs given that variation margin represents a transfer of resources from one party to 
+another. The BCBS and IOSCO also recognise that the regular and timely exchange of v ariation margin is 
+a widely adopted best practice that promotes effective and sound risk management. 
+2(f) In the case of initial margin, the BCBS and IOSCO recognise that initial margin requirements will 
+have a measurable impact on market liquidity, as ass ets that are provided for collateral purposes cannot 
+be readily deployed for other uses over the life of the non -centrally cleared derivatives contract. It is also 
+recognised that such requirements will represent a significant change in market practice and  will present 
+certain operational and logistical challenges that will need to be managed as the new requirements come 
+into effect. 
+2(g) These operational and logistical challenges will be dealt with as the requirements are 
+implemented in a manner consisten t with the phase-in timeline described earlier and discussed in detail 
+under Element 8. Following the end of the phase-in period, there will be a minimum level of non-centrally 
+cleared OTC derivatives activity (€8 billion in gross notional outstanding amou nts) necessary for covered 
+entities to be subject to initial margin requirements described in this paper. 
+2(h) One method for managing the liquidity impact associated with initial margin requirements – and 
+one that has received broad support – is to provide for an initial margin threshold (threshold) that would 
+specify an amount under which a firm would have the option of not collecting initial margin. In cases where 
+the initial margin requirement for the portfolio exceeded the threshold, the firm would be obliged to 
+collect initial margin from its counterparty in an amount that is at least as large as the difference between 
+the initial margin requirement and the threshold. For example, if the threshold amount were 10 and the 
+initial margin requirement for a  particular non-centrally cleared derivatives portfolio was 15, then a firm 
+would be obliged to collect at least 5 from its counterparty in initial margin (15 –10=5), or more if it so 
+chose pursuant to its risk management guidelines and principles. Such an approach, if applied in a manner 
+consistent with sound risk management practices, c ould help ameliorate the costs associated with a 
+universal two-way margin regime. 
+Key principle 2 
+All covered entities (ie financial firms and systemically  important non-financial entities) that engage in 
+non-centrally cleared derivatives must exchange initial and variation margin as appropriate to the 
+counterparty risks posed by such transactions.9 
+ 
+9 The BCBS and IOSCO note that different treatment is applied with respect to transactions between affiliated entities, as 
+described under Element 6 below. 
+
+ 
+10 Margin requirements for non-centrally cleared derivatives 
+ 
+Requirement 2 
+2.1 All covered entities that engage in non-centrally cleared derivatives must exchange, on a bilateral 
+basis, the full amount of variation margin (ie a zero threshold) on a regular basis (eg daily). 
+2.2 All covered entities must exchange, on a bilateral basis, initial margin with a threshold not to 
+exceed €50 million. The threshold is applied at the level of the consolidated group to which the threshold 
+is being extended and is based on all non -centrally cleared derivatives between the two consolidated 
+groups.10 
+2.3 All margin transfers between parties may be subject t o a de-minimis minimum transfer amount 
+not to exceed €500,000. 
+2.4 Covered entities include all financial firms and systemically important non-financial firms. Central 
+banks, sovereigns ,11 multilateral development banks, the Bank for International Settlemen ts, and non -
+systemic, non-financial firms are not covered entities.12 
+2.5 Initial margin requirements will be phased-in, but at the end of the phase-in period there will be 
+a minimum level of non- centrally cleared derivatives activity (€8 billion of gross n otional outstanding 
+amount) necessary for covered entities to be subject to initial margin requirements described in this paper. 
+2.6 The precise definition of financial firms, non -financial firms and systemically important non -
+financial firms will be deter mined by appropriate national regulation. Only non -centrally cleared 
+derivatives transactions between two covered entities are governed by the requirements in this paper. 
+Commentary 
+2(i) All covered entities engaging in non -centrally cleared derivatives mu st exchange initial and 
+variation margin as appropriate to the counterparty risk posed by such transactions.  
+2(ii) The requirement that the threshold be applied on a consolidated group basis is intended to 
+prevent the proliferation of affiliates and other  legal entities within larger entities for the sole purpose of 
+circumventing the margin requirements. The following example describes how the threshold would be 
+applied by an entity that is facing three distinct legal entities within a larger consolidated group. 
+2(iii) Suppose that a firm engages in separate derivatives transactions, executed under separate legally 
+enforceable netting agreements, with three counterparties, A1, A2, A3. A1, A2 and A3 , all belong to the 
+same larger consolidated group such as a bank holding company. Suppose further that the initial margin 
+requirement (as described in Element 3) is €100 million for each of the firm’s netting sets with A1, A2 and 
+A3. Then the firm dealing with these three affiliates must collect at least €250 million (250=100+100+100–
+50) from the consolidated group. Exactly how the firm allocates the €50 million threshold among the three 
+netting sets is subject to agreement between the firm and its counterparties. The firm may not extend a 
+ 
+10 Investment funds that are managed by an investment advisor are considered distinct entities that are treated separately when 
+applying the threshold as long as the funds are distinct legal entities that are not collateralised by or are otherwise guaranteed 
+or supported by other investment funds or the investment advisor in the event of fund insolvency or bankruptcy. 
+11 Subject to national discretion, public sector entities (PSEs) may be treated as sovereigns for the purpose of determining the 
+applicability of margin requ irements. In considering whether a PSE should be treated as a sovereign for the purpose of 
+determining the applicability of margin requirements, national supervisors should consider the counterparty credit risk of the 
+PSE, as reflected by, for example, whether the PSE has revenue- raising powers and the extent of guarantees provided by the 
+central government. 
+12 Multilateral development banks (MDBs) exempted from this requirement are those that are eligible for a zero risk-weight under 
+the Basel capital framework (at the time this margin framework is published, see footnote 24 of paragraph 54, part 2, Basel II: 
+International Convergence of Capital Measurement and Capital Standards: A Revised Framework , 
+www.bis.org/publ/bcbs128b.pdf). 
+
+ 
+Margin requirements for non-centrally cleared derivatives 11 
+ 
+ 
+€50 million threshold to each netting set with, A1, A2, A3, so that the total amount of initial margin 
+collected is only €150 million (150=100-50+100-50+100–50). 
+2(iv) Furthermore, the requirement to apply the threshold on a fully consolidated basis applies to both 
+the counterparty to which the threshold is being extended and the counterparty that is extending the 
+threshold. As a specific example, suppose that in the example above the firm (as referenced above) is itself 
+organised into, say, three subsidiaries F1, F2 and F3 and tha t each of these subsidiaries engages in non -
+centrally cleared derivatives transactions with A1, A2 and A3. In this case, the extension of the €50 million 
+threshold by the firm to A1, A2 and A3 is considered across the entirety of the firm, ie F1, F2, and F 3, so 
+that all subsidiaries of the firm extend in the aggregate no more than €50 million in an initial margin 
+threshold to all of A1, A2 and A3. 
+2(v) The implementation of this approach requires appropriate cooperation between home and host 
+supervisors. As  the threshold is applied on a consolidated basis, only the home supervisor of the 
+consolidated group will necessarily be able to verify that the group does not exceed this threshold with all 
+of its counterparties. The host supervisors of subsidiaries of a group would not be able to assess whether 
+the local subsidiaries under their responsibility comply with the threshold allocated by the group to each 
+of its subsidiaries. Communication between the home consolidated supervisors and host supervisors is 
+therefore necessary to ensure that the latter have access to information on the threshold allocated to the 
+local subsidiary under their responsibility. 
+Element 3: Baseline minimum amounts and methodologies for initial and 
+variation margin 
+Background discussion 
+3(a) A third key element of the margin requirements is the minimum baseline amount of initial and 
+variation margin that would need to be collected for a non -centrally cleared derivative s and the 
+methodologies by which that baseline amount would be calculated. The BCBS and IOSCO have evaluated 
+the calculation of these baseline margin amounts by reference to the two underlying benefits of the margin 
+requirements described in Part A – systemic risk reduction and promotion of central clearing. From the 
+perspective of systemic risk reduction, the BCBS and IOSCO have considered the extent to which baseline 
+margin amounts would be sufficient to offset any loss caused by the default of a counterparty with a high 
+degree of confidence; this line of analysis involves c alibrating baseline margin amounts relative to the 
+current and potential exposure posed by particular derivative s transactions. From the perspective of 
+promoting central clearing, the BCBS and IOSCO have considered the costs associated with complying 
+with the baseline margin requirements; this line of analysis involves calibrating baseline margin amounts 
+relative to the costs of executing the same or similar transactions on a centrally  cleared basis. This paper 
+establishes a general framework for calculatin g baseline variation and initial margin that is intended to 
+realise both benefits of margin requirements. 
+3(b) In terms of distinguishing baseline requirements for initial margin and variation margin, the BCBS 
+and IOSCO have taken into account the differing form and purpose of each type of margin and their typical 
+use in market practice. 
+3(c) Variation margin protects the transacting parties from the current exposure that has already been 
+incurred by  one of the parties from changes in the mark -to-market val ue of the contract after the 
+transaction has been executed. The amount of variation margin reflects the size of this current exposure. 
+It depends on the mark-to-market value of the derivatives at any point in time, and can therefore change 
+over time. 
+
+ 
+12 Margin requirements for non-centrally cleared derivatives 
+ 
+3(d) Initial margin protects the transacting parties from the potential future exposure that could arise 
+from future changes in the mark-to-market value of the contract during the time it takes to close out and 
+replace the position in the event that one or more  counterparties default. The amount of initial margin 
+reflects the size of the potential future exposure. It depends on a variety of factors, including how often 
+the contract is revalued and variation margin exchanged, the volatility of the underlying inst rument, and 
+the expected duration of the contract closeout and replacement period, and can change over time, 
+particularly where it is calculated on a portfolio basis and transactions are added to or removed from the 
+portfolio on a continuous basis. 
+Key principle 3 
+The methodologies for calculating initial and variation margin that serve as the baseline for margin 
+collected from a counterparty should (i) be consistent across entities covered by the requirements and 
+reflect the potential future exposure (init ial margin) and current exposure (variation margin) associated 
+with the particular portfolio of non-centrally cleared derivatives at issue and (ii) ensure that all counterparty 
+risk exposures are covered fully with a high degree of confidence. 
+Requirement 3 – Initial margin 
+3.1 For the purpose of informing the initial margin baseline, the potential future exposure of a non -
+centrally cleared derivatives should reflect an extreme but plausible estimate of an increase in the value of 
+the instrument that is consistent with a one-tailed 99 per cent confidence interval over a 10-day horizon,13 
+based on historical data that incorporates a period of significant financial stress. 14 The initial margin 
+amount must be calibrated to a period that includes financial stress to ensure that sufficient margin will 
+be available when it is most needed and to limit the extent to which the margin can be procyclical. The 
+required amount of initial margin may be calculated by reference to either (i) a quantitative portfolio 
+margin model or (ii) a standardised margin schedule. When initial margin is calculated by reference to an 
+initial margin model, the period of financial stress used for calibration should be identified and applied 
+separately for each broad asset class for which portfolio margining is allowed, as set out below. In addition, 
+the identified period must include a period of financial stress and should cover a historical period not to 
+exceed five years. Additionally, the data within the identified period should be equally w eighted for 
+calibration purposes. 
+3.2 Non-centrally cleared derivatives will often be exposed to a number of complex and interrelated 
+risks. Internal or third -party quantitative models that assess these risks in a granular form can be useful 
+for ensuring t hat the relevant initial margin amounts are calculated in an appropriately risk -sensitive 
+manner. Moreover, current practice among a number of large and active CCPs is to use internal 
+quantitative models when determining initial margin amounts. 
+3.3 Notwithstanding the utility of quantitative models, the use of such models is predicated on the  
+satisfaction of several prerequisite conditions. First, any quantitative model that is used for initial margin 
+purposes must be approved by the relevant supervisory au thority. Models that have not been granted 
+explicit approval may not be used for initial margin purposes. Models may be either internally developed 
+or sourced from the counterparties or third -party vendors but in all such cases these models must be 
+approved by the appropriate supervisory authority. Moreover, in the event that a third party -provided 
+ 
+13 The 10-day requirement should apply in the case that variation margin is exchanged daily. If variation margin is exchanged at 
+less than daily frequency then the minimum horizon should be set equal to 10 days plus the number of days in between 
+variation margin exchanges; the threshold calculation set out in paragraph 2.2 should nonetheless be made irrespective of the 
+frequency with which variation margin is exchanged. 
+14 Because of the discrete subset of transactions covered by the margin requirements, these assumptions differ somewhat from 
+the assumptions used to calculate potential future exposure under the Basel regulatory capital framework for OTC derivatives. 
+
+ 
+Margin requirements for non-centrally cleared derivatives 13 
+ 
+ 
+model is used for initial margin purposes, the model must be approved for use within each jurisdiction 
+and by each institution seeking to use the model. Similarly, an unregulated counterparty that wishes to 
+use a quantitative model for initial margin purposes may use an approved initial margin model. There will 
+be no presumption that approval by one supervisor in the case of one or more institutions will imply 
+approval for a wider set of jurisdictions and/or institutions. Second, quantitative initial margin models must 
+be subject to an internal governance process that continuously assesses the value of the model’s risk 
+assessments, tests the model’s assessments against realised data and experience, and validates the 
+applicability of the model to the derivatives for which it is being used. The process must take into account 
+the complexity of the products covered (eg barrier options and other more complex structures).  These 
+additional requirements are intended to ensure that the use of models does not lead to a lowering of 
+margin standards. The use of models is also not intended to lower margin standards that may already exist 
+in the context of some non-centrally cleared derivatives. Rather, the use of models is intended to produce 
+appropriately risk- sensitive assessments of potential future exposure so as to promote robust margin 
+requirements. 
+3.4 Quantitative initial margin models may account for risk on a portfolio basis. More specifically, the 
+initial margin model may consider all of the derivatives that are approved for model use that are subject 
+to a single legally enforceable netting agreement. Derivatives between counterparties that are not subject 
+to the same le gally enforceable netting agreement must not be considered in the same initial margin 
+model calculation. Derivative portfolios are often exposed to a number of offsetting risks that can and 
+should be reliably quantified for the purposes of calculating initial margin requirements. At the same time, 
+a distinction must be made between offsetting risks that can be reliably quantified and those that are more 
+difficult to quantify. In particular, inter -relationships between derivatives in distinct asset classes, such as 
+equities and commodities, are difficult to model and validate. Moreover, this type of relationship is prone 
+to instability and may be more likely to break down in a period of financial stress. Accordingly, initial 
+margin models may account for diversification, hedging and risk offsets within well defined asset classes 
+such as currency/rates,15,16 equity, credit, or commodities, but not across such asset classes and provided 
+these instruments are covered by the same legally enforceable netting agreemen t. However, any such 
+incorporation of diversification, hedging and risk offsets by an initial margin model will require approval 
+by the relevant supervisory authority. Initial margin calculations for derivatives in distinct asset classes 
+must be performed without regard to derivatives in other asset classes. As a specific example, for a 
+derivatives portfolio consisting of a single credit derivative and a single commodity derivative, an initial 
+margin calculation that uses an internal model would proceed by first calculating the initial margin 
+requirement on the credit derivatives  and then calculating the initial margin requirement on the 
+commodity derivative. The total initial margin requirement for the portfolio would be the sum of the two 
+individual initial margin amounts because they are in two different asset classes (commodities and credit). 
+Finally, derivatives for which a firm faces no (ie zero) counterparty risk require no initial margin to be 
+collected and may be excluded from the initial margin calculation. 
+3.5 While quantitative, portfolio-based initial margin models can be a good risk management tool if 
+monitored and governed appropriately; there are some instances in which a simpler and less risk-sensitive 
+approach to initial margin calculations may be warranted. In particular, smaller market participants may 
+not wish or may be unable to develop and maintain a quantitative model and may be unwilling to rely on 
+counterparty’s model. In addition, some market participants may value simplicity and transparency in initial 
+margin calculations, without resorting to a complex quantitative model. Further, an appropriately 
+conservative alternative for calculating initial margin is needed in the event that no approved initial margin 
+model exists to cover a specific transaction. Accordingly, the BCBS and IOSCO have provided an initial 
+ 
+15 Currency and interest rate derivatives may be portfolio margined together for the purposes of these requirements. As a n 
+example, an interest rate swap and a currency option may be margined on a portfolio basis as part of a single asset class. 
+16 Inflation swaps, which transfer inflation risk between counterparties, may be considered as part of the currency/rates asset class 
+for the purpose of computing model -based initial margin requirements, and as part of the interest rate asset class for the 
+purposes of computing standardised initial margin requirements. 
+
+ 
+14 Margin requirements for non-centrally cleared derivatives 
+ 
+margin schedule, included as Appendix A, which may be used to compute the amount of initial margin 
+required on a set of derivatives transactions. 
+3.6 The required initial margin will be computed by referencing the standardised margin rates in 
+Appendix A and by adjusting the gross initial margin amount by an amount that relat es to the net -to-
+gross ratio (NGR) pertaining to all derivatives in the legally enforceable netting set. The use of the net-to-
+gross ratio is an accepted practice in the context of bank capital regulation and recognises important 
+offsets that would not be recognised by strict application of a standardised margin schedule. 17 The 
+required initial margin amount would be calculated in two steps. First, the margin rate in the provided 
+schedule would be multiplied by the gross notional size of the derivative s contract, and then this 
+calculation would be repeated for each derivatives contract.18 This amount may be referred to as the gross 
+standardised initial margin. Second, the gross initial margin amount is adjusted by the ratio of the net 
+current replacement cost to gross current replacement cost (NGR). This is expressed through the following 
+formula: 
+Net standardised initial margin = 0.4 * Gross initial margin + 0.6 * NGR * Gross initial margin  
+where NGR is defined as the level of net replacement cost over the lev el of gross replacement cost for 
+transactions subject to legally enforceable netting agreements. The total amount of initial margin required 
+on a portfolio according to the standardised margin schedule would be the net standardised initial margin 
+amount. However, if a regulated entity is already using a schedule -based margin to satisfy requirements 
+under its required capital regime, the appropriate supervisory authority may permit the use of the same 
+schedule for initial margin purposes, provided that it is at least as conservative. 
+3.7 As in the case where firms use quantitative models to calculate initial margin, derivatives for which 
+a firm faces no (ie zero) counterparty risk require no initial margin to be collected and may be excluded 
+from the standardised initial margin calculation. 
+3.8 Derivatives market participants should not be allowed to switch between model - and schedule- 
+based margin calculations in an effort to “cherry pick” the most favourable initial margin terms. 
+Accordingly, the choice between model - and schedule-based initial margin calculations should be made 
+consistently over time for all transactions within the same well defined asset class and , if applicable, it 
+should comply with any other requirements imposed by the entity’s supervisory authority. 
+3.9 At the same time, it is quite possible that a market participant may use a model- based initial 
+margin calculation for one class of derivatives in which it commonly deals and a schedule -based initial 
+margin in the case of some derivatives that are less routinely employed in its trading activities. A firm need 
+not restrict itself to  a model -based approach or to a schedule -based approach for the entirety of its 
+derivatives activities. Rather, this requirement is meant to ensure that market pa rticipants do not use 
+model-based margin calculations in those instances in which such calculations are more favourable than 
+schedule-based requirements and schedule-based margin calculations when those requirements are more 
+favourable than model-based margin requirements. 
+ 
+17 The use of the net-to-gross ratio (NGR) in bank capital requirements can be found in Annex IV of the Basel capital framework, 
+paragraph 96(iv), Part 5, Basel II: International Convergence of Capital Measurement and Capital Standards: A Revised Framework, 
+www.bis.org/publ/bcbs128d.pdf. The Basel Committee published a consultative document “The non -internal model method 
+for capitalising counterparty credit risk exposures” that considers the use of the NGR in detail, www.bis.org/publ/bcbs254.htm. 
+Any development of alternative frameworks for recognising hedges and offsets in the context of counterparty credit risk by the 
+Basel Committee will be considered in the monitoring and evaluation period described earlier.  
+18 Subject to approval by the relevant supervisory authority, a limited degree of netting may be performed at the level of a specific 
+derivatives contract to compute the notional amount that is applied to the margin rate. As an example, one pay-fixed-interest-
+rate swap with a maturity of three years and a notional of 100 could be netted against another pay-floating-interest-rate swap 
+with a maturity of three years and a notional of 50 to arrive at a single notional of 50 to which the appropriate margin rat e 
+would be applied. Derivatives with different fundamental characteristics such as underlying, maturity and so forth may not be  
+netted against each other for the purpose of computing the notional amount against which the standardised margin rate is 
+applied. 
+
+ 
+Margin requirements for non-centrally cleared derivatives 15 
+ 
+ 
+3.10 Initial margin should be collected at the outset of a transaction, and collected thereafter on a 
+routine and consistent basis upon changes in measured potential future exposure, such as when trades 
+are added to or subtracted from the  portfolio. To mitigate procyclicality impacts, large discrete calls for 
+(additional) initial margin due to “cliff-edge” triggers should be discouraged. 
+3.11 The build-up of additional initial margin should be gradual so that it can be managed over time. 
+Moreover, margin levels should be sufficiently conservative, even during periods of low market volatility, 
+to avoid procyclicality. The specific requirement that initial margin be set consistent with a period that 
+includes stress is meant to limit procyclical changes in the amount of initial margin required. 
+3.12 Parties to derivatives contracts should have rigorous and robust dispute resolution procedures in 
+place with their counterparty before the onset of a transaction. In particular, the amount of initia l margin 
+to be collected from one party by another will be the result of either an approved model calculation or 
+the standardised schedule. The specific method and parameters that will be used by each party to calculate 
+initial margin should be agreed and recorded at the onset of the transaction to reduce potential disputes. 
+Moreover, parties may agree to use a single model for the purposes of such margin model calculations 
+subject to bilateral agreement and appropriate regulatory approval. In the event tha t a margin dispute 
+arises, both parties should make all necessary and appropriate efforts, including timely initiation of dispute 
+resolution protocols, to resolve the dispute and exchange the required amount of initial margin in a timely 
+fashion. 
+Requirement 3 – Variation margin 
+3.13 For variation margin, the full amount necessary to fully collateralise the mark-to-market exposure 
+of the non-centrally cleared derivatives must be exchanged. 
+3.14 To reduce adverse liquidity shocks and in order to effectively mitigate counterparty credit risk, 
+variation margin should be calculated and exchanged for non- centrally cleared derivatives subject to a 
+single, legally enforceable netting agreement with sufficient frequency (eg daily). 
+3.15 The valuation of a derivative’s current exposure can be complex and, at times, become subject to 
+question or dispute by one or both parties. In the case of non- centrally cleared derivatives, these 
+instruments are likely to be relatively illiquid. The associated lack of price transparency further complicates 
+the process of agreeing on current exposure amounts for variation margin purposes. Accordingly, parties 
+to derivatives contracts should have rigorous and robust dispute resolution procedures in place with their 
+counterparty before the onset of a transaction. In the event that a margin dispute arises, both parties 
+should make all necessary and appropriate efforts, including timely initiation of dispute resolution 
+protocols, to resolve the dispute and exchange the required amount of variation margin in a timely fashion. 
+Commentary 
+3(i) The existence of both a model -based and schedule -based initial margin standard allows 
+derivative users to opt for either approach. Derivative s market participants should be able to choose 
+between a more risk-sensitive but potentially less transparent quantitative model and a less risk-sensitive 
+but more transparent initial margin schedule for calculating initial margin amounts. At the same time, 
+derivatives market participants should not be allow ed to switch between model - and schedule -based 
+margin calculations in an effort to cherry pick the most favourable initial margin terms. Accordingly, the 
+choice between a model - and a schedule-based initial margin calculation should be made consistent ly 
+over time. 
+3(ii) The applicable netting agreements used by market participants will need to be effective under 
+the laws of the relevant jurisdictions and supported by periodically  updated legal opinions. Supervisory 
+authorities and relevant market participan ts should consider how those requirements could best be 
+complied with in practice. 
+
+ 
+16 Margin requirements for non-centrally cleared derivatives 
+ 
+3(iii) The BCBS and IOSCO also recognise that national supervisors may wish to alter margin 
+requirements to achieve macroprudential outcomes, such as limiting the build -up of leverage and the 
+expansion of balance sheets. One method for achieving this may be for the relevant authority to impose 
+a macroprudential “add-on” or buffer on top of baseline (or minimum) margin levels. Although no 
+conclusions have been reached on this issue, the BCBS and IOSCO continue to give further consideration 
+to the coordination issues that may arise in this respect. 
+3(iv) As discussed above, derivatives transactions between covered entities with zero counterparty risk 
+require zero initial margin and may be excluded from the initial margin calculation. As an example, consider 
+a European call option on a single stock. Suppose that one party, the option writer, agrees to sell a fixed 
+number of shares to another party, the option purchaser, at a predetermined price at some specific future 
+date, the contract’s expiry, if the option purchaser wishes to do so. Suppose further that the option 
+purchaser makes a payment to the option writer at the outset of the transaction that fully compensates 
+the option writer for the possibility that it will have to sell shares at contract expiry at the predetermined 
+price. In this case , the option writer faces zero counterparty risk while the option purchaser faces 
+counterparty risk. The option writer has received the full value of the option at the outset of the transaction. 
+The option purchaser, on the other hand, faces counterparty risk since the option writer may not be willing 
+or able to sell shares to the option purchaser at the predetermined price at the expiry of the contract. In 
+this case, the option writer would not be obliged to collect any initial margin from the option purchaser 
+and the call option could be excluded from the initial margin calculation. Since the option purchaser faces 
+counterparty risk, the op tion purchaser must collect initial margin from the option writer in a manner 
+consistent with the requirements of this paper. 
+Element 4: Eligible collateral for margin 
+Background discussion 
+4(a) Even in cases where margin is collected in an amount sufficient to fully protect a firm in the event 
+of the default of a derivatives counterparty, the firm may nonetheless be exposed to loss if that margin is 
+not in a form that can be readily liquidated at full value at the time of default, particularly during a period 
+of financial stress. 
+4(b) Accordingly, the BCBS and IOSCO have considered the types of collateral that should be deemed 
+eligible for use in meeting the margin requirements, evaluating several different approaches. One 
+approach would be to restrict eligible collateral to the most liquid top-quality assets, such as cash and 
+high-quality sovereign debt, on the grounds that doing so would best ensure that the value of collateral 
+held as margin could be fully realised in a period of financial stress. Another approach would be to permit 
+a broader set of eligible collateral, including assets such as  liquid equity securities and corporate bonds, 
+and address the potential volatility of such assets through the application of appropriate haircuts to their 
+valuation for margin purposes. Potential advantages of the latter approach would include (i) a reduction 
+of the potential liquidity impact of the margin requirements by permitting firms to use a broader array of 
+assets to meet margin requirements and (ii) better alignment with central clearing practices, in which CCPs 
+frequently accept a broader array of collateral, subject to collateral haircuts. After evaluating each of these 
+alternatives, the BCBS and IOSCO have opted for the second approach (broader eligible collateral). 
+Key principle 4 
+To ensure that assets collected as collateral for initial and variation margin purposes can be liquidated in 
+a reasonable amount of time to generate proceeds that could sufficiently protect collecting entities 
+covered by the requi rements from losses on non- centrally cleared derivatives in the event of a 
+counterparty default, these assets should be highly liquid and should, after accounting for an appropriate 
+
+ 
+Margin requirements for non-centrally cleared derivatives 17 
+ 
+ 
+haircut, be able to hold their value in a time of financial stress. The se t of eligible collateral should take 
+into account that assets which are liquid in normal market conditions may rapidly become illiquid in times 
+of financial stress. In addition to having good liquidity, eligible collateral should not be exposed to 
+excessive credit, market and FX risk (including through differences between the currency of the collateral 
+asset and the currency of settlement). To the extent that the value of the collateral is exposed to these 
+risks, appropriately risk-sensitive haircuts should be applied. More importantly, the value of the collateral 
+should not exhibit a significant correlation with the creditworthiness of the counterparty or the value of 
+the underlying non- centrally cleared derivatives portfolio in such a way that would underm ine the 
+effectiveness of the protection offered by the margin collected (ie the so -called “wrong way risk”).  
+Accordingly, securities issued by the counterparty or its related entities should not be accepted as 
+collateral. Accepted collateral should also be reasonably diversified. 
+Requirement 4 
+4.1 National supervisors should develop their own list of eligible collateral assets based on the key 
+principle, taking into account the conditions of their own markets. As a guide, examples of the types of 
+eligible collateral that satisfy the key principle would generally include: 
+• Cash; 
+• High-quality government and central bank securities; 
+• High-quality corporate bonds; 
+• High-quality covered bonds; 
+• Equities included in major stock indices; and 
+• Gold. 
+The illustrative list above should not be viewed as being exhaustive. Additional assets and 
+instruments that satisfy the key principle may also serve as eligible collateral. Also, in different jurisdictions, 
+some particular forms of collateral may be more abundant or generally  available due to institutional 
+market practices or norms. Eligible collateral can be denominated in any currency in which payment 
+obligations under the non-centrally cleared derivatives may be made, or in highly liquid foreign currencies 
+subject to appropriate haircuts to reflect the inherent FX risk involved. 
+4.2 Potential methods for determining appropriate haircuts could include either internal or third -
+party quantitative model-based haircuts or schedule -based haircuts. Each alternative is briefly discu ssed 
+below. 
+4.3 As in the case of initial margin models, risk-sensitive quantitative models, both internal or third-
+party, could be used to establish haircuts provided that the model is approved by supervisors and is subject 
+to appropriate internal governa nce standards. As in the case of initial margin models, an unregulated 
+derivatives counterparty may use an approved quantitative model. In addition to the points regarding the 
+use of internal models discussed in the context of initial margin, the BCBS and IOSCO also note that eligible 
+collateral may vary across national jurisdictions owing to differences in the availability and liquidity of 
+certain types of collateral. As a result, it may be difficult to establish a standardised set of haircuts that 
+would apply to all types of collateral across all jurisdictions that are consistent with the key principle. 
+4.4 In addition to haircuts based on quantitative models, as in the case of initial margin, derivative s 
+counterparties should also have the option of using standardised haircuts that would provide transparency 
+and limit procyclical effects. The BCBS and IOSCO have established a standardised schedule of haircuts for 
+the list of assets appearing above. The haircut levels are derived from the standard superviso ry haircuts 
+adopted in the Basel Accord’s comprehensive approach to collateralised transactions framework, and can 
+
+ 
+18 Margin requirements for non-centrally cleared derivatives 
+ 
+be found in Appendix B .19 In the event that the BCBS chooses to make changes to these haircuts for 
+regulatory capital purposes, the BCBS and IOSCO would expect to adopt these changes in the context of 
+the margin requirements for non-centrally cleared derivatives absent a compelling policy reason not to do 
+so. However, if a regulated entity is subject to an existing standardised haircut -based approach under its 
+required capital regime, the appropriate supervisory authority may permit the use of the same haircuts for 
+initial margin purposes, provided that they are at least as conservative. While haircuts serve a critical risk 
+management function in ensuring that pledged collateral is sufficient to cover margin needs in a time of 
+financial stress, other risk mitigants should also be considered when accepting non- cash collateral. In 
+particular, entities covered by the requirements should ensure that t he collateral collected is not overly 
+concentrated in terms of an individual issuer, issuer type and asset type. 
+4.5 In the event that a dispute arises over the value of eligible collateral, both parties should make 
+all necessary and appropriate efforts, including timely initiation of dispute resolution protocols, to resolve 
+the dispute and exchange any required margin in a timely fashion. 
+Commentary 
+4(i) Market conditions and asset availability differ across jurisdictions. National supervisors should 
+develop their own list of eligible collateral assets based on the key principle, taking into account the 
+conditions of their own markets and making reference to the list of examples of eligible collateral under 
+the requirement section. 
+4(ii) Haircut requirements should be transparent and easy to calculate, so as to facilitate payments 
+between counterparties, avoid disputes and reduce overall operational risk. Haircut levels should be risk -
+based and should be calibrated appropriately to reflect the underlying risks that affect the value of eligible 
+collateral, such as market price volatility, liquidity, credit risk and FX volatility, during both normal and 
+stressed market conditions. Haircuts should be set conservatively to avoid procyclicality. For example, 
+haircuts should be set at a sufficiently high level during “good times” to avoid the need for sharp and 
+sudden increases in times of stress. 
+4(iii) Some firms may be unable or unwilling to develop internal haircut calculation models that meet 
+regulators’ requi rements. It may also be desirable to make available a simpler, conservative and 
+transparent approach to calculating haircuts. The BCBS and IOSCO have established a set of standardised 
+haircuts that can be used in lieu of model-based haircuts. 
+4(iv) Schedule-based haircuts should be stringent enough to give firms an incentive to develop 
+internal models. To prevent firms from selectively applying the standardised tables where this would 
+produce a lower haircut, firms would have to consistently adopt either the standardised tables approach 
+or the internal/third-party models approach for all the collateral assets within the same well defined asset 
+class. 
+4(v) Collateral that is posted by a counterparty to satisfy margin requirements may, at some point in 
+time before the end of the derivatives contract, be needed by the counterparty for some particular reason 
+or purpose. Alternative collateral may be substituted or exchanged for the collateral that was originally 
+posted provided that both parties agree to the substitution and that the substitution or exchange is made 
+on the terms applicable to their agreement.  When collateral is substituted, the alternative collateral must 
+meet all the requirements outlined above . Further, the value of the alternative collateral, a fter the 
+application of haircuts, must be sufficient to meet the margin requirement. 
+ 
+19  The haircuts in Appendix B are based on the standard supervisory haircuts that appear in paragraph 151, part 2, Basel II: 
+International Convergence of Capital Measurement and Capital Standards: A Revised Framework , 
+www.bis.org/publ/bcbs128b.pdf). 
+
+ 
+Margin requirements for non-centrally cleared derivatives 19 
+ 
+ 
+Element 5: Treatment of provided initial margin 
+Background discussion 
+5(a) The legal capacity in which initial margin is held or exchanged can have a significant influence on 
+how effective margin is in protecting a firm from loss in the event of the default of a derivative s 
+counterparty. In particular, when two parties to a derivatives transaction exchange initial margin on a net 
+or commingled basis, there can be little or no actual increase in the extent to which either firm is protected 
+from the default of the other. Although one firm has received initial margin as collateral, the firm also now 
+bears the risk of additional loss on the initial margin that it has provided to  the counterparty if the 
+counterparty defaults, which may offset some or all of the benefits of initial margin received. The risk would 
+be exacerbated if the counterparty re- hypothecates, re-pledges or re-uses the provided margin, which 
+could result in third parties having legal or beneficial title over the margin, or a merging or pooling of the 
+margin with assets belonging to the others as a result of which the firm’s claim to the margin becomes 
+entangled in legal complications, thus delaying or even denying the return of re -hypothecated / re-used 
+assets in the event that the counterparty defaults. 
+5(b) Under current market practices, the exchange of two -way initial margin in bilateral trades is not 
+universal. Accordingly, requiring the segregation or other protection of initial margin collateral may create 
+material incremental liquidity demands and trading costs relative to current practices, as (i) firms would 
+be required to divert significantly more liquid assets to provide initial margin to counterparties on a gross, 
+rather than net, basis, and (ii) firms would no longer retain the unlimited ability to use initial margin 
+collected as a source of funding, for re -hypothecation, re -pledge or re -use, or for other discretionary 
+purposes. 
+5(c) Given the potential for the net treatment of provided margin to undermine the general benefits 
+of the margin requirements, there was broad consensus in the BCBS and IOSCO that the requirements 
+should address these risks by requiring the gross exchange and the segregation or other effective 
+protection of provided initial margin, so as to preserve its capacity to fully offset the risk of loss in the 
+event of the default of a derivatives counterparty. 
+Key principle 5 
+Because the exchange of initial margin on a net basis may be insufficient to protect two market participants 
+with large gross derivatives exposures to each other in the case of one firm’s failure, the gross initial margin 
+between such firms should be exchanged. Initial margin collected should be he ld in such a way as to 
+ensure that (i) the margin collected is immediately available to the collecting party in the event of the 
+counterparty’s default, and (ii) the collected margin must be subject to arrangements that protect the 
+posting party to the ext ent possible under applicable law in the event that the collecting party enters 
+bankruptcy. Jurisdictions are encouraged to review the relevant local laws to ensure that collateral can be 
+sufficiently protected in the event of bankruptcy. 
+Requirement 5 
+5.1 Initial margin should be exchanged on a gross basis and held in a manner consistent with the key 
+principle above. 
+Commentary 
+5(i) There are many different ways to protect provided margin, but each carries its own risk. For 
+example, the use of third-party custodians is generally considered to offer the most robust protection, but 
+
+ 
+20 Margin requirements for non-centrally cleared derivatives 
+ 
+there have been cases where access to assets held by third-party custodians has been limited or practically 
+difficult. The level of protection would also be affected by the local b ankruptcy regime, and would vary 
+across jurisdictions. 
+5(ii) The collateral arrangements used will need to be effective under the relevant laws and supported 
+by periodically updated legal opinions. 
+5(iii) Cash and non-cash collateral collected as variation margin may be re-hypothecated, re-pledged 
+or re-used. 
+5(iv) Except where re -hypothecated, re-pledged or re -used in accordance with paragraph 5(v), cash 
+and non-cash collateral collected as initial margin should not be re-hypothecated, re-pledged or re-used. 
+A jurisdiction may allow the initial margin collector (initial margin collector) to re-hypothecate, re-pledge 
+or re-use certain initial margin collected from a customer (customer) provided that the strict circumstances 
+provided in 5(v) below are fully adhered to and that the jurisdiction determines that appropriate controls 
+are in place to ensure that such collateral use would only allow a one-time re-hypothecation, re-pledge or 
+re-use in the global financial system; that is, once initial margin collater al has been re-hypothecated, re-
+pledged or re-used to a third party (third party) in accordance with 5(v), no further re -hypothecation, re-
+pledging or re -use of such initial margin collateral by the third party is permitted. Moreover, collected 
+collateral must be segregated from the initial margin collector ’s proprietary assets. In addition, the initial 
+margin collector must give the customer the option to segregate the collateral that it posts from the assets 
+of all the initial margin collector’s other customers and counterparties (ie individual segregation).  
+5(v) Cash and non-cash collateral collected as initial margin from a customer may be re-hypothecated, 
+re-pledged or re -used (henceforth re -hypothecated) to a third party only for purposes of hedging t he 
+initial margin collector’s derivatives position arising out of transactions with customers for which initial 
+margin was collected and it must be subject to conditions that protect the customer’s rights in the 
+collateral, to the extent permitted by applicable national law. In this context, customers should only include 
+“buy-side” financial firms as well as non-financial entities, but shall not include entities that regularly hold 
+themselves out as making a market in derivatives, routinely quote bid and of fer prices on derivative 
+contracts and routinely respond to requests for bid or offer prices on derivative contracts. In any event, 
+the customer’s collateral may be re-hypothecated only if the conditions described below are met: 
+1. The customer, as part of its contractual agreement with the initial margin collector and after 
+disclosure by the initial margin collector of (i) its right not to permit re-hypothecation and (ii) the 
+risks associated with the nature of the customer’s claim to the re-hypothecated collateral in the 
+event of the insolvency of the initial margin collector or the third party, gives express consent in 
+writing to the re-hypothecation of its collateral. In addition, the initial margin collector must give 
+the customer the option to individually segregate the collateral that it posts. 
+2. The initial margin collector is subject to regulation of liquidity risk. 
+3. Collateral collected as initial margin from the customer is treated as a customer asset, and is 
+segregated from the initial margin collector’s proprietary assets until re -hypothecated. Once re-
+hypothecated, the third party must treat the collateral as a cu stomer asset, and must segregate 
+it from the third party’s proprietary assets. Assets returned to the initial margin collector after re-
+hypothecation must also be treated as customer assets and must be segregated from the initial 
+margin collector’s proprietary assets. 
+4. The collateral of customers that have consented to the re -hypothecation of their collateral must 
+be segregated from that of customers that have not so consented. 
+5. Where initial margin has been individually segregated, the collateral must only b e re-
+hypothecated for the purpose of hedging the initial margin collector’s derivatives position arising 
+out of transactions with the customer in relation to which the collateral was provided. 
+
+ 
+Margin requirements for non-centrally cleared derivatives 21 
+ 
+ 
+6. Where initial margin has been individually segregated and subse quently re-hypothecated, the 
+initial margin collector must require the third party similarly to segregate the collateral from the 
+assets of the third party’s other customers, counterparties and its proprietary assets. 
+7. Protection is given to the customer from the risk of loss of initial margin in circumstances where 
+either the initial margin collector or the third party becomes insolvent and where both the initial 
+margin collector and the third party become insolvent. 
+8. Where the initial margin collector re -hypothecates initial margin, the agreement with the 
+recipient of the collateral (ie the third party) must prohibit the third party from further r e-
+hypothecating the collateral. 
+9. Where collateral is re-hypothecated, the initial margin collector must notify the customer of that 
+fact. Upon request by the customer and where the customer has opted for individual segregation, 
+the initial margin collector must notify the customer of the amount of cash collateral and the 
+value of non-cash collateral that has been re-hypothecated. 
+10. Collateral must only be re -hypothecated to, and held by, an entity that is regulated in a 
+jurisdiction that meets all of the specific conditions contained in this section and in which the 
+specific conditions can be enforced by the initial margin collector. 
+11. The customer and the third party may not be within the same group. 
+12. The initial margin collector and the third party must keep appropriate records to show that all 
+the above conditions have been met. 
+5(vi) The level and volume of re- hypothecation should be disclosed to authorities so that they c an 
+monitor any resulting risk. 
+5(vii) In addition, the monitoring group will review the extent to which initial margin collateral is re -
+hypothecated, which entities are electing to have their initial mar gin collateral re -hypothecated, which 
+entities have been allowed to re -hypothecate the initial margin collateral that they collect, how 
+jurisdictions and market participants are implementing the above conditions and giving protection to  
+assets re -hypothecated, how re -hypothecation works in practice , whether the above conditions have 
+created level playing field issues , and how reporting on re -hypothecation can be enhanced to formulate 
+recommendations to the BCBS and IOSCO as to whether to continue to permit re -hypothecation of 
+collateral under these conditions, permit re -hypothecation for only a subset of non- centrally cleared 
+derivative products, prohibit re-hypothecation altogether, or whether to otherwise modify the conditions. 
+Finally, the monitoring group will review the definition of customer and consider whether the definition 
+should be revised or new conditions should be added. 
+Element 6: Treatment of transactions with affiliates 
+Background discussion 
+6(a) Although current market practices on this point vary, the exchange of initial or variation margin 
+by affiliated parties to a non-centrally cleared derivative is not customary. Accordingly, extending the initial 
+margin requirements to such transactions would likely create additional liquidity demands for firms 
+engaging in such transactions. In addition, the specific legal and regulatory environment in which such 
+transactions are regulated varies considerably across j urisdictions. The specific legal and regulatory 
+frameworks governing inter-affiliate derivatives transactions depend largely on the specific features of the 
+applicable jurisdictions. For example, some jurisdictions require inter-affiliate transactions to be subject to 
+centralised risk management whereas others oblige affiliates to enter into transactions on an arm’s length 
+
+ 
+22 Margin requirements for non-centrally cleared derivatives 
+ 
+basis. Such transactions may not necessarily be suited to harmonisation as varying legal systems may be 
+driven by the specifics of each jurisdiction and its legal framework. 
+Key principle 6 
+Transactions between a firm and its affiliates should be subject to appropriate regulation in a manner 
+consistent with each jurisdiction’s legal and regulatory framework. 
+Requirement 6 
+6.1 Local supervisors should review their own legal frameworks and market conditions and put in 
+place initial and variation margin requirements as appropriate. 
+Element 7: Interaction of national regimes in cross-border transactions 
+Background discussion 
+7(a) The existing s tructure of markets for non -centrally cleared derivatives is global in scope. Key 
+derivatives market participants are often engaged in derivatives activity through a variety of legal entities 
+in different national jurisdictions and frequently deal with cou nterparties on a cross -border basis. Given 
+the global nature of these markets, and as noted in the Executive Summary, the effectiveness of margin 
+requirements could be undermined if the requirements were not consistent internationally. 
+7(b) Accordingly, th e BCBS and IOSCO have considered, as part of the framework for margin 
+requirements, specific approaches to ensuring that implementation of the margin requirements at a 
+national jurisdiction -level is appropriately interactive – that is, that each national jurisdiction’s rule is 
+territorially complementary such that (i) regulatory arbitrage opportunities are limited, (ii) a level playing 
+field is maintained, (iii) there is no application of duplicative or conflicting margin requirements to the 
+same transaction or activity, and (iv) there is substantial certainty as to which national jurisdiction’s rules 
+apply. When a transaction is subject to two sets of rules (duplicative requirements), the home and the host 
+regulators should endeavour to (1) harmonise the rules to the extent possible or (2) apply only one set of 
+rules, by recognising the equivalence and comparability of their respective rules. 
+Key principle 7 
+Regulatory regimes should interact so as to result in sufficiently consistent and non-duplicative regulatory 
+margin requirements for non-centrally cleared derivatives across jurisdictions. 
+Requirement 7 
+7.1 The margin requirements in a jurisdiction may be applied to legal entities established in that local 
+jurisdiction, which would include locally established subsidiaries of foreign entities, in relation to the initial 
+and variation margins that they collect. Home-country supervisors may permit a covered entity to comply 
+with the margin requirements of a host -country margin regime with respect to its de rivatives activities, 
+provided that the home-country supervisor considers the host -country margin regime to be consistent 
+with the margin requirements described in this framework. A branch is part of the same legal entity as the 
+headquarters; it may be subject to either  the margin requirements of the jurisdiction where the 
+headquarters is established or the requirements of the host country. 
+
+ 
+Margin requirements for non-centrally cleared derivatives 23 
+ 
+ 
+Commentary 
+7(i) It is recommended that home and host country supervisors closely cooperate to identify conflicts 
+and inconsistencies between regimes with respect to cross-border application of margin requirements. It 
+is further recommended that authorities coordinate their approaches via multilateral or bilateral channels 
+to reduce such issues, to the extent possible. 
+7(ii) In addition to margin requirements, a number of other aspects of the regulation of OTC 
+derivatives have cross -border implications. As approaches to these issues evolve, the BCBS and IOSCO 
+may consider modifications to the requirements set out above, with a view to ensuring consistency in the 
+treatment of cross-border transactions across all aspects of OTC derivatives regulation. 
+Element 8: Phase-in of requirements 
+Background discussion 
+8(a) Margin requirements on non -centrally cleared derivatives will represent a significant policy 
+change for most market participants. Initial margin requirements, in particular, are not currently applied 
+to a large number of transactions across many market participants. Such requirements will require 
+significant operational enhancements and will also require significant amounts of collateral for which 
+liquidity planning will be required. While the changes that will be required as a result of universal margin 
+requirements are important for limiting systemic risks, these c hanges must be managed effectively so as 
+to allow for an appropriate transition and not create unduly large transition costs. Moreover, the benefits 
+gained by managing the transition to the new requirements must be weighed against systemic risks that 
+are left unmitigated during any transition period. 
+8(b) In addition, the requirements could impose some unnecessary operational costs on smaller 
+entities that pose no significant systemic risk to the system and would not be expected to be bound by 
+the initial margin requirements, in particular, in light of the provided threshold amount of €50 million. 
+8(c) Also, these requirements are new and interact with a large number of existing regulatory 
+initiatives that, over time, should be reviewed and harmonised as appropriate. Accordingly, it is important 
+that the appropriateness, efficacy and relationship of these requirements with other related requirements 
+be monitored and evaluated on an ongoing basis. 
+Key principle 8 
+The requirements described in this paper should  be phased in so that the systemic risk reductions and 
+incentive benefits are appropriately balanced against the liquidity, operational and transition costs 
+associated with implementing the requirements. In addition, the requirements should be regularly 
+reviewed to evaluate their efficacy, soundness and relationship to other existing and related regulatory 
+initiatives, and to ensure harmonisation across jurisdictions. 
+Requirement 8 
+8.1 From 1 September 2016, any covered entity belonging to a group whose agg regate month-end 
+average notional amount of non-centrally clear derivatives for March, April, and May of 2016 exceeds €3.0 
+trillion will be required to exchange variation margin when transacting with another covered entity 
+(provided that it also meets that condition). The requirements to exchange variation margin between these 
+covered entities only applies to new contracts entered into after 1 September 2016. Exchange of variation 
+margin on other contracts is subject to bilateral agreement. 
+
+24 Margin requirements for non-centrally cleared derivatives 
+8.2 From 1 March 2017, all covered entities will be required to exchange variation margin. Subject to 
+paragraph 8.1 above, the requirement to exchange variation margin between covered entities only applies 
+to new contracts entered into after 1 March 2017. Exchange of vari ation margin on other contracts is 
+subject to bilateral agreement. 
+8.3 The requirement to exchange two-way initial margin with a threshold of up to €50 million will be 
+staged as follows. 
+8.4 From  1 September 2016 to 31 August 2017, any covered entity belon ging to a group whose 
+aggregate month-end average notional amount of non-centrally cleared derivatives for March, April, and 
+May of 2016 exceeds €3.0 trillion will be subject to the requirements when transacting with another 
+covered entity (provided that it also meets that condition).  
+8.5 From  1 September 2017 to 31 August 2018, any covered entity belonging to a group whose 
+aggregate month-end average notional amount of non-centrally cleared derivatives for March, April, and 
+May of 2017 exceeds €2.25 tri llion will be subject to the requirements when transacting with another 
+covered entity (provided that it also meets that condition).  
+8.6 From  1 September 2018 to 31 August 2019, any covered entity belonging to a group whose 
+aggregate month-end average notional amount of non-centrally cleared derivatives for March, April, and 
+May of 2018 exceeds €1.5 trillion will be subject to the requirements when transacting with another 
+covered entity (provided that it also meets that condition). 
+8.7 From  1 September 2019 to 31 August 2021, any covered entity belonging to a group whose 
+aggregate month-end average notional amount of non-centrally cleared derivatives for March, April, and 
+May of 2019 exceeds €0.75 trillion will be subject to the requirements when transact ing with another 
+covered entity (provided that it also meets that condition). 
+8.8 From  1 September 2021  to 31 August 2022 , any covered entity belonging to a group whose 
+aggregate month-end average notional amount of non-centrally cleared derivatives for March, April, and 
+May of 2021 exceeds €50 billion will be subject to the requirements when transacting with another covered 
+entity (provided that it also meets that condition). 
+8.9 On a permanent basis (ie  from 1 September 2022 ), any covered entity belong ing to a group 
+whose aggregate month -end average notional amount of non- centrally cleared derivatives for March, 
+April, and May of the year exceeds €8 billion will be subject to the requirements described in this paper 
+during the one -year period from 1 Sep tember of that year to 31 August of the following year when 
+transacting with another covered entity (provided that it also meets that condition). Any covered entity 
+belonging to a group whose aggregate month -end average notional amount of non- centrally cleared 
+derivatives for March, April, and May of the year is less than €8 billion will not be subject to the initial 
+margin requirements described in this paper. 
+8.10 For the purposes of calculating the group aggregate month -end average notional amount for 
+determining whether a covered entity will be subject to the initial margin requirements described in this 
+paper, all of the group’s non- centrally cleared derivatives, including physically  settled FX forwards and 
+swaps, should be included. 
+8.11 Initial margin requirements will apply to all new contracts entered into during the periods 
+described above. Applying the initial margin requirements to existing derivative s contracts is not 
+required.20 
+8.12 Global regulators wi ll work t ogether t o e nsure t hat t here is sufficient transparency regarding 
+which entities are and are not subject to the initial margin requirements during the phase-in period. 
+20 G enuine amendments t o existing derivatives contracts do not qualify as a n ew derivatives contract. Any amendment that is 
+intended to extend an existing derivatives contract for the purpose of avoiding margin requirements will be considered a new 
+derivatives contract. 
+
+ 
+Margin requirements for non-centrally cleared derivatives 25 
+ 
+ 
+Appendix A 
+Standardised initial margin schedule 
+Asset class Initial margin requirement (% of notional exposure) 
+Credit: 0–2 year duration 2 
+Credit: 2–5 year duration 5 
+Credit 5+ year duration 10 
+Commodity 15 
+Equity 15 
+Foreign exchange 6 
+Interest rate: 0–2 year duration 1 
+Interest rate: 2–5 year duration 2 
+Interest rate: 5+ year duration 4 
+Other 15 
+
+ 
+26 Margin requirements for non-centrally cleared derivatives 
+ 
+Appendix B 
+Standardised haircut schedule 
+Asset class Haircut (% of market value) 
+Cash in same currency 0 
+High-quality government and central bank securities: residual maturity less than one 
+year 0.5 
+High-quality government and central bank securities: residual maturity between one and 
+five years 2 
+High-quality government and central bank securities: residual maturity greater than five 
+years 4 
+High-quality corporate\covered bonds: residual maturity less than one year 1 
+High-quality corporate\covered bonds: residual maturity greater than one year and less 
+than five years 4 
+High-quality corporate\covered bonds: residual maturity greater than five years 8 
+Equities included in major stock indices 15 
+Gold 15 
+Additional (additive) haircut on asset in which the currency of the derivatives obligation 
+differs from that of the collateral asset 8 
+ 

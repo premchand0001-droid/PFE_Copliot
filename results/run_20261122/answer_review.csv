@@ -1,0 +1,167 @@
+id,cat,query,answer,correctness_1to5,usefulness_1to5,grounding_1to5,clarity_1to5,comment
+Q073,ai_scenario,Run a scenario where equities fall 30% and the dollar rallies 10%.,"**AI-assisted scenario** (rules (dry-run)): shocks equity -30%, gold +0%, rates +0%, credit +0%, usd +10%. Rationale: rules: equity -30%; usd +10%
+**Stress test - custom_49c1bc** (Custom scenario: Run a scenario where equities fall 30% and the dollar rallies 10%.): liquidity need (margin calls we would make on counterparties) $1,300,000.00; 4 counterparties in BREACH after stress vs 2 today; worst: CP-006 with exposure after collateral $1,290,281.33.
+- CP-001: stressed MtM $-3,618,347.62; exposure after collateral $0.00 (limit utilisation 118.3% incl. stressed PFE, BREACH); stressed margin $-4,860,000.00.
+- CP-002: stressed MtM $-6,805,042.57; exposure after collateral $0.00 (limit utilisation 79.7% incl. stressed PFE, OK); stressed margin $-1,600,000.00.
+- CP-003: stressed MtM $-1,265,398",,,,,
+Q074,ai_scenario,What if the Fed hikes rates by 100bp?,"**AI-assisted scenario** (rules (dry-run)): shocks equity +0%, gold +0%, rates -16%, credit +0%, usd +0%. Rationale: rules: rates -16% from 100bp
+**Stress test - custom_e565e1** (Custom scenario: What if the Fed hikes rates by 100bp?): liquidity need (margin calls we would make on counterparties) $2,060,000.00; 6 counterparties in BREACH after stress vs 2 today; worst: CP-003 with exposure after collateral $1,735,765.86.
+- CP-001: stressed MtM $3,165,085.23; exposure after collateral $0.00 (limit utilisation 98.9% incl. stressed PFE, WARNING); stressed margin $-1,690,000.00.
+- CP-002: stressed MtM $423,767.19; exposure after collateral $0.00 (limit utilisation 174.1% incl. stressed PFE, BREACH); stressed margin $-1,600,000.00.
+- CP-003: stressed MtM $1,735,765.86; exposure after collateral",,,,,
+Q035,csa_clause,What is the smallest amount of collateral that can be moved between the parties?,"[S1] Collateral: If Party B elects to Transfer (and
+ ` Transfers) the Independent Amount to
+ Party A (which Independent Amount shall
+ constitute Eligible Collateral with
+ respect to Party B), Party A's Exposure
+ under this Transaction shall be zero and
+ Party B's Credit Support Amount (as
+ Secured Party) shall be calculated
+ without subtracting the Inde...
+
+[S2] elections
+
+and
+
+modifications
+
+set
+
+out
+ below.
+
+Terms
+
+defined
+
+in
+
+the
+
+CSA
+
+have
+
+this
+
+same
+
+meaning
+
+herein.
+
+Elections
+
+and
+
+variables
+
+for
+
+the
+
+purposes
+
+of Paragraph 13 of the CSA.
+
+Eligible
+
+Collateral
+.
+
+The
+
+following
+
+items
+
+will
+
+qualify
+
+as
+
+“Eligible
+ Collateral” for the party specified:
+
+Collateral
+
+Type
+
+Dealer
+
+Counter-
+
+party
+
+V...
+
+[S3] s
+.
+
+Party A: As agreed
+between the parties from time to time.
+
+Party B: As",,,,,
+Q036,csa_clause,How much exposure can there be before collateral has to be posted?,"[S1] reatest of these three 
+terms (€0.5 million, €1 million, 0) is €1 million, which represents the largest exposure before collateral 
+must be exchanged.
+
+22  While the facts in this example may not be common in current market practice, it is a scenario that is contemplated in the 
+future regulation of margin requirements for non-cleared OTC derivativ...
+
+[S2] Eligible Collateral
+. Any requirement for Adequate Assurance shall be satisfied only by the Assuring Party’s delivery of Eligible Collateral. Eligible Collateral shall be posted in a form and an amount reasonably calculated to protect
+the Insecure Party from its financial exposure hereunder (“
+Cover Exposure
+”). All costs associated with providing...
+
+[S3] ulations of Value, Exposure and Ad-Hoc Exposure will be made by Citi as of c",,,,,
+Q060,deliverable,Prepare the margin call notice for CP-001.,"**Margin call notice - Apex Capital Derivatives (CP-001)**: RETURN_COLLATERAL of $1,690,000.00; draft Word notice and upload-CSV row created (status DRAFT_PENDING_APPROVAL).
+
+**Files created**
+- `outputs/deliverables/margin_notice_CP-001_20261122.docx`
+- `outputs/deliverables/margin_calls_upload.csv`
+
+> **Draft only:** generated files are pending human review/approval; nothing has been sent or booked.",,,,,
+Q061,deliverable,Prepare the margin call notice for CP-002.,"**Margin call notice - Meridian Global Trading (CP-002)**: RETURN_COLLATERAL of $1,600,000.00; draft Word notice and upload-CSV row created (status DRAFT_PENDING_APPROVAL).
+
+**Files created**
+- `outputs/deliverables/margin_notice_CP-002_20261122.docx`
+- `outputs/deliverables/margin_calls_upload.csv`
+
+> **Draft only:** generated files are pending human review/approval; nothing has been sent or booked.",,,,,
+Q027,haircut,"Under the BCBS-IOSCO schedule, what haircut applies to main index equities?","**Regulatory haircut** (equity_main_index, AAA-AA-, 1-5y): 15.0% (+8.0% if currency mismatch). Source: BCBS-IOSCO standardised haircut schedule (Appendix B).",,,,,
+Q028,haircut,"Under the BCBS-IOSCO schedule, what haircut applies to cash in the same currency?","**Regulatory haircut** (cash, AAA-AA-, 1-5y): 0.0% (+8.0% if currency mismatch). Source: BCBS-IOSCO standardised haircut schedule (Appendix B).",,,,,
+Q077,hard_paraphrase,Where do we stand on Meridian's PFE versus the cap?,"**PFE limit check - Meridian Global Trading (CP-002)**: peak 95% PFE (collateralised) $4,252,597.87 vs limit $3,600,000.00 -> utilisation 118.1% -> **BREACH**. Uncollateralised peak PFE $16,368,101.95; current MtM $423,767.19.
+
+> **Limit breach:** escalate to the credit officer; any temporary limit increase needs human approval.",,,,,
+Q078,hard_paraphrase,pfe util for cp2 pls,"**PFE limit check - Meridian Global Trading (CP-002)**: peak 95% PFE (collateralised) $4,252,597.87 vs limit $3,600,000.00 -> utilisation 118.1% -> **BREACH**. Uncollateralised peak PFE $16,368,101.95; current MtM $423,767.19.
+
+> **Limit breach:** escalate to the credit officer; any temporary limit increase needs human approval.",,,,,
+Q001,limit_check,Is Apex Capital Derivatives within its PFE limit?,"**PFE limit check - Apex Capital Derivatives (CP-001)**: peak 95% PFE (collateralised) $2,262,324.82 vs limit $3,400,000.00 -> utilisation 66.5% -> **OK**. Uncollateralised peak PFE $12,242,404.83; current MtM $3,165,085.23.",,,,,
+Q002,limit_check,Has Apex breached their credit limit?,"**PFE limit check - Apex Capital Derivatives (CP-001)**: peak 95% PFE (collateralised) $2,262,324.82 vs limit $3,400,000.00 -> utilisation 66.5% -> **OK**. Uncollateralised peak PFE $12,242,404.83; current MtM $3,165,085.23.",,,,,
+Q014,margin_call,Calculate the margin call for CP-001.,"**Margin - Apex Capital Derivatives (CP-001)**: net MtM $3,165,085.23; threshold $0.00; MTA $250,000.00; collateral held after 0.0% haircut $4,865,006.00; credit support amount $3,165,085.23 -> collateral return (Return Amount) of $1,690,000.00.
+
+> **Human approval required:** this agent never issues or releases margin calls; route to the margin-operations desk.",,,,,
+Q015,margin_call,How much collateral does Apex Capital Derivatives need to post or get back?,"**Margin - Apex Capital Derivatives (CP-001)**: net MtM $3,165,085.23; threshold $0.00; MTA $250,000.00; collateral held after 0.0% haircut $4,865,006.00; credit support amount $3,165,085.23 -> collateral return (Return Amount) of $1,690,000.00.
+
+> **Human approval required:** this agent never issues or releases margin calls; route to the margin-operations desk.",,,,,
+Q053,market_data,What is the 1-year volatility of SPY from Yahoo Finance?,"**SPY** spot 689.81 as of 2026-11-20; annualised volatility 1y 14.39%, 2y 17.06% (source: yfinance).",,,,,
+Q054,market_data,What is the 1-year volatility of GLD from Yahoo Finance?,"**GLD** spot 322.87 as of 2026-11-20; annualised volatility 1y 29.5%, 2y 25.14% (source: yfinance).",,,,,
+Q056,multi_turn,And what is its margin call?,"**Margin - Meridian Global Trading (CP-002)**: net MtM $423,767.19; threshold $1,000,000.00; MTA $500,000.00; collateral held after 12.0% haircut $1,630,770.00; credit support amount $0.00 -> collateral return (Return Amount) of $1,600,000.00.
+
+> **Human approval required:** this agent never issues or releases margin calls; route to the margin-operations desk.",,,,,
+Q057,multi_turn,Is it within its PFE limit?,"**PFE limit check - Apex Capital Derivatives (CP-001)**: peak 95% PFE (collateralised) $2,262,324.82 vs limit $3,400,000.00 -> utilisation 66.5% -> **OK**. Uncollateralised peak PFE $12,242,404.83; current MtM $3,165,085.23.",,,,,
+Q045,refusal,What's the weather in Chennai?,"That's outside counterparty credit risk / margin operations (PFE limits, CSA margin, collateral haircuts, CSA clauses, market data). Could you rephrase within that scope?",,,,,
+Q046,refusal,Write me a poem about interest rate swaps.,"That's outside counterparty credit risk / margin operations (PFE limits, CSA margin, collateral haircuts, CSA clauses, market data). Could you rephrase within that scope?",,,,,
+Q070,stress,What happens to our counterparties in a COVID-style market crash?,"**Stress test - covid_2020** (COVID-19 market crash (2020-02-19 to 2020-03-23)): liquidity need (margin calls we would make on counterparties) $3,580,000.00; 4 counterparties in BREACH after stress vs 2 today; worst: CP-006 with exposure after collateral $3,579,279.81.
+- CP-001: stressed MtM $-5,918,807.16; exposure after collateral $0.00 (limit utilisation 88.3% incl. stressed PFE, WARNING); stressed margin $-4,860,000.00.
+- CP-002: stressed MtM $-8,042,932.71; exposure after collateral $0.00 (limit utilisation 76.8% incl. stressed PFE, OK); stressed margin $-1,400,000.00.
+- CP-003: stressed MtM $-4,206,338.63; exposure after collateral $0.00 (limit utilisation 248.5% incl. stressed PFE, BREACH); stressed margin $0.00.
+- CP-004: stressed MtM $-12,213,012.64; exposure after collateral $0.0",,,,,
+Q071,stress,Run a 2008 financial crisis stress test on the portfolio.,"**Stress test - gfc_2008** (Global financial crisis: Lehman failure window (2008-09-12 to 2008-11-20)): liquidity need (margin calls we would make on counterparties) $1,950,000.00; 5 counterparties in BREACH after stress vs 2 today; worst: CP-006 with exposure after collateral $1,947,002.48.
+- CP-001: stressed MtM $-5,926,318.44; exposure after collateral $0.00 (limit utilisation 130.4% incl. stressed PFE, BREACH); stressed margin $-4,860,000.00.
+- CP-002: stressed MtM $-14,727,962.89; exposure after collateral $0.00 (limit utilisation 25.4% incl. stressed PFE, OK); stressed margin $-1,450,000.00.
+- CP-003: stressed MtM $-3,494,649.45; exposure after collateral $0.00 (limit utilisation 224.2% incl. stressed PFE, BREACH); stressed margin $0.00.
+- CP-004: stressed MtM $-18,309,604.86; exposu",,,,,

@@ -1,0 +1,4 @@
+counterparty_id,swap_id,notional_usd,fixed_rate,years,pay_fixed,source
+CP-007,ORE-S1,100000000.0,0.03,10,0,"ORE example structure (receive 3% vs 6M float), shortened to 10Y, USD curve"
+CP-007,ORE-S2,60000000.0,0.0486,5,1,at-the-money payer (par rate at creation)
+CP-007,ORE-S3,40000000.0,0.0544,7,0,receiver struck 50bp above par

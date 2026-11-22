@@ -1,0 +1,1 @@
+{"last_counterparty": null, "history": [{"q": "Has CP-009 breached?", "a": "- Tool `check_pfe_limit` failed: ToolError: Unknown counterparty 'cp-009'. Valid: CP-001 Apex Capital Derivatives, CP-002 Meridian Global Trading, CP-003 Vanguard Risk Arbitrage, CP-004 Zenith Hedge Fund LLC, CP-005 Kaveri Commodities Pte, CP-0"}]}
