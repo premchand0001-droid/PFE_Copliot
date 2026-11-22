@@ -1,5 +1,5 @@
 embedding model,mode,recall@3,recall@5,recall@10,index_secs
-local MiniLM-L6,dense,0.6,0.6,0.6,818.6
-local MiniLM-L6,hybrid,0.4,0.5,0.5,818.6
+local MiniLM-L6,dense,0.6,0.6,0.6,666.7
+local MiniLM-L6,hybrid,0.3,0.5,0.5,666.7
 hosted bge-small-en-v1.5,dense,0.4,0.4,0.5,0.6
 hosted bge-small-en-v1.5,hybrid,0.4,0.4,0.4,0.6

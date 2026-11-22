@@ -2,42 +2,91 @@
  {
   "agreement": {
    "agreementType": "CreditSupportAnnex",
-   "documentId": "0000950124_08_002031_v40177exv99w2_htm",
-   "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1244832/000095012408002031/v40177exv99w2.htm"
+   "documentId": "0000950123_09_021503_c52238exv10w9_htm",
+   "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1202610/000095012309021503/c52238exv10w9.htm"
   },
   "collateralTerms": {
    "threshold": {
     "amount": 0.0,
     "currency": null,
-    "party": null,
+    "party": "Pledgor",
     "status": "VERIFIED",
-    "evidence": "Threshold shall be zero; or (b) so long as (i) an S&P Approved\nRatings Downgrade has occurred and has been continuing for at least 10 Local\nBusiness Days or since this Credit Support Annex was executed or (ii) an S&P\nRequired Ratings Downgrade has occurred and"
+    "evidence": "\u201cThreshold\u201d means for Pledgor: zero in the event Party A fails to assign all of its rights and obligations under the Agreement on or before the thirtieth (30) day after the date of a Downgrade Termination Event (as described in Part 1(g)(i)(B) of the Schedule) or a Moody\u2019s Creditwatch Event (as described in Part 1(g)(i)(A) of the Schedule) continues to exist; otherwise, the Threshold shall be infi"
    },
    "minimumTransferAmount": {
-    "amount": 50000.0,
+    "amount": 10000.0,
     "currency": "USD",
-    "party": null,
-    "status": "VERIFIED",
-    "evidence": "Minimum Transfer Amount\n\u201d means with respect to Party A,\n$50,000."
+    "party": "Pledgor",
+    "status": "REVIEW",
+    "evidence": "is $_____ for any Delivery Amount of Pledgor, unless the Pledgor is a Defaulting Party, in which case it is zero, and $_____ for any Return Amount of the Secured Party, unless the Secured Party is a Defaulting Party, in which case it is zero."
    },
    "rounding": {
     "amount": 10000.0,
     "currency": "USD",
     "party": null,
     "status": "VERIFIED",
-    "evidence": "Rounding. \nThe Delivery Amount will be rounded up and the\nReturn Amount will be rounded down to the nearest integral multiple of\n$10,000.00, respectively."
+    "evidence": "The Delivery Amount will be rounded up to the nearest integral multiple of $10,000, and the Return Amount will be rounded down to the nearest integral multiple of $10,000."
    },
    "independentAmount": {
     "amount": 0.0,
     "currency": null,
-    "party": null,
+    "party": "Pledgor",
     "status": "VERIFIED",
-    "evidence": "Independent Amount\n\u201d means with respect to Party B: Not Applicable."
+    "evidence": "\u201cIndependent Amount\u201d means for Pledgor: zero."
    },
    "baseCurrency": null,
-   "valuationAgent": "Valuation Agent\n\u201d means Party A; \nprovided, however\n, that if an Event of Default\nshall have occurred with respect to wh",
-   "notificationTime": "1:00 p.m., New York time, on a Local Business Day",
-   "eligibleCollateral": "Eligible Collateral, the product of"
+   "valuationAgent": "Valuation Agent",
+   "notificationTime": "Notification Time",
+   "eligibleCollateral": null
+  },
+  "review": {
+   "fieldsNeedingReview": [
+    "minimum_transfer_amount",
+    "base_currency",
+    "eligible_collateral"
+   ],
+   "note": "VERIFIED = value is literally supported by the quoted text; party mapping still needs human confirmation (four-eyes)."
+  }
+ },
+ {
+  "agreement": {
+   "agreementType": "CreditSupportAnnex",
+   "documentId": "0000950124_08_002031_v40177exv99w2_htm",
+   "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1244832/000095012408002031/v40177exv99w2.htm"
+  },
+  "collateralTerms": {
+   "threshold": {
+    "amount": NaN,
+    "currency": null,
+    "party": "Party A",
+    "status": "VERIFIED",
+    "evidence": "\"Threshold\" means with respect to Party A: Infinity; provided that for (a) so long as the Moody\u2019s First Ratings Trigger Requirements apply and either (i) the Moody\u2019s First Ratings Trigger Requirements have applied since this Annex was executed or (ii) at least 30 Local Business Days have elapsed since the last time the Moody\u2019s First Ratings Trigger Requirements did not apply, the Threshold shall b"
+   },
+   "minimumTransferAmount": {
+    "amount": 50000.0,
+    "currency": "USD",
+    "party": "Party A",
+    "status": "VERIFIED",
+    "evidence": "\u201cMinimum Transfer Amount\u201d means with respect to Party A, $50,000."
+   },
+   "rounding": {
+    "amount": 10000.0,
+    "currency": "USD",
+    "party": null,
+    "status": "VERIFIED",
+    "evidence": "The Delivery Amount will be rounded up and the Return Amount will be rounded down to the nearest integral multiple of $10,000.00, respectively."
+   },
+   "independentAmount": {
+    "amount": NaN,
+    "currency": null,
+    "party": "Party A",
+    "status": "VERIFIED",
+    "evidence": "\"Independent Amount\" means with respect to Party A: Not Applicable."
+   },
+   "baseCurrency": null,
+   "valuationAgent": "Valuation Agent",
+   "notificationTime": "Notification Time",
+   "eligibleCollateral": "S&P Value"
   },
   "review": {
    "fieldsNeedingReview": [
@@ -54,37 +103,37 @@
   },
   "collateralTerms": {
    "threshold": {
-    "amount": 0.0,
-    "currency": null,
-    "party": null,
-    "status": "VERIFIED",
-    "evidence": "Threshold with\nrespect to Party A shall be zero; further, provided, if a Moody\u2019s Second Rating\nTrigger Requirement has occurred and is continuing pursuant to the Agreement,\nthe Threshold shall be zero in the event Party A fails to assign all of its\nrights and"
-   },
-   "minimumTransferAmount": {
     "amount": NaN,
     "currency": null,
-    "party": null,
-    "status": "NOT_FOUND",
-    "evidence": ""
+    "party": "Party A",
+    "status": "VERIFIED",
+    "evidence": "\u201cThreshold\u201d means with respect to Party A: Infinity; provided that for so long as (i) Party A is not above the Moody\u2019s First Trigger Required Ratings and either (x) Party A had been below the Moody\u2019s First Trigger Required Ratings since this Annex was executed or (y) at least 30 Local Business Days have elapsed since the last time Party A had been below the Moody\u2019s First Trigger Required Ratings, "
+   },
+   "minimumTransferAmount": {
+    "amount": 0.0,
+    "currency": null,
+    "party": "Party A",
+    "status": "REVIEW",
+    "evidence": "\u201cMinimum Transfer Amount\u201d means with respect to Party A: $___."
    },
    "rounding": {
     "amount": 10000.0,
     "currency": "USD",
     "party": null,
     "status": "VERIFIED",
-    "evidence": "Rounding. The Delivery Amount will be rounded up and the\nReturn Amount will be rounded down to the nearest integral multiple of\n$10,000.00, respectively."
+    "evidence": "Rounding. The Delivery Amount will be rounded up and the Return Amount will be rounded down to the nearest integral multiple of $10,000.00, respectively."
    },
    "independentAmount": {
-    "amount": 0.0,
+    "amount": NaN,
     "currency": null,
     "party": null,
     "status": "VERIFIED",
-    "evidence": "Independent Amount\u201d means with respect to Party B: Not Applicable."
+    "evidence": "\u201cIndependent Amount\u201d means with respect to Party A: Not Applicable. \u201cIndependent Amount\u201d means with respect to Party B: Not Applicable."
    },
    "baseCurrency": null,
-   "valuationAgent": "Valuation Agent\u201d means Party A; provided, however, that if an Event of Default\nshall have occurred with respect to which",
-   "notificationTime": "1:00 p.m., New York time, on a Local Business Day",
-   "eligibleCollateral": "Eligible Collateral to Party A pursuant to the terms of the Credit\nSupport Annex and to the extent such Eligible Collate"
+   "valuationAgent": "Valuation Agent",
+   "notificationTime": "Notification Time",
+   "eligibleCollateral": "Eligible Collateral"
   },
   "review": {
    "fieldsNeedingReview": [
@@ -102,37 +151,37 @@
   },
   "collateralTerms": {
    "threshold": {
-    "amount": 0.0,
+    "amount": NaN,
     "currency": null,
-    "party": null,
+    "party": "Party A",
     "status": "VERIFIED",
-    "evidence": "Threshold shall be zero; or (b) so long as (i) an S&P Approved\nRatings Downgrade has occurred and has been continuing for at least 10 Local\nBusiness Days or since this Credit Support Annex was executed or (ii) an S&P\nRequired Ratings Downgrade has occurred and"
+    "evidence": "\u201cThreshold\u201d means with respect to Party A: Infinity; provided that for (a) so long as the Moody\u2019s First Ratings Trigger Requirements apply and either (i) the Moody\u2019s First Ratings Trigger Requirements have applied since this Annex was executed or (ii) at least 30 Local Business Days have elapsed since the last time the Moody\u2019s First Ratings Trigger Requirements did not apply, the Threshold shall b"
    },
    "minimumTransferAmount": {
     "amount": 50000.0,
     "currency": "USD",
-    "party": null,
+    "party": "Party A",
     "status": "VERIFIED",
-    "evidence": "Minimum Transfer Amount\n\u201d means with respect to Party A,\n$50,000."
+    "evidence": "\u201cMinimum Transfer Amount\u201d means with respect to Party A, $50,000."
    },
    "rounding": {
     "amount": 10000.0,
     "currency": "USD",
     "party": null,
     "status": "VERIFIED",
-    "evidence": "Rounding. \nThe Delivery Amount will be rounded up and the\nReturn Amount will be rounded down to the nearest integral multiple of\n$10,000.00, respectively."
+    "evidence": "The Delivery Amount will be rounded up and the Return Amount will be rounded down to the nearest integral multiple of $10,000.00, respectively."
    },
    "independentAmount": {
-    "amount": 0.0,
+    "amount": NaN,
     "currency": null,
-    "party": null,
+    "party": "Party A",
     "status": "VERIFIED",
-    "evidence": "Independent Amount\n\u201d means with respect to Party B: Not Applicable."
+    "evidence": "\"Independent Amount\" means with respect to Party A: Not Applicable."
    },
    "baseCurrency": null,
-   "valuationAgent": "Valuation Agent\n\u201d means Party A; \nprovided, however\n, that if an Event of Default\nshall have occurred with respect to wh",
-   "notificationTime": "1:00 p.m., New York time, on a Local Business Day",
-   "eligibleCollateral": "Eligible Collateral, the product of"
+   "valuationAgent": "Valuation Agent",
+   "notificationTime": "Notification Time",
+   "eligibleCollateral": "Eligible Collateral types and valuation percentages"
   },
   "review": {
    "fieldsNeedingReview": [
@@ -149,37 +198,37 @@
   },
   "collateralTerms": {
    "threshold": {
-    "amount": 0.0,
+    "amount": NaN,
     "currency": null,
-    "party": null,
+    "party": "Party A",
     "status": "VERIFIED",
-    "evidence": "Threshold\nshall be zero; (b) so long as (i) a S&P Ratings Downgrade has occurred and\nhas been continuing for at least 10 Local Business Days or since this Credit\nSupport Annex was executed the Threshold shall be zero; or (c) so long as"
+    "evidence": "\u201cThreshold\u201d means with respect to Party A: Infinity; provided"
    },
    "minimumTransferAmount": {
     "amount": 50000.0,
     "currency": "USD",
-    "party": null,
+    "party": "Party A",
     "status": "VERIFIED",
-    "evidence": "Minimum Transfer Amount\n\u201d means with respect to Party A,\n$50,000."
+    "evidence": "\u201cMinimum Transfer Amount\u201d means with respect to Party A, $50,000."
    },
    "rounding": {
     "amount": 10000.0,
     "currency": "USD",
     "party": null,
     "status": "VERIFIED",
-    "evidence": "Rounding. \nThe Delivery Amount will be rounded up and the\nReturn Amount will be rounded down to the nearest integral multiple of\n$10,000.00, respectively."
+    "evidence": "The Delivery Amount will be rounded up and the Return Amount will be rounded down to the nearest integral multiple of $10,000.00, respectively."
    },
    "independentAmount": {
-    "amount": 0.0,
+    "amount": NaN,
     "currency": null,
     "party": null,
     "status": "VERIFIED",
-    "evidence": "Independent Amount\n\u201d means with respect to Party B: Not Applicable."
+    "evidence": "\u201cIndependent Amount\u201d means with respect to Party A: Not Applicable. \u201cIndependent Amount\u201d means with respect to Party B: Not Applicable."
    },
    "baseCurrency": null,
-   "valuationAgent": "Valuation Agent\n\u201d means Party A; \nprovided, however\n, that if an Event of Default\nshall have occurred with respect to wh",
-   "notificationTime": "1:00 p.m., New York time, on a Local Business Day",
-   "eligibleCollateral": "Eligible Collateral, the product of"
+   "valuationAgent": "Valuation Agent",
+   "notificationTime": "Notification Time",
+   "eligibleCollateral": "Eligible Collateral types and valuation percentages"
   },
   "review": {
    "fieldsNeedingReview": [
@@ -198,35 +247,35 @@
    "threshold": {
     "amount": 50000.0,
     "currency": "USD",
-    "party": null,
+    "party": "Party B",
     "status": "VERIFIED",
-    "evidence": "Threshold\u201d \nmeans, with respect to Party A, infinite; with respect to Party B shall be USD 50,000; \nprovided\n that, if an Event of Default or Additional\nTermination Event has occurred and is continuing with respect to Party B, then the Threshold with respect t"
+    "evidence": "\u201cThreshold\u201d means, with respect to Party A, infinite; with respect to Party B shall be USD 50,000;"
    },
    "minimumTransferAmount": {
     "amount": 250000.0,
     "currency": "USD",
-    "party": null,
+    "party": "Party B",
     "status": "VERIFIED",
-    "evidence": "Minimum Transfer Amount\u201d\n means, with respect to a party, USD 250,000; \nprovided\n that, notwithstanding anything to the contrary contained herein, the Minimum\nTransfer Amount shall not apply to the Independent Amount, and \nprovided further\n that, if an Event o"
+    "evidence": "\u201cMinimum Transfer Amount\u201d means, with respect to a party, USD 250,000;"
    },
    "rounding": {
     "amount": 1000.0,
     "currency": "USD",
     "party": null,
     "status": "VERIFIED",
-    "evidence": "Rounding. \nThe Delivery Amount and the Return Amount shall be rounded up and down respectively to the nearest integral multiple of USD 1,000."
+    "evidence": "Rounding. The Delivery Amount and the Return Amount shall be rounded up and down respectively to the nearest integral multiple of USD 1,000."
    },
    "independentAmount": {
-    "amount": 0.0,
+    "amount": NaN,
     "currency": null,
-    "party": null,
+    "party": "Party B",
     "status": "VERIFIED",
-    "evidence": "Independent Amounts applicable to Pledgor\nexceed zero, the Credit Support Amount will not be less than the sum of all Independent Amounts applicable to the Pledgor."
+    "evidence": "Independent Amount shall mean with respect to Party B, all Hedges and shall not be subject to Minimum Transfer Amount."
    },
    "baseCurrency": null,
-   "valuationAgent": "Valuation Agent in its sole discretion.",
-   "notificationTime": "1:00 p.m., New York time, on a Local Business Day",
-   "eligibleCollateral": "Eligible Collateral.\n The following items will qualify as\n \u201cEligible Collateral\u201d \nfor the party specified:"
+   "valuationAgent": "Valuation Agent",
+   "notificationTime": "Notification Time",
+   "eligibleCollateral": "Eligible Collateral types and valuation percentages"
   },
   "review": {
    "fieldsNeedingReview": [
@@ -245,38 +294,40 @@
    "threshold": {
     "amount": 50000.0,
     "currency": "USD",
-    "party": null,
-    "status": "VERIFIED",
-    "evidence": "Threshold\u201d \nmeans, with respect to Party A, infinite; with respect to Party B shall be USD 50,000; \nprovided\n that, if an Event of Default or Additional\nTermination Event has occurred and is continuing with respect to Party B, then the Threshold with respect t"
+    "party": "Party B",
+    "status": "REVIEW",
+    "evidence": "(2) \"Threshold\" means, with respect to Party A, infinite; with respect to Party B shall be USD 50,000; provided that, if an Event of Default or Additional Termination Event has occurred and is continuing with respect to Party B, then the Threshold with respect to Party B shall be zero."
    },
    "minimumTransferAmount": {
     "amount": 250000.0,
     "currency": "USD",
-    "party": null,
-    "status": "VERIFIED",
-    "evidence": "Minimum Transfer Amount\u201d\n means, with respect to a party, USD 250,000; provided that, notwithstanding anything to the contrary contained herein, the Minimum\nTransfer Amount shall not apply to the Independent Amount, and \nprovided further\n that, if an Event of"
+    "party": "Party B",
+    "status": "REVIEW",
+    "evidence": "\u201cMinimum Transfer Amount\u201d means, with respect to a party, USD 250,000; provided that, notwithstanding anything to the contrary contained herein, the Minimum Transfer Amount shall not apply to the Independent Amount, and provided further that, if an Event of Default or Additional Termination Event has occurred and is continuing with respect to Party B, then the Minimum Transfer Amount with respect "
    },
    "rounding": {
     "amount": 1000.0,
     "currency": "USD",
     "party": null,
     "status": "VERIFIED",
-    "evidence": "Rounding. \nThe Delivery Amount and the Return Amount shall be rounded up and down respectively to the nearest integral multiple of USD 1,000."
+    "evidence": "The Delivery Amount and the Return Amount shall be rounded up and down respectively to the nearest integral multiple of USD 1,000."
    },
    "independentAmount": {
-    "amount": 0.0,
+    "amount": NaN,
     "currency": null,
-    "party": null,
+    "party": "Party B",
     "status": "VERIFIED",
-    "evidence": "Independent Amounts applicable to\nPledgor exceed zero, the Credit Support Amount will not be less than the sum of all Independent Amounts applicable to the Pledgor."
+    "evidence": "Independent Amount shall mean with respect to Party B, all Hedges and shall not be subject to Minimum Transfer Amount."
    },
    "baseCurrency": null,
-   "valuationAgent": "Valuation Agent in its sole discretion.",
-   "notificationTime": "1:00 p.m., New York time, on a Local Business Day",
-   "eligibleCollateral": "Eligible Collateral.\n The following items will qualify as\n \u201cEligible Collateral\u201d \nfor the party specified:"
+   "valuationAgent": "Valuation Agent",
+   "notificationTime": "Notification Time",
+   "eligibleCollateral": "Eligible Collateral types and valuation percentages"
   },
   "review": {
    "fieldsNeedingReview": [
+    "threshold",
+    "minimum_transfer_amount",
     "base_currency"
    ],
    "note": "VERIFIED = value is literally supported by the quoted text; party mapping still needs human confirmation (four-eyes)."
@@ -292,35 +343,35 @@
    "threshold": {
     "amount": 50000.0,
     "currency": "USD",
-    "party": null,
+    "party": "Party B",
     "status": "VERIFIED",
-    "evidence": "Threshold\u201d \nmeans, with respect to Party A, infinite; with respect to Party B shall be USD 50,000; \nprovided\n that, if an Event of Default or Additional\nTermination Event has occurred and is continuing with respect to Party B, then the Threshold with respect t"
+    "evidence": "\u201cThreshold\u201d means, with respect to Party A, infinite; with respect to Party B shall be USD 50,000;"
    },
    "minimumTransferAmount": {
     "amount": 250000.0,
     "currency": "USD",
-    "party": null,
+    "party": "Party B",
     "status": "VERIFIED",
-    "evidence": "Minimum Transfer Amount\u201d\n means, with respect to a party, USD 250,000; \nprovided\n that, notwithstanding anything to the contrary contained herein, the Minimum\nTransfer Amount shall not apply to the Independent Amount, and \nprovided further\n that, if an Event o"
+    "evidence": "\u201cMinimum Transfer Amount\u201d means, with respect to a party, USD 250,000;"
    },
    "rounding": {
     "amount": 1000.0,
     "currency": "USD",
     "party": null,
     "status": "VERIFIED",
-    "evidence": "Rounding. \nThe Delivery Amount and the Return Amount shall be rounded up and down respectively to the nearest integral multiple of USD 1,000."
+    "evidence": "Rounding. The Delivery Amount and the Return Amount shall be rounded up and down respectively to the nearest integral multiple of USD 1,000."
    },
    "independentAmount": {
-    "amount": 0.0,
+    "amount": NaN,
     "currency": null,
-    "party": null,
+    "party": "Party B",
     "status": "VERIFIED",
-    "evidence": "Independent Amounts applicable to\nPledgor exceed zero, the Credit Support Amount will not be less than the sum of all Independent Amounts applicable to the Pledgor."
+    "evidence": "Independent Amount shall mean with respect to Party B, all Hedges and shall not be subject to Minimum Transfer Amount."
    },
    "baseCurrency": null,
-   "valuationAgent": "Valuation Agent in its sole discretion.",
-   "notificationTime": "1:00 p.m., New York time, on a Local Business Day",
-   "eligibleCollateral": "Eligible Collateral.\n The following items will qualify as \n\u201cEligible Collateral\u201d \nfor the party specified:"
+   "valuationAgent": "Valuation Agent",
+   "notificationTime": "Notification Time",
+   "eligibleCollateral": "Eligible Collateral types and valuation percentages"
   },
   "review": {
    "fieldsNeedingReview": [
@@ -339,39 +390,41 @@
    "threshold": {
     "amount": 50000.0,
     "currency": "USD",
-    "party": null,
-    "status": "VERIFIED",
-    "evidence": "Threshold\u201d\n means, with respect to Party A, infinite; with respect to Party B shall be USD 50,000; \nprovided\n that, if an Event of Default or Additional\nTermination Event has occurred and is continuing with respect to Party B, then the Threshold with respect t"
+    "party": "Party B",
+    "status": "REVIEW",
+    "evidence": "(3) \"Threshold\" means, with respect to Party A, infinite; with respect to Party B shall be USD 50,000; provided that, if an Event of Default or Additional Termination Event has occurred and is continuing with respect to Party B, then the Threshold with respect to Party B shall be zero."
    },
    "minimumTransferAmount": {
     "amount": 250000.0,
     "currency": "USD",
-    "party": null,
+    "party": "a party",
     "status": "VERIFIED",
-    "evidence": "Minimum Transfer Amount\u201d\n means, with respect to a party, USD 250,000; \nprovided\n that, notwithstanding anything to the contrary contained herein, the Minimum\nTransfer Amount shall not apply to the Independent Amount, and \nprovided"
+    "evidence": "\u201cMinimum Transfer Amount\u201d means, with respect to a party, USD 250,000; provided that, notwithstanding anything to the contrary contained herein, the Minimum Transfer Amount shall not apply to the Independent Amount,"
    },
    "rounding": {
     "amount": 10000.0,
     "currency": "USD",
     "party": null,
     "status": "VERIFIED",
-    "evidence": "Rounding.\n The Delivery Amount and the Return Amount shall be rounded up and down respectively to the nearest integral multiple of USD 10,000."
+    "evidence": "The Delivery Amount and the Return Amount shall be rounded up and down respectively to the nearest integral multiple of USD 10,000."
    },
    "independentAmount": {
-    "amount": 0.0,
+    "amount": NaN,
     "currency": null,
-    "party": null,
+    "party": "Party B",
     "status": "VERIFIED",
-    "evidence": "Independent Amounts applicable to\nPledgor exceed zero, the Credit Support Amount will not be less than the sum of all Independent Amounts applicable to the Pledgor."
+    "evidence": "(1) \"Independent Amount\" shall mean with respect to Party B, all Hedges and shall not be subject to Minimum Transfer Amount."
    },
    "baseCurrency": null,
-   "valuationAgent": "Valuation Agent\u201d\n means Party A; provided, however, notwithstanding anything to the contrary set forth in this Annex, th",
-   "notificationTime": "1:00 p.m., New York time, on a Local Business Day",
-   "eligibleCollateral": "Eligible Collateral\n. Shall consist of those assets identified by the ICAD codes listed below, as they are defined in th"
+   "valuationAgent": "Valuation Agent",
+   "notificationTime": "Notification Time",
+   "eligibleCollateral": null
   },
   "review": {
    "fieldsNeedingReview": [
-    "base_currency"
+    "threshold",
+    "base_currency",
+    "eligible_collateral"
    ],
    "note": "VERIFIED = value is literally supported by the quoted text; party mapping still needs human confirmation (four-eyes)."
   }
@@ -386,86 +439,41 @@
    "threshold": {
     "amount": 50000.0,
     "currency": "USD",
-    "party": null,
-    "status": "VERIFIED",
-    "evidence": "Threshold\u201d\n means, with respect to Party A, infinite; with respect to Party B shall be USD 50,000; \nprovided\n that, if an Event of Default or Additional\nTermination Event has occurred and is continuing with respect to Party B, then the Threshold with respect t"
+    "party": "Party B",
+    "status": "REVIEW",
+    "evidence": "(3) \"Threshold\" means, with respect to Party A, infinite; with respect to Party B shall be USD 50,000; provided that, if an Event of Default or Additional Termination Event has occurred and is continuing with respect to Party B, then the Threshold with respect to Party B shall be zero."
    },
    "minimumTransferAmount": {
     "amount": 250000.0,
     "currency": "USD",
-    "party": null,
+    "party": "a party",
     "status": "VERIFIED",
-    "evidence": "Minimum Transfer Amount\u201d\n means, with respect to a party, USD 250,000; \nprovided\n that, notwithstanding anything to the contrary contained herein, the Minimum\nTransfer Amount shall not apply to the Independent Amount, and \nprovided"
+    "evidence": "\u201cMinimum Transfer Amount\u201d means, with respect to a party, USD 250,000; provided that, notwithstanding anything to the contrary contained herein, the Minimum Transfer Amount shall not apply to the Independent Amount,"
    },
    "rounding": {
     "amount": 10000.0,
     "currency": "USD",
     "party": null,
     "status": "VERIFIED",
-    "evidence": "Rounding.\n The Delivery Amount and the Return Amount shall be rounded up and down respectively to the nearest integral multiple of USD 10,000."
+    "evidence": "The Delivery Amount and the Return Amount shall be rounded up and down respectively to the nearest integral multiple of USD 10,000."
    },
    "independentAmount": {
-    "amount": 0.0,
+    "amount": NaN,
     "currency": null,
-    "party": null,
+    "party": "Party B",
     "status": "VERIFIED",
-    "evidence": "Independent Amounts applicable to\nPledgor exceed zero, the Credit Support Amount will not be less than the sum of all Independent Amounts applicable to the Pledgor."
+    "evidence": "(1) \"Independent Amount\" shall mean with respect to Party B, all Hedges and shall not be subject to Minimum Transfer Amount."
    },
    "baseCurrency": null,
-   "valuationAgent": "Valuation Agent\u201d\n means Party A; provided, however, notwithstanding anything to the contrary set forth in this Annex, th",
-   "notificationTime": "1:00 p.m., New York time, on a Local Business Day",
-   "eligibleCollateral": "Eligible Collateral\n. Shall consist of those assets identified by the ICAD codes listed below, as they are defined in th"
+   "valuationAgent": "Valuation Agent",
+   "notificationTime": "Notification Time",
+   "eligibleCollateral": null
   },
   "review": {
    "fieldsNeedingReview": [
-    "base_currency"
-   ],
-   "note": "VERIFIED = value is literally supported by the quoted text; party mapping still needs human confirmation (four-eyes)."
-  }
- },
- {
-  "agreement": {
-   "agreementType": "CreditSupportAnnex",
-   "documentId": "0001193125_06_230351_dex426_htm",
-   "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1174735/000119312506230351/dex426.htm"
-  },
-  "collateralTerms": {
-   "threshold": {
-    "amount": 50000.0,
-    "currency": "USD",
-    "party": null,
-    "status": "VERIFIED",
-    "evidence": "Threshold\u201d\n means, with respect to Party A, infinite; with respect to Party B shall be USD 50,000; \nprovided\n that, if an Event of Default or Additional\nTermination Event has occurred and is continuing with respect to Party B, then the Threshold with respect t"
-   },
-   "minimumTransferAmount": {
-    "amount": 250000.0,
-    "currency": "USD",
-    "party": null,
-    "status": "VERIFIED",
-    "evidence": "Minimum Transfer Amount\u201d\n means, with respect to a party, USD 250,000; \nprovided\n that, notwithstanding anything to the contrary contained herein, the Minimum\nTransfer Amount shall not apply to the Independent Amount, and \nprovided"
-   },
-   "rounding": {
-    "amount": 10000.0,
-    "currency": "USD",
-    "party": null,
-    "status": "VERIFIED",
-    "evidence": "Rounding.\n The Delivery Amount and the Return Amount shall be rounded up and down respectively to the nearest integral multiple of USD 10,000."
-   },
-   "independentAmount": {
-    "amount": 0.0,
-    "currency": null,
-    "party": null,
-    "status": "VERIFIED",
-    "evidence": "Independent Amounts applicable to\nPledgor exceed zero, the Credit Support Amount will not be less than the sum of all Independent Amounts applicable to the Pledgor."
-   },
-   "baseCurrency": null,
-   "valuationAgent": "Valuation Agent\u201d\n means Party A; provided, however, notwithstanding anything to the contrary set forth in this Annex, th",
-   "notificationTime": "1:00 p.m., New York time, on a Local Business Day",
-   "eligibleCollateral": "Eligible Collateral\n. Shall consist of those assets identified by the ICAD codes listed below, as they are defined in th"
-  },
-  "review": {
-   "fieldsNeedingReview": [
-    "base_currency"
+    "threshold",
+    "base_currency",
+    "eligible_collateral"
    ],
    "note": "VERIFIED = value is literally supported by the quoted text; party mapping still needs human confirmation (four-eyes)."
   }
