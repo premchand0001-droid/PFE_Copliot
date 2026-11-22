@@ -1644,8 +1644,8 @@ CSA_FIELDS = {
     "eligible_collateral": dict(kw=r"eligible collateral", amount=False, desc="Eligible Collateral types and valuation percentages"),
 }
 _CUR = {"$": "USD", "US$": "USD", "€": "EUR", "£": "GBP"}
-_AMT1 = re.compile(r"(?P<cur>USD|US\$|EUR|GBP|JPY|\$|€|£)\s?(?P<num>\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?(?P<mult>\s?(?:million|m)\b)?", re.I)
-_AMT2 = re.compile(r"(?P<num>\d{1,3}(?:,\d{3})+|\d+)\s?(?P<cur>USD|EUR|GBP|JPY)\b", re.I)
+_AMT1 = re.compile(r"(?P<cur>USD|US\$|EUR|GBP|JPY|\$|€|£)\s?(?P<num>\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?)(?P<mult>\s?(?:million|m)\b)?", re.I)
+_AMT2 = re.compile(r"(?P<num>\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?)\s?(?P<cur>USD|EUR|GBP|JPY)\b", re.I)
 _ZERO = re.compile(r"\b(zero|none|not applicable|nil)\b", re.I)
 
 
@@ -3101,14 +3101,22 @@ def compose(query, results, flags):
         return render_deterministic(results), 0
     msgs = [{"role": "system", "content": composer_system(results)},
             {"role": "user", "content": f"QUESTION: {query}\n<TOOL_RESULTS>{_compact(results)}</TOOL_RESULTS>"}]
-    draft = llm.chat(msgs, max_tokens=350)
+    try:
+        draft = llm.chat(msgs, max_tokens=350)
+    except Exception:                                    # endpoint died after the tools ran: still answer, from the tool results
+        flags.append("composer_unavailable")
+        return render_deterministic(results), 3
     for rev in range(2):                                 # critic loop: up to 2 revisions, then deterministic fallback
         c = critic(draft, results)
         if c["ok"]:
             return draft, rev
         msgs += [{"role": "assistant", "content": draft},
                  {"role": "user", "content": f"Critic found problems: {c['issues']}. Rewrite using only exact figures and [S#] citations from TOOL_RESULTS."}]
-        draft = llm.chat(msgs, max_tokens=350)
+        try:
+            draft = llm.chat(msgs, max_tokens=350)
+        except Exception:
+            flags.append("composer_unavailable")
+            return render_deterministic(results), 3
     if critic(draft, results)["ok"]:
         return draft, 2
     flags.append("critic_fallback")
@@ -3130,7 +3138,9 @@ def prefilter(query):
     if PII_REQ_RE.search(query): return "pii"
     if ACTION_RE.search(query): return "action"
     if LEGAL_RE.search(query): return "legal"
-    if not DOMAIN_RE.search(query) and find_cp_in_text(query) is None: return "scope"
+    # scope: with a live model the PLANNER decides (it can set refuse=true); the keyword list only guards rules-only mode.
+    # Injection, PII, action and legal checks above stay hard in both modes.
+    if not llm.live and not DOMAIN_RE.search(query) and find_cp_in_text(query) is None: return "scope"
     return None
 
 
