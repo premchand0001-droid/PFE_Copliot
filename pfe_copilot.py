@@ -305,9 +305,25 @@ def csa_score(text):
 
 def _get(url, ua=None, **kw):
     import requests
-    r = requests.get(url, headers={"User-Agent": ua or SEC_UA, "Accept-Encoding": "gzip, deflate"}, timeout=60, **kw)
-    r.raise_for_status()
-    return r
+    for attempt in range(4):                                  # SEC answers 429 / 5xx (gateway timeouts) when busy: retry with backoff, never on 404
+        try:
+            r = requests.get(url, headers={"User-Agent": ua or SEC_UA, "Accept-Encoding": "gzip, deflate"}, timeout=60, **kw)
+        except (requests.Timeout, requests.ConnectionError):
+            if attempt == 3: raise
+            time.sleep(2 ** (attempt + 1)); continue
+        if r.status_code in (429, 500, 502, 503, 504) and attempt < 3:
+            time.sleep(2 ** (attempt + 1)); continue
+        r.raise_for_status()
+        return r
+
+
+_SKIPS = {}
+def _note_skip(e, verbose=True):
+    """A 404 (the exhibit path in the search index no longer exists) is expected and silent; other failures are counted and the first few shown."""
+    m = str(e); kind = "404" if "404" in m else ("5xx" if re.search(r"\b5\d\d\b", m) else "other")
+    _SKIPS[kind] = _SKIPS.get(kind, 0) + 1
+    if verbose and kind != "404" and _SKIPS[kind] <= 3:
+        print(f"  skip ({kind}): {m[:140]}")
 
 
 def html_to_text(content):
@@ -367,7 +383,7 @@ def download_edgar_csas(n_docs=40, pause=0.15, max_bytes=3_000_000):
                     seen.add(stem)
                     time.sleep(pause)
                 except Exception as e:
-                    print("  skip:", str(e)[:80])
+                    _note_skip(e)
     return len(seen)
 
 
@@ -472,8 +488,7 @@ def download_edgar_contracts(n_docs=300, years=None, per_company=3, pause=0.15, 
                     seen.add(stem); per_cik[cik] += 1; added += 1
                     time.sleep(pause)
                 except Exception as e:
-                    if verbose:
-                        print("  skip:", str(e)[:70])
+                    _note_skip(e, verbose)
         if added >= n_docs:
             break
     print(f"contracts: {added} added ({tried} fetched) -> {len(list(CON_DIR.glob('*.txt')))} in data/contracts")
@@ -532,8 +547,7 @@ def download_edgar_disclosures(n_docs=150, years=None, per_company=2, pause=0.15
                     seen.add(stem); per_cik[cik] += 1; added += 1
                     time.sleep(pause)
                 except Exception as e:
-                    if verbose:
-                        print("  skip:", str(e)[:70])
+                    _note_skip(e, verbose)
         if added >= n_docs:
             break
     print(f"disclosures: {added} added ({tried} fetched) -> {len(list(DIS_DIR.glob('*.txt')))} in data/disclosures")
