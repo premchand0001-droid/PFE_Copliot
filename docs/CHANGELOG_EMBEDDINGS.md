@@ -5,7 +5,7 @@
 - bge convention: documents are embedded as-is, queries get the prefix "Represent this sentence for searching relevant passages: ".
 - Vector cache is keyed by model + chunk text, so switching models never reuses wrong vectors. Cached vectors are used with no network call.
 - Failure ladder: cached vectors -> hosted endpoint -> local MiniLM (if indexing fails) -> BM25 only; a failed query embedding degrades that one query to BM25 instead of crashing the agent.
-- Notebook: config cell (`EMBED_BACKEND`, `EMBED_API_KEY` Colab secret, `vm02-ca.crt`), bootstrap uploads two different certificates, new **Section 4.2b** (hosted bge vs local MiniLM -> `outputs/embedding_comparison.csv`), pre-flight check, secret scan also looks for the exact key values.
+- Notebook: config cell (`EMBED_BACKEND`, `EMBED_API_KEY` Colab secret, `vm02-ca.crt`), bootstrap uploads two different certificates, pre-flight check (the earlier Section 4.2b comparison was removed; the report cites the 4.1 and 4.2 tables), secret scan also looks for the exact key values.
 - `app.py` sidebar and `cli.py index` show the active embedding model. `.env.example`, Dockerfile comment, guides, governance card, architecture diagram updated.
 
 **Settings** `EMBED_API_KEY` (secret), `EMBED_CA_CERT` (path to vm02-ca.crt), `EMBED_BASE_URL` (default https://103.42.50.41:1035/v1), `EMBED_MODEL`, `EMBED_BACKEND` = auto | remote | local.

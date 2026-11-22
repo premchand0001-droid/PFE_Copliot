@@ -36,7 +36,7 @@ Priority key: **[M]** must do (graded core) | **[S]** should do (strengthens the
 
 ---
 ## Phase 2 - Data download (30-60 min, mostly waiting)
-1. **[M]** Run **Section 3** in the notebook (or, in a separate cell, `!python cli.py download --docs 60`). With `FINAL_RUN` off it fetches 60 documents.
+1. **[M]** Run **Section 3** in the notebook (or, in a separate cell, `!python cli.py download --docs 60`). The notebook always builds the full-size corpus (500 CSAs, 300 contracts, 150 disclosures + regulation PDFs, about 20-40 min the first time), whatever `FINAL_RUN` says. If a corpus is already on disk, Section 3 asks whether to delete it and start again (Colab often loses `/content`; with `USE_DRIVE = True` the corpus survives).
 2. **[M]** Open 3 files in `data/csa/` and confirm they really are credit support annexes / ISDA exhibits (title, "Paragraph 13", threshold/MTA wording).
 3. **[M]** Check `data/reg/` contains the BCBS-IOSCO text (d499).
 4. **[M]** Spot-check the haircut table in the code against the d499 PDF: cash 0%, government 1-5y AAA-AA 2%, corporate >5y A+-BBB- 12%, main-index equities 15%. Fix `HAIRCUTS` in the library cell if any differ.
@@ -46,7 +46,7 @@ Priority key: **[M]** must do (graded core) | **[S]** should do (strengthens the
 
 ---
 ## Phase 3 - Retrieval experiments (45 min + 30 min labelling)
-1. **[M]** Run **4.1** (chunk-size experiment) and **4.2** (final index, recall of bm25 / dense / hybrid / hybrid+rerank). Before this, run Section 3 with `EXPAND_CORPUS = True` (contracts, 10-K excerpts, extra regulation PDFs) and copy the corpus-by-tier table - Track B requires 500-2,000 documents; state the shortfall honestly if the total is lower. First run embeds the corpus through the hosted bge endpoint (or downloads MiniLM if no key) and downloads the reranker. Then run **4.2b** (hosted bge vs local MiniLM on the same chunks) and copy all tables into your notes.
+1. **[M]** Run **4.1** (chunk-size experiment) and **4.2** (final index, recall of bm25 / dense / hybrid / hybrid+rerank). Before this, run Section 3 (it always includes the expanded corpus: contracts, 10-K excerpts, extra regulation PDFs) and copy the corpus-by-tier table - Track B requires 500-2,000 documents; state the shortfall honestly if the total is lower. First run embeds the corpus through the hosted bge endpoint (or downloads MiniLM if no key) and downloads the reranker. Copy the 4.1 and 4.2 tables into your notes; the report cites these two (there is no separate embedding-model comparison section).
 2. **[M]** Run the **4.3** labelling-sheet cell. It writes `outputs/retrieval_labeling.csv` (20 queries, about 5 passages each, shuffled, with optional `llm_hint`).
 3. **[M]** Open the CSV in Excel/Google Sheets and fill `relevant`: **2** = passage directly answers the query, **1** = related/partial, **0** = not relevant. Judge from the text, not the hint. Save, upload back to the same path (or edit on Drive).
 4. **[M]** Run the 4.3 evaluation cell -> `outputs/retrieval_eval_human.csv` (strict recall@1/3/5, MRR, nDCG@5 per mode). Note which mode wins.
@@ -103,7 +103,7 @@ Priority key: **[M]** must do (graded core) | **[S]** should do (strengthens the
 
 ---
 ## Phase 9 - Final graded run (1.5-2 hours) **[M]**
-1. Set `FINAL_RUN = True` in the config cell (500 documents, live data only). Delete `data/csa` text files only if you want a clean re-download.
+1. Set `FINAL_RUN = True` in the config cell (live data only; packaging errors become hard stops; corpus size is already fixed at 500/300/150). Delete `data/csa` text files only if you want a clean re-download.
 2. Run the notebook **top to bottom** (Runtime -> Run all), then redo the manual label steps if the retrieval sheet was rebuilt (the sheet is not overwritten if it exists, so your labels are safe).
 3. Check the document count printed in Section 3. **Track B asks for 500-2000 documents.** If EDGAR gives fewer, add real CSA/ISDA exhibits manually to `data/csa/` (search sec.gov full-text for "credit support annex", form type EX-10), re-run Section 3, and if you still fall short report the real number plus the number of chunks, and tell the coordinator.
 4. Make sure nothing fell back to synthetic: Section 13 raises an error if it did.

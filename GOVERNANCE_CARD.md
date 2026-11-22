@@ -18,7 +18,7 @@
 | 2 | CSA term extraction | contract passages -> value + verbatim quote | **verification gate:** quote exists in source, contains the number, single amount; else REVIEW / NOT_FOUND | named approver (`apply_terms(approved_by=...)`), audit CSV | hallucinated/ambiguous term -> REVIEW, never applied |
 | 3 | Scenario translation | words -> 5 bucket shocks | bounds clamping, percent-slip fix, adjustments reported | analyst edits sliders before results are read | invalid output -> rule parser |
 | 4 | Answer phrasing and commentary | tool results -> text | **critic:** every number, status and key fact must trace to tool output; citations required | draft banners, nothing sent | critic fails twice -> deterministic answer |
-| 5 | Retrieval models (hosted bge-small-en-v1.5 embeddings, local cross-encoder; local MiniLM fallback) | query -> ranked passages | human-labelled recall@K / MRR / nDCG; embedding comparison (Section 4.2b) | citations shown | embedding endpoint down/busy -> cached vectors, then local MiniLM, then BM25 only; report limits |
+| 5 | Retrieval models (hosted bge-small-en-v1.5 embeddings, local cross-encoder; local MiniLM fallback) | query -> ranked passages | human-labelled recall@K / MRR / nDCG; chunking (4.1) and retrieval-mode (4.2) tables | citations shown | embedding endpoint down/busy -> cached vectors, then local MiniLM, then BM25 only; report limits |
 Non-AI components (deterministic, validated): Monte-Carlo PFE, CSA margin maths, haircuts, SA-CCR cross-check, stress/reverse stress, volatility forecast, optional Hull-White swaps.
 
 ## Controls implemented
