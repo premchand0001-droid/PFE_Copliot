@@ -45,7 +45,7 @@
 <line x1="150" y1="482" x2="950" y2="482" stroke="#475569" stroke-width="1.8"/>
 <rect x="60" y="500" width="180" height="92" rx="10" fill="#FFFBEB" stroke="#D97706" stroke-width="1.6"/>
 <text x="150.0" y="522" text-anchor="middle" font-size="13" font-weight="700" fill="#78350F">csa_clause_retriever</text>
-<text x="150.0" y="541" text-anchor="middle" font-size="10.5" fill="#374151">Hybrid RAG: BM25 + MiniLM</text>
+<text x="150.0" y="541" text-anchor="middle" font-size="10.5" fill="#374151">Hybrid RAG: BM25 + bge-small</text>
 <text x="150.0" y="556" text-anchor="middle" font-size="10.5" fill="#374151">RRF fusion + cross-encoder</text>
 <text x="150.0" y="571" text-anchor="middle" font-size="10.5" fill="#374151">rerank, [S#] citations</text>
 <line x1="150" y1="482" x2="150" y2="500" stroke="#475569" stroke-width="1.8" marker-end="url(#a)"/>

@@ -11,14 +11,24 @@ import pandas as pd
 # ===================== 1. CONFIG / LLM / SECURITY / TRACING =====================
 DATA = Path(os.getenv("PFE_DATA_DIR", "data"))
 CSA_DIR, REG_DIR, MKT_DIR, PORT_DIR = DATA / "csa", DATA / "reg", DATA / "market", DATA / "portfolio"
+CON_DIR, DIS_DIR = DATA / "contracts", DATA / "disclosures"       # derivative/collateral contracts and 10-K collateral-trigger excerpts (corpus expansion)
+MIN_CORPUS_DOCS = int(os.getenv("MIN_CORPUS_DOCS", "500"))        # Track B template: RAG over 500-2,000 documents
 OUT = Path(os.getenv("PFE_OUT_DIR", "outputs"))
-for _d in (CSA_DIR, REG_DIR, MKT_DIR, PORT_DIR, OUT):
+for _d in (CSA_DIR, REG_DIR, MKT_DIR, PORT_DIR, CON_DIR, DIS_DIR, OUT):
     _d.mkdir(parents=True, exist_ok=True)
 
 LLM_BASE_URL = os.getenv("LLM_BASE_URL", "")
 LLM_API_KEY = os.getenv("LLM_API_KEY", "")
 LLM_MODEL = os.getenv("LLM_MODEL", "Qwen/Qwen3-8B")
 LLM_CA_CERT = os.getenv("LLM_CA_CERT", "")                          # full path to your group's .crt (private CA)
+# --- hosted embedding endpoint (course VM02, OpenAI-style POST /v1/embeddings, model bge-small-en-v1.5, 384-dim, <=16 texts/request, <=512 tokens/text) ---
+EMBED_BASE_URL = os.getenv("EMBED_BASE_URL", "https://103.42.50.41:1035/v1")
+EMBED_API_KEY = os.getenv("EMBED_API_KEY", "")                        # shared embedding key from your coordinator (Colab secret / .env - never in code)
+EMBED_MODEL = os.getenv("EMBED_MODEL", "bge-small-en-v1.5")
+EMBED_CA_CERT = os.getenv("EMBED_CA_CERT", "")                        # full path to vm02-ca.crt (a DIFFERENT certificate from the LLM group's)
+EMBED_BACKEND = os.getenv("EMBED_BACKEND", "auto")                    # auto (hosted if a key is set, else local) | remote | local
+LOCAL_EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"         # fallback / comparison baseline
+BGE_QUERY_PREFIX = "Represent this sentence for searching relevant passages: "   # bge-v1.5 retrieval instruction (queries only, never documents)
 LLM_MAX_CALLS_PER_MIN = int(os.getenv("LLM_MAX_CALLS_PER_MIN", "50"))   # endpoint limit is 60/min per key
 LLM_CACHE = os.getenv("LLM_CACHE", "1") == "1"                      # deterministic (temp 0) responses cached on disk
 LLM_NO_THINK = os.getenv("LLM_NO_THINK", "1") == "1"                # Qwen3: disable <think> mode (saves the 1024-token budget)
@@ -252,6 +262,7 @@ class RateLimiter:
 
 
 rate_limiter = RateLimiter()
+
 # ===================== 2. DATA INGESTION (real SEC EDGAR CSAs + BCBS-IOSCO) & RETRIEVAL =====================
 SEC_UA = os.getenv("SEC_USER_AGENT", "PFE-Capstone-Student premchand0001@gmail.com")   # SEC requires a contact UA
 EDGAR_QUERIES = ['"credit support annex"',
@@ -360,6 +371,222 @@ def download_edgar_csas(n_docs=40, pause=0.15, max_bytes=3_000_000):
     return len(seen)
 
 
+COLLATERAL_TERMS = ["collateral", "margin", "credit support", "netting", "master agreement", "swap", "derivative", "threshold", "downgrade",
+                    "credit rating", "eligible", "haircut", "rehypothecat", "early termination", "event of default", "posted", "pledge"]
+TRIGGER_TERMS = ["downgrade", "credit rating", "ratings trigger", "rating trigger", "rating agenc", "below investment grade", "ratings-based", "rating-based"]
+
+
+def collateral_score(text):
+    """How many collateral/derivative-contract terms appear (0-17); contracts below 6 are rejected."""
+    t = text.lower()
+    return sum(m in t for m in COLLATERAL_TERMS)
+
+
+def _edgar_search(q, offset=0, forms=None, year=None, size=100):
+    """One page of SEC EDGAR full-text search. `year` restricts the filing date, which is how we get past the 1,000-hit limit per query."""
+    p = {"q": q, "from": offset, "size": size}
+    if forms:
+        p["forms"] = forms
+    if year:
+        p.update({"dateRange": "custom", "startdt": f"{year}-01-01", "enddt": f"{year}-12-31"})
+    return _get("https://efts.sec.gov/LATEST/search-index", params=p).json().get("hits", {}).get("hits", [])
+
+
+_REJ_FILE = DATA / "rejected_stems.txt"
+
+
+def _rejected():
+    return set(_REJ_FILE.read_text().split()) if _REJ_FILE.exists() else set()
+
+
+def _reject(stem):
+    """Remember a document that failed the quality filter so re-runs do not download it again."""
+    with open(_REJ_FILE, "a") as f:
+        f.write(stem + "\n")
+
+
+def _company_counts():
+    """Exhibits/filings already saved per company (CIK) across ALL corpus folders, so caps hold across tiers."""
+    from collections import Counter
+    c = Counter()
+    for d in (CSA_DIR, CON_DIR, DIS_DIR):
+        for jp in d.glob("*.json"):
+            try:
+                m_ = re.search(r"/data/(\d+)/", json.loads(jp.read_text()).get("url", ""))
+                if m_:
+                    c[int(m_.group(1))] += 1
+            except Exception:
+                pass
+    return c
+
+
+CONTRACT_QUERIES = ['"ISDA Master Agreement" "Schedule" "collateral"', '"collateral agreement" "eligible collateral" "margin"',
+                    '"variation margin" "initial margin" "swap"', '"master netting agreement" "collateral"',
+                    '"credit support" "pledged collateral" "swap counterparty"']
+DISCLOSURE_QUERIES = ['"additional collateral" "downgrade" "derivative"', '"credit rating" "collateral" "derivative" "triggers"',
+                      '"downgrade" "post additional collateral" "swap"']
+
+
+def download_edgar_contracts(n_docs=300, years=None, per_company=3, pause=0.15, max_bytes=3_000_000, verbose=True):
+    """Derivative / collateral contracts from SEC EDGAR exhibits (ISDA schedules, collateral and margin agreements, netting agreements) -> data/contracts.
+    A hit that turns out to hold genuine CSA terms (csa_score >= 5) is saved with the CSAs instead. Filters: >= 6000 chars (4000 for genuine CSAs) and collateral_score >= 6.
+    Searches year by year to get past the 1,000-hit cap per query. Every failure is skipped, never fatal."""
+    years = list(years or range(TODAY.year, 2009, -1))
+    seen = {p.stem for d in (CSA_DIR, CON_DIR) for p in d.glob("*.txt")} | _rejected()
+    per_cik, added, tried = _company_counts(), 0, 0
+    for y in years:
+        for q in CONTRACT_QUERIES:
+            if added >= n_docs:
+                break
+            try:
+                hits = _edgar_search(q, 0, year=y)
+            except Exception as e:
+                print(f"EDGAR contract search failed ({q[:28]}..., {y}): {str(e)[:60]}"); continue
+            time.sleep(pause)
+            for h in hits:
+                if added >= n_docs:
+                    break
+                src_ = h.get("_source", {})
+                ftype = str(src_.get("file_type", "")).upper()
+                if ftype and not ftype.startswith("EX"):
+                    continue
+                try:
+                    adsh, fname = h["_id"].split(":", 1)
+                    cik = int((src_.get("ciks") or ["0"])[0])
+                    stem = re.sub(r"[^A-Za-z0-9]+", "_", f"{adsh}_{fname}")[:90]
+                    if per_cik[cik] >= per_company or stem in seen:
+                        continue
+                    url = f"https://www.sec.gov/Archives/edgar/data/{cik}/{adsh.replace('-', '')}/{fname}"
+                    tried += 1
+                    r = _get(url)
+                    if len(r.content) > max_bytes:
+                        _reject(stem); seen.add(stem); continue
+                    txt = pdf_to_text(r.content) if fname.lower().endswith(".pdf") else html_to_text(r.content)
+                    cs = csa_score(txt)
+                    if len(txt) < (4000 if cs >= 5 else 6000) or (cs < 5 and collateral_score(txt) < 6):
+                        _reject(stem); seen.add(stem); continue
+                    folder = CSA_DIR if cs >= 5 else CON_DIR
+                    (folder / f"{stem}.txt").write_text(txt)
+                    title = f"{(src_.get('display_names') or ['?'])[0]} | {src_.get('file_type', '')} | {src_.get('file_date', '')}"
+                    (folder / f"{stem}.json").write_text(json.dumps({"title": title, "url": url}))
+                    seen.add(stem); per_cik[cik] += 1; added += 1
+                    time.sleep(pause)
+                except Exception as e:
+                    if verbose:
+                        print("  skip:", str(e)[:70])
+        if added >= n_docs:
+            break
+    print(f"contracts: {added} added ({tried} fetched) -> {len(list(CON_DIR.glob('*.txt')))} in data/contracts")
+    return added
+
+
+def extract_trigger_passages(text, max_chars=20000):
+    """Pull the collateral / rating-trigger passages out of a long filing: paragraphs that mention collateral AND a ratings term, with their neighbours."""
+    paras = [p.strip() for p in re.split(r"\n+", text) if p.strip()]          # html_to_text puts each HTML block on its own line (not blank-line separated)
+    hit = [i for i, p in enumerate(paras) if "collateral" in p.lower() and any(t in p.lower() for t in TRIGGER_TERMS)]
+    keep = sorted({j for i in hit for j in (i - 1, i, i + 1) if 0 <= j < len(paras)})
+    out, n = [], 0
+    for j in keep:
+        if n + len(paras[j]) > max_chars:
+            break
+        out.append(paras[j]); n += len(paras[j]) + 2
+    return "\n\n".join(out), len(hit)
+
+
+def download_edgar_disclosures(n_docs=150, years=None, per_company=2, pause=0.15, max_bytes=15_000_000, verbose=True):
+    """Collateral and rating-trigger passages from Form 10-K filings (how much extra collateral a downgrade would cost) -> data/disclosures.
+    Only the relevant passages are stored (>= 2 matching paragraphs, >= 1,500 chars), not the whole filing. Every failure is skipped."""
+    years = list(years or range(TODAY.year, 2012, -1))
+    seen = {p.stem for p in DIS_DIR.glob("*.txt")} | _rejected()
+    per_cik, added, tried = _company_counts(), 0, 0
+    for y in years:
+        for q in DISCLOSURE_QUERIES:
+            if added >= n_docs:
+                break
+            try:
+                hits = _edgar_search(q, 0, forms="10-K", year=y)
+            except Exception as e:
+                print(f"EDGAR 10-K search failed ({q[:28]}..., {y}): {str(e)[:60]}"); continue
+            time.sleep(pause)
+            for h in hits:
+                if added >= n_docs:
+                    break
+                src_ = h.get("_source", {})
+                try:
+                    adsh, fname = h["_id"].split(":", 1)
+                    cik = int((src_.get("ciks") or ["0"])[0])
+                    stem = re.sub(r"[^A-Za-z0-9]+", "_", f"{adsh}_{fname}")[:90]
+                    if per_cik[cik] >= per_company or stem in seen or not fname.lower().endswith((".htm", ".html")):
+                        continue
+                    url = f"https://www.sec.gov/Archives/edgar/data/{cik}/{adsh.replace('-', '')}/{fname}"
+                    tried += 1
+                    r = _get(url)
+                    if len(r.content) > max_bytes:
+                        _reject(stem); seen.add(stem); continue
+                    ex, n_hit = extract_trigger_passages(html_to_text(r.content))
+                    if n_hit < 2 or len(ex) < 1500:
+                        _reject(stem); seen.add(stem); continue
+                    name = (src_.get("display_names") or ["?"])[0]
+                    (DIS_DIR / f"{stem}.txt").write_text(f"[Excerpt: collateral and credit-rating passages of the Form 10-K of {name}, filed {src_.get('file_date', '')}]\n\n{ex}")
+                    (DIS_DIR / f"{stem}.json").write_text(json.dumps({"title": f"{name} | 10-K excerpt | {src_.get('file_date', '')}", "url": url}))
+                    seen.add(stem); per_cik[cik] += 1; added += 1
+                    time.sleep(pause)
+                except Exception as e:
+                    if verbose:
+                        print("  skip:", str(e)[:70])
+        if added >= n_docs:
+            break
+    print(f"disclosures: {added} added ({tried} fetched) -> {len(list(DIS_DIR.glob('*.txt')))} in data/disclosures")
+    return added
+
+
+# Additional public regulation / standards PDFs. Each URL is tried in order and validated as a real PDF; a miss is reported, never fatal
+# (check the titles/URLs once - they could not be tested from the build sandbox).
+REG_EXTRA = {
+    "bcbs_sa_ccr_d279": ("BCBS The standardised approach for measuring counterparty credit risk exposures (d279, SA-CCR)",
+                         ["https://www.bis.org/publ/bcbs279.pdf", "https://web.archive.org/web/2024id_/https://www.bis.org/publ/bcbs279.pdf"]),
+    "us_prudential_margin_rule_2015": ("US prudential regulators: Margin and Capital Requirements for Covered Swap Entities (Federal Register, Nov 2015)",
+                                       ["https://www.govinfo.gov/content/pkg/FR-2015-11-30/pdf/2015-28671.pdf"]),
+    "cftc_margin_rule_2016": ("CFTC: Margin Requirements for Uncleared Swaps for Swap Dealers and Major Swap Participants (Federal Register, Jan 2016)",
+                              ["https://www.govinfo.gov/content/pkg/FR-2016-01-06/pdf/2015-32320.pdf"]),
+}
+
+
+def download_extra_regs():
+    got = 0
+    for stem, (title, urls) in REG_EXTRA.items():
+        if (REG_DIR / f"{stem}.txt").exists():
+            got += 1; continue
+        try:
+            content, url = fetch_reg_pdf(urls)
+            text = pdf_to_text(content)
+            if len(text) < 5000:
+                raise ValueError("PDF text too short (scanned?)")
+            (REG_DIR / f"{stem}.txt").write_text(text)
+            (REG_DIR / f"{stem}.json").write_text(json.dumps({"title": title, "url": url}))
+            got += 1; print(f"downloaded {stem}: {len(text):,} chars")
+        except Exception as e:
+            print(f"  could not get {stem}: {str(e)[:110]}  (save the PDF into data/reg manually if you want it)")
+    return got
+
+
+def corpus_report(index=True):
+    """Corpus size by tier against the Track B requirement (500-2,000 documents). Returns a DataFrame; prints an honest summary."""
+    docs = load_corpus()
+    idx = index_docs() if index else docs
+    ids = {d["doc_id"] for d in idx}
+    rows = []
+    for cat, label in (("csa", "CSA / ISDA exhibits"), ("contract", "derivative / collateral contracts"), ("disclosure", "10-K collateral-trigger excerpts"), ("regulation", "regulation / standards")):
+        ds = [d for d in docs if d["category"] == cat]
+        rows.append({"tier": label, "downloaded": len(ds), "indexed": sum(d["doc_id"] in ids for d in ds),
+                     "genuine CSA (score>=5)": sum((d["csa_score"] or 0) >= 5 for d in ds) if cat == "csa" else None})
+    df = pd.DataFrame(rows)
+    tot_d, tot_i = int(df.downloaded.sum()), int(df.indexed.sum())
+    print(f"Corpus: {tot_d} documents downloaded, {tot_i} indexed for retrieval. Track B requires {MIN_CORPUS_DOCS}-2,000 -> "
+          + ("requirement met." if tot_i >= MIN_CORPUS_DOCS else f"BELOW the requirement by {MIN_CORPUS_DOCS - tot_i}: raise the download counts, add documents by hand, or state the shortfall in the report."))
+    return df
+
+
 def download_regs():
     """Download the latest BCBS-IOSCO margin framework (d499) - see REG_URLS."""
     for title, urls in REG_URLS.items():
@@ -392,7 +619,7 @@ def ingest_local_files():
 
 def load_corpus():
     docs = []
-    for folder, cat in ((CSA_DIR, "csa"), (REG_DIR, "regulation")):
+    for folder, cat in ((CSA_DIR, "csa"), (CON_DIR, "contract"), (DIS_DIR, "disclosure"), (REG_DIR, "regulation")):
         for p in sorted(folder.glob("*.txt")):
             mp = p.with_suffix(".json")
             meta = json.loads(mp.read_text()) if mp.exists() else {}
@@ -435,10 +662,19 @@ def chunk_text(text, size=900, overlap=150):
     return chunks
 
 
+CHUNK_CAP = {"csa": 400, "regulation": 400, "contract": 60, "disclosure": 40}      # chunks kept per document (keeps the index, and the embedding calls, manageable)
+
+
 def build_chunks(docs, size=900, overlap=150, max_per_doc=400):
+    """Chunk every document. Long contracts / filings keep their most collateral-relevant chunks (in original order) instead of just the first N."""
     out = []
     for d in docs:
-        for i, t in enumerate(chunk_text(d["text"], size, overlap)[:max_per_doc]):
+        ch = chunk_text(d["text"], size, overlap)
+        cap = min(max_per_doc, CHUNK_CAP.get(d["category"], max_per_doc))
+        if len(ch) > cap:
+            keep = sorted(sorted(range(len(ch)), key=lambda j: -sum(m in ch[j].lower() for m in COLLATERAL_TERMS))[:cap])
+            ch = [ch[j] for j in keep]
+        for i, t in enumerate(ch):
             out.append({"chunk_id": f"{d['doc_id']}#{i}", "doc_id": d["doc_id"], "category": d["category"],
                         "title": d["title"], "url": d["url"], "text": t})
     return out
@@ -448,27 +684,147 @@ def _tok(t):
     return re.findall(r"[a-z0-9]+", t.lower())
 
 
+class RemoteEmbedder:
+    """Hosted bge-small-en-v1.5 via the course embedding endpoint (POST /v1/embeddings, 384-dim).
+    Limits from the quickstart: <=16 texts per request, <=512 model tokens per text, shared key -> capacity errors are expected.
+    Handles: private CA (verification stays on), batches of 16, 429/503/5xx back-off, over-long text (truncate, then halve on 400/413),
+    unit-length vectors, and an on-disk cache of query vectors so repeated questions cost no calls."""
+    kind = "remote"
+    BATCH, MAX_CHARS, DELAYS = 16, 1600, (0, 2, 4, 8, 16, 30)
+
+    def __init__(self):
+        import requests
+        if not (EMBED_API_KEY and EMBED_BASE_URL):
+            raise RuntimeError("embedding endpoint not configured (set EMBED_API_KEY; EMBED_BASE_URL has a default)")
+        self.http, self.lock = requests.Session(), threading.Lock()
+        self.name, self.dim = EMBED_MODEL, None
+        self.n_calls = self.retries = self.cache_hits = 0
+        self.qfile, self.qcache = OUT / f"embq_{re.sub(r'[^A-Za-z0-9]+', '_', EMBED_MODEL)}.jsonl", {}
+        if self.qfile.exists():
+            for line in self.qfile.read_text().splitlines():
+                try:
+                    d = json.loads(line); self.qcache[d["k"]] = d["v"]
+                except Exception:
+                    pass
+
+    def _post(self, texts):
+        for attempt, d in enumerate(self.DELAYS):
+            time.sleep(d)
+            try:
+                r = self.http.post(EMBED_BASE_URL.rstrip("/") + "/embeddings", json={"model": EMBED_MODEL, "input": texts}, timeout=120,
+                                   headers={"Authorization": f"Bearer {EMBED_API_KEY}"}, verify=(EMBED_CA_CERT or True))
+            except Exception as e:
+                if "SSL" in type(e).__name__ or "certificate" in str(e).lower():
+                    raise RuntimeError(f"TLS certificate error on the embedding endpoint - set EMBED_CA_CERT to the full path of vm02-ca.crt ({str(e)[:100]})")
+                self.retries += 1
+                if attempt == len(self.DELAYS) - 1:
+                    raise RuntimeError(f"embedding endpoint unreachable: {str(e)[:120]}")
+                continue
+            if r.status_code in (429, 500, 502, 503, 504):          # capacity error on the shared server: wait and retry the same batch
+                self.retries += 1
+                if attempt == len(self.DELAYS) - 1:
+                    raise RuntimeError(f"embedding endpoint busy (HTTP {r.status_code}) after retries")
+                continue
+            if r.status_code == 401:
+                raise RuntimeError("HTTP 401 from the embedding endpoint: check EMBED_API_KEY")
+            if r.status_code in (400, 413, 422):
+                raise ValueError(f"HTTP {r.status_code}: {r.text[:150]}")
+            if r.status_code != 200:
+                raise RuntimeError(f"HTTP {r.status_code}: {r.text[:150]}")
+            self.n_calls += 1
+            data = sorted(r.json()["data"], key=lambda x: x.get("index", 0))
+            return [x["embedding"] for x in data]
+        raise RuntimeError("embedding call failed")
+
+    def _batch(self, texts, limit):
+        try:
+            return self._post([t[:limit] for t in texts])
+        except ValueError:                                           # most likely over 512 tokens: retry with half the characters
+            if limit <= 200:
+                raise RuntimeError("embedding request rejected even after truncation")
+            return self._batch(texts, limit // 2)
+
+    def encode(self, texts, normalize=True, progress=False):
+        texts = [str(t) if str(t).strip() else "." for t in texts]
+        out = []
+        with self.lock:
+            for s in range(0, len(texts), self.BATCH):
+                out.extend(self._batch(texts[s:s + self.BATCH], self.MAX_CHARS))
+                if progress and (s // self.BATCH) % 25 == 0:
+                    print(f"  embedded {min(s + self.BATCH, len(texts))}/{len(texts)}", flush=True)
+        m = np.asarray(out, dtype="float32")
+        if self.dim is None:
+            self.dim = m.shape[1]
+        return m / np.maximum(np.linalg.norm(m, axis=1, keepdims=True), 1e-9) if normalize else m
+
+    def encode_docs(self, texts):
+        return self.encode(texts, progress=True)
+
+    def encode_query(self, q):
+        k = hashlib.md5((EMBED_MODEL + "|" + q).encode()).hexdigest()
+        if k in self.qcache:
+            self.cache_hits += 1
+            return np.asarray(self.qcache[k], dtype="float32")
+        v = self.encode([BGE_QUERY_PREFIX + q])[0]
+        self.qcache[k] = v.round(6).tolist()
+        with open(self.qfile, "a") as f:
+            f.write(json.dumps({"k": k, "v": self.qcache[k]}) + "\n")
+        return v
+
+    def ping(self):
+        v = self.encode(["Example document chunk", "Example search query"])
+        return f"{self.name}: {v.shape[0]} vectors x {v.shape[1]} dims, unit length"
+
+
+class LocalEmbedder:
+    """Local sentence-transformers model (all-MiniLM-L6-v2): offline fallback and the baseline for the embedding comparison."""
+    kind = "local"
+
+    def __init__(self, model=LOCAL_EMBED_MODEL):
+        from sentence_transformers import SentenceTransformer
+        self.model, self.name = SentenceTransformer(model), model.split("/")[-1]
+        self.dim = self.model.get_sentence_embedding_dimension()
+
+    def encode_docs(self, texts):
+        return self.model.encode(list(texts), batch_size=64, normalize_embeddings=True, show_progress_bar=False)
+
+    def encode_query(self, q):
+        return self.model.encode([q], normalize_embeddings=True)[0]
+
+
+def make_embedder(backend=None, verbose=True, ping=True):
+    """backend: None -> EMBED_BACKEND. 'auto' = hosted bge if a key is configured, else local MiniLM; falls back to local if the hosted endpoint is unusable.
+    ping=False skips the connectivity test (the retriever uses cached vectors first and only touches the network if it must)."""
+    backend = backend or EMBED_BACKEND
+    if backend in ("remote", "auto") and EMBED_API_KEY:
+        try:
+            e = RemoteEmbedder(); info = e.ping() if ping else e.name
+            if verbose:
+                print("Embeddings: HOSTED endpoint ->", info)
+            return e
+        except Exception as ex:
+            if backend == "remote":
+                raise
+            print("Hosted embeddings unavailable, falling back to local MiniLM:", str(ex)[:140])
+    elif backend == "remote":
+        raise RuntimeError("EMBED_BACKEND=remote but EMBED_API_KEY is not set")
+    e = LocalEmbedder()
+    if verbose:
+        print("Embeddings: LOCAL", e.name)
+    return e
+
+
 class HybridRetriever:
-    """BM25 + dense (MiniLM) fused with Reciprocal Rank Fusion, optional cross-encoder reranker."""
-    def __init__(self, chunks, embed=True, rerank=True):
+    """BM25 + dense embeddings (hosted bge-small-en-v1.5, or local MiniLM) fused with Reciprocal Rank Fusion, optional cross-encoder reranker.
+    backend: None (follow EMBED_BACKEND) | 'remote' | 'local' | an embedder object. The vector cache is keyed by model + chunk texts."""
+    def __init__(self, chunks, embed=True, rerank=True, backend=None):
         from rank_bm25 import BM25Okapi
         self.chunks, self.texts = chunks, [c["text"] for c in chunks]
         self.bm25 = BM25Okapi([_tok(t) for t in self.texts])
-        self.emb = self.model = self.reranker = None
+        self.emb = self.embedder = self.reranker = None
+        self.embed_fallbacks = 0
         if embed:
-            try:
-                from sentence_transformers import SentenceTransformer
-                self.model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
-                key = hashlib.md5("".join(c["chunk_id"] for c in chunks).encode()).hexdigest()[:10]
-                f = OUT / f"emb_{key}.npy"
-                if f.exists():
-                    self.emb = np.load(f)
-                else:
-                    self.emb = self.model.encode(self.texts, batch_size=64, normalize_embeddings=True,
-                                                 show_progress_bar=False)
-                    np.save(f, self.emb)
-            except Exception as e:
-                print("Dense retrieval unavailable, BM25 only:", e)
+            self.embedder, self.emb = self._build_vectors(backend)
         if rerank:
             try:
                 from sentence_transformers import CrossEncoder
@@ -476,11 +832,47 @@ class HybridRetriever:
             except Exception as e:
                 print("Reranker unavailable:", e)
 
+    def _vectors(self, emb):
+        """Vectors for every chunk from the on-disk cache (no network) or by embedding; the cache key = model + chunk ids + text hashes."""
+        key = hashlib.md5((emb.name + "|" + "".join(c["chunk_id"] + hashlib.md5(c["text"].encode()).hexdigest()[:6] for c in self.chunks)).encode()).hexdigest()[:10]
+        f = OUT / f"emb_{re.sub(r'[^A-Za-z0-9]+', '_', emb.name)}_{key}.npy"
+        if f.exists():
+            return np.load(f)
+        v = emb.encode_docs(self.texts)
+        np.save(f, v)
+        return v
+
+    def _build_vectors(self, backend):
+        try:
+            emb = backend if (backend is not None and not isinstance(backend, str)) else make_embedder(backend, verbose=False, ping=False)
+        except Exception as e:
+            print("Dense retrieval unavailable, BM25 only:", e); return None, None
+        try:
+            return emb, self._vectors(emb)
+        except Exception as e:
+            if getattr(emb, "kind", "") == "remote" and backend != "remote" and EMBED_BACKEND != "remote":
+                print("Hosted embeddings failed while indexing, falling back to local MiniLM:", str(e)[:120])
+                try:
+                    loc = LocalEmbedder(); return loc, self._vectors(loc)
+                except Exception as e2:
+                    print("Dense retrieval unavailable, BM25 only:", e2); return None, None
+            print("Dense retrieval unavailable, BM25 only:", e); return None, None
+
+    @property
+    def embed_name(self):
+        return self.embedder.name if self.embedder is not None and self.emb is not None else "none (BM25 only)"
+
     def search(self, query, k=5, mode="hybrid+rerank", pool=30):
         bm_rank = list(np.argsort(-self.bm25.get_scores(_tok(query)))[:pool])
         if mode == "bm25" or self.emb is None:
             return self._out(bm_rank[:k])
-        qv = self.model.encode([query], normalize_embeddings=True)[0]
+        try:
+            qv = self.embedder.encode_query(query)
+        except Exception as e:                                       # endpoint down at query time -> degrade to BM25 for this query, never crash the agent
+            self.embed_fallbacks += 1
+            if self.embed_fallbacks == 1:
+                print("Query embedding failed, using BM25 for this query:", str(e)[:120])
+            return self._out(bm_rank[:k])
         d_rank = list(np.argsort(-(self.emb @ qv))[:pool])
         if mode == "dense":
             return self._out(d_rank[:k])
@@ -527,6 +919,7 @@ def recall_at_k(retriever, k=5, mode="hybrid+rerank"):
         res = retriever.search(q, k=k, mode=mode)
         hits += any(re.search(pat, c["text"], re.I) for c in res)
     return hits / len(CLAUSE_TOPICS)
+
 # ===================== 3. TOOLS (deterministic finance; the LLM never does arithmetic) =====================
 _PX = {}
 
@@ -944,6 +1337,7 @@ def validate_call(name, args):
 
 def run_tool(name, args):
     return TOOLS[name]["fn"](**args)
+
 # ===================== 3e. OPTIONAL: VANILLA INTEREST-RATE SWAPS (industry-standard test structures) =====================
 # Scope (deliberately small): single-currency fixed-vs-float swaps, spot-starting at each run (benchmark mode), one rate factor
 # (Hull-White 1F, parameters are ASSUMPTIONS), single curve (US Treasury CMT par yields from FRED as a stand-in for the discount/projection curve),
@@ -1217,6 +1611,7 @@ def validate_irs(n_paths=20000, seed=3):
     df = pd.DataFrame(checks, columns=["check", "expected", "actual", "passed"])
     df[["expected", "actual"]] = df[["expected", "actual"]].astype(float).round(4)
     return df
+
 # ===================== 3b. USABLE DELIVERABLES (files a desk can actually use) =====================
 # (A) CSA term extraction -> verified structured data  (B) daily exposure & margin pack (xlsx)
 # (C) margin call notices (docx + upload csv)          (D) dispute waterfall (reconcile their call vs ours)
@@ -1661,6 +2056,7 @@ TOOLS.update({
     "generate_daily_pack": {"fn": generate_daily_pack_tool, "req": [], "opt": []},
     "explain_margin_difference": {"fn": explain_margin_difference_tool, "req": ["counterparty", "their_call_usd"], "opt": ["their_mtm_usd", "their_collateral_usd"]},
 })
+
 # ===================== 3c. FUTURE RISK & CRISIS RISK (dashboard engine) =====================
 # Future risk: exposure fan chart (percentiles, EE, MPOR sensitivity). Crisis risk: historical-replay and hypothetical
 # scenarios (exposure + collateral shocked together = wrong-way / gap risk), stressed PFE, liquidity need, reverse stress.
@@ -2129,6 +2525,7 @@ def run_custom_scenario_tool(description, counterparty=None, write_file=True):
 
 TOOLS["run_stress_test"] = {"fn": run_stress_test_tool, "req": ["scenario"], "opt": ["counterparty"]}
 TOOLS["run_custom_scenario"] = {"fn": run_custom_scenario_tool, "req": ["description"], "opt": ["counterparty"]}
+
 # ===================== 3d. VALIDATION & REGULATORY CROSS-CHECK =====================
 # (1) validate_engine(): independent checks of the Monte-Carlo engine and CSA maths (closed-form benchmark + invariants)
 # (2) saccr_*: SIMPLIFIED Basel SA-CCR (BCBS d279) as a regulatory sanity check on MC PFE (parameters to be verified against d279)
@@ -2299,7 +2696,11 @@ def provenance_report():
     regs = [d for d in docs if d["category"] == "regulation"]
     kind = "MISSING" if not csa else ("REAL (all from SEC EDGAR)" if len(sec) == len(csa) else ("REAL + MANUAL (verify manual files' origin)" if sec else "UNVERIFIED (local files only - cannot confirm they are real agreements)"))
     add("CSA / ISDA corpus", f"{len(sec)} SEC EDGAR exhibits + {len(csa) - len(sec)} manually added", kind, f"{len(csa)} documents")
-    add("Regulation corpus (BCBS-IOSCO etc.)", "bis.org PDFs", "REAL" if regs else "MISSING", f"{len(regs)} documents")
+    for cat_, lab_ in (("contract", "Derivative / collateral contracts"), ("disclosure", "10-K collateral-trigger excerpts")):
+        ds_ = [d for d in docs if d["category"] == cat_]
+        if ds_:
+            add(lab_, "SEC EDGAR (full-text search)", "REAL" if all(str(d["url"]).startswith("https://www.sec.gov") for d in ds_) else "REAL + MANUAL (verify manual files' origin)", f"{len(ds_)} documents")
+    add("Regulation corpus (BCBS-IOSCO etc.)", "bis.org / govinfo.gov PDFs", "REAL" if regs else "MISSING", f"{len(regs)} documents")
     n_trades = len(trades_table()) if (PORT_DIR / "trades.csv").exists() else 0
     add("Counterparty book: names, trades, notionals, directions", "generated by make_portfolio(); linear forwards on real tickers", "SYNTHETIC (by design - real books are confidential)", f"{n_trades} trades")
     add("Credit limits", "calibrated to modelled PFE", "SYNTHETIC (by design)", "see make_portfolio()")
@@ -2356,8 +2757,10 @@ def preflight_checks():
     run("SEC EDGAR full-text search", lambda: f"{len(_get('https://efts.sec.gov/LATEST/search-index', params={'q': chr(34) + 'credit support annex' + chr(34), 'size': 1}).json()['hits']['hits'])} hit(s)", "check SEC_USER_AGENT / internet; or drop CSA PDFs into data/csa")
     run("BIS margin framework PDF (d499)", lambda: fetch_reg_pdf(list(REG_URLS.values())[0])[1].split("//")[-1][:70], "save d499.pdf into data/reg manually")
     run("FRED Treasury yields (for swaps)", lambda: str(requests.get("https://fred.stlouisfed.org/graph/fredgraph.csv", params={"id": "DGS10"}, timeout=30).status_code), "swaps module will skip itself; everything else is unaffected")
-    run("Hugging Face reachable (embedding models)", lambda: str(requests.head("https://huggingface.co", timeout=20, allow_redirects=True).status_code), "models download on first use; offline machines need them pre-downloaded")
+    run("Embedding endpoint (bge-small-en-v1.5, TLS + key)", lambda: (need(bool(EMBED_API_KEY), "EMBED_API_KEY not set - local MiniLM will be used instead"), need(bool(EMBED_CA_CERT) and os.path.exists(EMBED_CA_CERT), "EMBED_CA_CERT (vm02-ca.crt) not found"), RemoteEmbedder().ping())[2], "set EMBED_API_KEY and EMBED_CA_CERT (vm02-ca.crt); the copilot falls back to local MiniLM without them")
+    run("Hugging Face reachable (reranker + local fallback model)", lambda: str(requests.head("https://huggingface.co", timeout=20, allow_redirects=True).status_code), "the cross-encoder reranker (and MiniLM fallback) download on first use; offline machines need them pre-downloaded")
     return pd.DataFrame(checks, columns=["check", "status", "detail"])
+
 # ===================== 4. AGENT: planner -> executor -> critic (+ memory, guardrails, tracing) =====================
 PLANNER_SYS = """You are the PLANNER of a Counterparty Credit Risk (CCR) copilot. Convert the user's request into a JSON plan.
 Tools:

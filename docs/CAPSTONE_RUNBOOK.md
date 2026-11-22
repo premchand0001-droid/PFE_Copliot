@@ -29,7 +29,8 @@ Priority key: **[M]** must do (graded core) | **[S]** should do (strengthens the
    | SEC EDGAR | check the User-Agent line; otherwise plan manual CSA downloads (Phase 2) |
    | BIS d499 | download `d499.pdf` from bis.org and upload it to `data/reg/` |
    | FRED | only affects the optional swap section |
-   | Hugging Face | needed once to download the embedding models |
+   | Embedding endpoint (VM02) | needs `EMBED_API_KEY` + `vm02-ca.crt`; optional - without them local MiniLM is used |
+   | Hugging Face | needed once to download the reranker (and the local MiniLM fallback) |
 
 **Done when:** the smoke test says "ready" and pre-flight shows OK for LLM, Yahoo and EDGAR (BIS can be manual).
 
@@ -45,7 +46,7 @@ Priority key: **[M]** must do (graded core) | **[S]** should do (strengthens the
 
 ---
 ## Phase 3 - Retrieval experiments (45 min + 30 min labelling)
-1. **[M]** Run **4.1** (chunk-size experiment) and **4.2** (final index, recall of bm25 / dense / hybrid / hybrid+rerank). First run downloads the MiniLM and reranker models. Copy both tables into your notes.
+1. **[M]** Run **4.1** (chunk-size experiment) and **4.2** (final index, recall of bm25 / dense / hybrid / hybrid+rerank). Before this, run Section 3 with `EXPAND_CORPUS = True` (contracts, 10-K excerpts, extra regulation PDFs) and copy the corpus-by-tier table - Track B requires 500-2,000 documents; state the shortfall honestly if the total is lower. First run embeds the corpus through the hosted bge endpoint (or downloads MiniLM if no key) and downloads the reranker. Then run **4.2b** (hosted bge vs local MiniLM on the same chunks) and copy all tables into your notes.
 2. **[M]** Run the **4.3** labelling-sheet cell. It writes `outputs/retrieval_labeling.csv` (20 queries, about 5 passages each, shuffled, with optional `llm_hint`).
 3. **[M]** Open the CSV in Excel/Google Sheets and fill `relevant`: **2** = passage directly answers the query, **1** = related/partial, **0** = not relevant. Judge from the text, not the hint. Save, upload back to the same path (or edit on Drive).
 4. **[M]** Run the 4.3 evaluation cell -> `outputs/retrieval_eval_human.csv` (strict recall@1/3/5, MRR, nDCG@5 per mode). Note which mode wins.

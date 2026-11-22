@@ -9,11 +9,12 @@ st.set_page_config(page_title="PFE-Copilot Risk Dashboard", page_icon="📊", la
 @st.cache_resource(show_spinner="Indexing corpus and building portfolio...")
 def init():
     pfe.make_portfolio()
-    pfe.set_retriever(pfe.HybridRetriever(pfe.build_chunks(pfe.index_docs(), 900, 150), embed=True, rerank=True))
-    return True
+    r = pfe.HybridRetriever(pfe.build_chunks(pfe.index_docs(), 900, 150), embed=True, rerank=True)
+    pfe.set_retriever(r)
+    return r.embed_name
 
 
-init()
+EMBED_NAME = init()
 
 
 @st.cache_data(ttl=3600, show_spinner="Running Monte-Carlo exposure simulation...")
@@ -44,6 +45,7 @@ synthetic = snap.data_source.str.contains("SYNTHETIC").any()
 with st.sidebar:
     st.header("PFE-Copilot")
     st.caption(f"LLM: {'live endpoint' if pfe.llm.live else 'DRY-RUN (rule-based)'}")
+    st.caption(f"Embeddings: {EMBED_NAME}")
     st.caption("Data: Yahoo Finance | SEC EDGAR CSAs | BCBS-IOSCO")
     if st.button("Refresh market data & caches"):
         st.cache_data.clear(); pfe._CACHE.clear(); pfe._PX.clear(); st.rerun()

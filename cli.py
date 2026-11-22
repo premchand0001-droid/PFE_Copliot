@@ -37,6 +37,7 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("preflight", help="check certificate, LLM, Yahoo, SEC, BIS, FRED, Hugging Face")
     d = sub.add_parser("download", help="download SEC EDGAR CSAs and BCBS regulation"); d.add_argument("--docs", type=int, default=int(os.environ.get("N_CSA_DOCS", "60")))
+    d.add_argument("--contracts", type=int, default=0, help="also download N derivative/collateral contracts"); d.add_argument("--disclosures", type=int, default=0, help="also download N Form 10-K collateral-trigger excerpts")
     sub.add_parser("index", help="chunk the corpus, build embeddings/BM25 and print recall of each retrieval mode")
     p = sub.add_parser("portfolio", help="create the illustrative portfolio (data/portfolio)"); p.add_argument("--irs", action="store_true", help="also add the optional swap netting set")
     sub.add_parser("validate", help="run the engine validation suite (exit code 1 on failure)")
@@ -51,11 +52,15 @@ def main():
     if a.cmd == "preflight":
         df = pfe.preflight_checks(); print(df.to_string(index=False)); sys.exit(1 if (df.status == "FAIL").any() else 0)
     if a.cmd == "download":
-        pfe.ingest_local_files(); n = pfe.download_edgar_csas(n_docs=a.docs); pfe.download_regs(); pfe.ingest_local_files()
-        docs = pfe.load_corpus(); print(f"{len(docs)} documents ({sum(d['category'] == 'csa' for d in docs)} CSA, {sum(d['category'] == 'regulation' for d in docs)} regulation)")
+        pfe.ingest_local_files(); n = pfe.download_edgar_csas(n_docs=a.docs); pfe.download_regs(); pfe.download_extra_regs()
+        if a.contracts: pfe.download_edgar_contracts(n_docs=a.contracts)
+        if a.disclosures: pfe.download_edgar_disclosures(n_docs=a.disclosures)
+        pfe.ingest_local_files()
+        print(pfe.corpus_report().to_string(index=False))
     elif a.cmd == "index":
         chunks = pfe.build_chunks(pfe.index_docs(), 900, 150); print(len(chunks), "chunks; building index (first run downloads models and embeds the corpus - several minutes on CPU)")
         r = pfe.HybridRetriever(chunks, embed=True, rerank=True)
+        print("embedding model:", r.embed_name)
         print(pd.DataFrame([{"mode": m, **{f"recall@{k}": pfe.recall_at_k(r, k, m) for k in (3, 5, 10)}} for m in ["bm25", "dense", "hybrid", "hybrid+rerank"]]).to_string(index=False))
     elif a.cmd == "portfolio":
         pfe.make_portfolio()

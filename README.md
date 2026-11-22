@@ -131,7 +131,7 @@ Local IDE alternative: `LOCAL_SETUP.md`. No LLM key? The notebook still runs in 
 | Private CA certificate, HTTPS verification must stay on | `requests` with `verify=<your .crt>` (`CA_CERT_PATH`); clear error message if missing |
 | 1 active request per key; 60 requests/min | global lock + throttle (<=50/min); 429/503 retried after 2/4/8/16 s |
 | 8192 tokens total; `max_tokens` <= 1024 | caps clamped to 1024; prompts/passages truncated; per-query token budget |
-| No embeddings endpoint | local `all-MiniLM-L6-v2` embeddings and local cross-encoder reranker |
+| Embeddings: separate shared endpoint on VM02 (`bge-small-en-v1.5`, 384-dim, <=16 texts/request, <=512 tokens, own key + `vm02-ca.crt`) | hosted bge is the default dense model when `EMBED_API_KEY` is set; vectors and query embeddings are cached on disk; local `all-MiniLM-L6-v2` is the automatic fallback and the baseline in the Section 4.2b comparison; the cross-encoder reranker stays local |
 | Tool-call support | planner emits schema-validated JSON plans (JSON mode with automatic fallback + repair loop) - constrained output and validation are the focus of the track; native function-calling can be added as an experiment |
 | Cost control | every response cached on disk (`outputs/llm_cache.jsonl`, excluded from the zip) - re-runs and demos cost no calls |
 

@@ -8,7 +8,7 @@ The template says "What did we do to compensate for a small model?" is a **grade
 |---|---|---|---|
 | 1 | Problem, users, what the copilot does / refuses; **related work** (JPM COIN, ISDA Ark 51 / CDM, Morgan Stanley Debrief, vendor collateral tools: what they output and how this project follows the same artefact-first, human-approved pattern); team roles you covered (template assumes 6 people) | 1 | Section 2 spec; README |
 | 2 | Evaluation design (written before agent evaluation): 100 queries (24 hard paraphrased), gold from deterministic references, categories, strict vs lenient judge | 1 | Section 6; `outputs/eval_set.json` |
-| 3 | Data: real EDGAR CSAs (count!), BCBS-IOSCO, Yahoo Finance, illustrative portfolio and why | 1 | Section 3; corpus stats table |
+| 3 | Data: corpus by tier with downloaded vs indexed counts (genuine CSAs, derivative/collateral contracts, 10-K collateral-trigger excerpts, regulation) against the 500-2,000 requirement, BCBS-IOSCO, Yahoo Finance, illustrative portfolio and why | 1 | Section 3; `pfe.corpus_report()` table |
 | 4 | Prompting strategies (few-shot JSON vs CoT vs decomposition) and **how Qwen3-8B breaks** (JSON wrapping, think-mode, wrong args, rounding numbers) | 1.5 | Section 7 table + 5-8 real failure examples from `eval_results.csv` |
 | 5 | RAG: chunking experiment, BM25/dense/hybrid/rerank, **human-labelled** recall@K/MRR/nDCG next to regex labels, pooling caveat | 2 | Section 4, `retrieval_eval_human.csv` |
 | 6 | Agent design: planner -> executor -> critic, 9 tools, memory, guards (10 steps, token budget, loop guard, retries, JSON repair, endpoint limits) | 1.5 | Architecture diagram; Section 1 |

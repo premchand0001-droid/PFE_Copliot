@@ -23,6 +23,7 @@ Open any Colab notebook -> left sidebar **key icon (Secrets)** -> add:
 | Secret | Value | When |
 |---|---|---|
 | `LLM_API_KEY` | your group key | always (switch **Notebook access** on) |
+| `EMBED_API_KEY` | the shared embedding key (from `VM02_Embeddings_Access.zip`) | optional but recommended - hosted bge-small embeddings; also upload `vm02-ca.crt` when the bootstrap cell asks (a different file from your group certificate) |
 | `GITHUB_TOKEN` | a *fine-grained* token | only if the repo is private. GitHub -> Settings -> Developer settings -> Personal access tokens -> Fine-grained -> repository access: **only this repo**; permission **Contents: Read** (add **Write** only if you will use the push-back cell in Section 14); short expiry (30 days) |
 
 ## C. Open and run

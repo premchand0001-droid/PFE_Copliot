@@ -3,5 +3,7 @@
 .venv/
 __pycache__/
 outputs/emb_*.npy
+outputs/embq_*.jsonl
 outputs/llm_cache.jsonl
 outputs/state_*.json
+*embedding-key*

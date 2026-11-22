@@ -29,6 +29,8 @@ pip install -r requirements.txt ipykernel jupyter
    LLM_API_KEY=<your group key>
    CA_CERT_PATH=C:\certs\vm04-ca.crt        # or ./certs/vm04-ca.crt - the file name identifies your VM and your URL
    GROUP_ID=0                                # optional if the certificate name is recognised
+   EMBED_API_KEY=<shared embedding key>      # optional: hosted bge-small-en-v1.5 (otherwise local MiniLM is used)
+   EMBED_CA_CERT=C:\certs\vm02-ca.crt        # a DIFFERENT certificate from CA_CERT_PATH
    ```
 2. `.env` is already in `.gitignore`. Never commit it, never paste the key into a notebook cell or chat.
 3. Keep the `.crt` file outside the project folder, or make sure it is not zipped for submission (the packaging step also scans for key-like strings).
