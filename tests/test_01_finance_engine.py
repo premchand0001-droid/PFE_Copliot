@@ -82,8 +82,11 @@ class TestMarginCall(unittest.TestCase):
         self.assertEqual(o["delivery_amount_usd"], 250_000.0)
 
     def test_return_rounded_down(self):
-        held = float(self.cp1.collateral_units)
-        o = self._call("CP-001", held - 300_009)
+        # the demo's posted collateral depends on market moves 10 business days ago (it can be 0 on some dates): pin it here
+        cp = self.cp1.copy(); cp["collateral_units"] = 1_000_000.0
+        held = 1_000_000.0
+        with mock.patch.object(pfe, "resolve_counterparty", return_value=cp):
+            o = self._call("CP-001", held - 300_009)
         self.assertEqual(o["action"], "RETURN_COLLATERAL")
         self.assertEqual(o["return_amount_usd"], 300_000.0)          # rounded DOWN
         self.assertEqual(o["delivery_amount_usd"], 0.0)

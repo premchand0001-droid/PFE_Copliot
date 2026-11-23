@@ -47,6 +47,7 @@ class FakeLLM:
     live = True
     def __init__(self, replies):
         self.replies, self.calls, self.tokens, self.n_calls = list(replies), [], 0, 0
+        self.cache_hits, self.cached_tokens, self.cached_secs, self.cache_unknown = 0, 0, 0.0, 0     # cache accounting the agent now reads
     def chat(self, messages, max_tokens=600, temperature=0.0, json_mode=False):
         self.calls.append(messages); self.n_calls += 1
         r = self.replies.pop(0) if len(self.replies) > 1 else self.replies[0]
