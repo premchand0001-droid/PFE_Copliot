@@ -876,7 +876,7 @@ CSA_GLOSSARY = [   # everyday wording -> the term a CSA actually uses (appended 
 
 
 def expand_query(q):
-    """Append the CSA term(s) that match everyday wording. Deterministic; an ablation (with / without) is in Section 4.4."""
+    """Append the CSA term(s) that match everyday wording. Deterministic; an ablation (with / without) is in Section 6b."""
     extra = [t for pat, t in CSA_GLOSSARY if re.search(pat, q, re.I)]
     return q + " " + " ".join(dict.fromkeys(extra)) if extra else q
 
