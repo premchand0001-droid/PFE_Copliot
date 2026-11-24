@@ -2297,6 +2297,28 @@ def run_stress(scenario, with_pfe=True, custom_returns=None):
     return pd.DataFrame(rows), ret, desc, notes
 
 
+def stress_attribution(scenario, custom_returns=None):
+    """Why does a scenario breach? Per counterparty: utilisation (worst of gap exposure and forward PFE, as in run_stress) for
+    base / volatility+correlation stress ONLY (no market shock) / market shock ONLY (normal volatility) / full stress.
+    The stressed breach count mixes two things - the scenario's market move and the blanket vol x STRESS_VOL_MULT + correlation blend."""
+    cps = cp_table()
+    tickers = sorted(set(trades_table().underlying) | {t for t in cps.collateral_ticker.dropna() if isinstance(t, str) and t})
+    ret = dict(custom_returns) if custom_returns is not None else scenario_returns(scenario, tickers)[0]
+    for t in tickers:
+        ret.setdefault(t, 0.0)
+    rows = []
+    for cp in cps.itertuples(index=False):
+        cid, lim, g = cp.counterparty_id, float(cp.credit_limit_usd), stress_counterparty(cp, ret)
+        pct = lambda x: x / lim * 100
+        base = max(g["base_util_pct"], pct(simulate_exposure(cid)["peak_pfe_collateralized_usd"]))
+        vol_only = max(g["base_util_pct"], pct(stressed_pfe(cid)))
+        shock_only = max(g["gap_util_pct"] if "gap_util_pct" in g else g["stressed_util_pct"], pct(simulate_exposure(cid, vol_mult=1.0, corr_blend=0.0, spot_shock=ret)["peak_pfe_collateralized_usd"]))
+        full = max(g["stressed_util_pct"], pct(stressed_pfe(cid, ret)))
+        rows.append({"counterparty_id": cid, "base_util_pct": base, "vol_corr_only_pct": vol_only, "shock_only_pct": shock_only, "full_stress_pct": full,
+                     "gap_exposure_after_shock_usd": g["stressed_exposure_usd"]})
+    return pd.DataFrame(rows).round(1)
+
+
 def reverse_stress_curve(cp_id, shocks=None):
     """Uniform market move s applied to every underlying (and, scaled, to posted collateral): exposure-after-collateral vs limit."""
     cp = resolve_counterparty(cp_id)
@@ -2363,7 +2385,9 @@ def _stress_result(scenario, df, ret, desc, notes, counterparty, write_file, ext
         log_artifact(path, "stress_workbook", scenario)
     rows = [{k: (round(v, 2) if isinstance(v, float) else v) for k, v in r.items() if k in ("counterparty_id", "stressed_mtm_usd", "stressed_exposure_usd", "stressed_util_pct", "stressed_status", "stressed_margin_signed_usd", "mtm_change_usd", "collateral_change_usd")} for r in df.to_dict("records")]
     res = {"scenario": scenario, "description": desc, "n_breach_base": int((df.base_status == "BREACH").sum()), "n_breach_stressed": int((df.stressed_status == "BREACH").sum()),
-            "liquidity_need_usd": round(float(calls.stressed_margin_signed_usd.sum()), 2), "worst_counterparty": worst.counterparty_id,
+            "liquidity_need_usd": round(float(calls.stressed_margin_signed_usd.sum()), 2),      # = calls ON counterparties (collateral they must deliver to us); sign convention: + call, - return
+            "returns_owed_usd": round(float(-df[df.stressed_margin_signed_usd < 0].stressed_margin_signed_usd.sum()), 2),   # excess collateral WE would have to hand back
+            "worst_counterparty": worst.counterparty_id,
             "worst_exposure_usd": round(float(worst.stressed_exposure_usd), 2), "focus": ({k: (round(v, 2) if isinstance(v, float) else v) for k, v in focus.items()} if focus else None),
             "rows": rows, "notes": notes, "file": str(path) if path else None, "status": "DRAFT_PENDING_REVIEW"}
     res.update(extra or {})
